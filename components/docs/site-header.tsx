@@ -28,11 +28,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 flex h-15 items-center gap-4 border-b border-(--hairline) bg-background/85 px-4 backdrop-blur md:gap-8 md:px-6">
       <Link href="/" className="flex items-center gap-2 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring">
-        {/* Placeholder mark until the ZiUI logo exists. */}
-        <span className="flex size-5.5 items-center justify-center rounded-full bg-linear-to-b from-(--btn-primary-from) to-(--btn-primary-to) text-xs font-bold text-white ring ring-(--btn-primary-ring)">
-          Z
+        {/* Placeholder mark until the ziUI logo exists. */}
+        {/* pb-0.5 lifts the lowercase glyph, which sits below the line box's center. */}
+        <span className="flex size-5.5 items-center justify-center rounded-full bg-linear-to-b from-(--btn-primary-from) to-(--btn-primary-to) pb-0.5 text-xs font-bold text-white ring ring-(--btn-primary-ring)">
+          z
         </span>
-        <span className="text-[15px] font-semibold tracking-tight">ZiUI</span>
+        <span className="text-[15px] font-semibold tracking-tight">ziUI</span>
       </Link>
       <nav aria-label="Main" className="hidden items-center gap-6 text-sm md:flex">
         {nav.map((item) => (

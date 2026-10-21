@@ -49,7 +49,7 @@
 }
 
 /*
- * ZiUI tokens. Keep in sync with the `theme` item's cssVars in registry.json —
+ * ziUI tokens. Keep in sync with the `theme` item's cssVars in registry.json —
  * tests/theme.test.ts fails when the two drift apart.
  */
 :root {

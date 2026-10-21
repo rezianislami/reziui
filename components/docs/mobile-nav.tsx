@@ -38,7 +38,7 @@ export function MobileNav({ tree, links }: MobileNavProps) {
           className="fixed inset-y-0 left-0 z-50 flex w-76 max-w-[85vw] flex-col bg-background shadow-2xl ring ring-border md:hidden"
         >
           <div className="flex h-14 shrink-0 items-center border-b border-(--hairline) pr-2 pl-4">
-            <Dialog.Title className="text-[15px] font-semibold tracking-tight">ZiUI</Dialog.Title>
+            <Dialog.Title className="text-[15px] font-semibold tracking-tight">ziUI</Dialog.Title>
             <Dialog.Close asChild>
               <Button variant="ghost" size="icon" aria-label="Close menu" className="ml-auto">
                 <XIcon />

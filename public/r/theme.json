@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme",
-  "title": "ZiUI Theme",
-  "description": "ZiUI color tokens for light and dark mode, including the emphasis button gradients.",
+  "title": "ziUI Theme",
+  "description": "ziUI color tokens for light and dark mode, including the emphasis button gradients.",
   "cssVars": {
     "light": {
       "background": "oklch(0.9875 0 0)",

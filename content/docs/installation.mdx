@@ -1,12 +1,12 @@
 ---
 title: Installation
-description: Add the ZiUI registry to your project.
+description: Add the ziUI registry to your project.
 ---
 
-ZiUI targets **Tailwind CSS v4**. Projects on Tailwind v3 are not supported.
+ziUI targets **Tailwind CSS v4**. Projects on Tailwind v3 are not supported.
 
 1. Set up shadcn in your project: `npx shadcn@latest init`
-2. Add the ZiUI namespace to `components.json`:
+2. Add the ziUI namespace to `components.json`:
 
 ```json
 {
@@ -16,7 +16,7 @@ ZiUI targets **Tailwind CSS v4**. Projects on Tailwind v3 are not supported.
 }
 ```
 
-3. Install the ZiUI theme: `npx shadcn@latest add @ziui/theme`
+3. Install the ziUI theme: `npx shadcn@latest add @ziui/theme`
 4. Install a component: `npx shadcn@latest add @ziui/button`
 
 Install the theme directly (step 3) before any component. Components list
@@ -24,7 +24,7 @@ Install the theme directly (step 3) before any component. Components list
 adds missing variables and keeps your existing `--background`, `--primary`,
 `--border` and friends. Components still render correctly without it — they
 read their own `--btn-*` tokens — but surfaces and borders follow your current
-theme instead of ZiUI's.
+theme instead of ziUI's.
 
 Dark mode follows the shadcn convention: add the `dark` class to an ancestor
 (for example `<html class="dark">`, or let `next-themes` do it).

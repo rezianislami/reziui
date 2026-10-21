@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "ZiUI", template: "%s · ZiUI" },
+  title: { default: "ziUI", template: "%s · ziUI" },
   description: "Copy-paste React components distributed through a shadcn registry.",
 };
 

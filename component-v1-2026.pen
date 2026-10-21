@@ -6,7 +6,7 @@
       "id": "dzqoz",
       "x": 0,
       "y": 921,
-      "name": "ZiUI / Tokens — Light",
+      "name": "ziUI / Tokens — Light",
       "theme": {
         "mode": "light"
       },
@@ -30,7 +30,7 @@
               "id": "F1fNG",
               "name": "Title",
               "fill": "$foreground-strong",
-              "content": "ZiUI design tokens",
+              "content": "ziUI design tokens",
               "fontFamily": "$font-sans",
               "fontSize": 28,
               "fontWeight": "600",
@@ -2001,7 +2001,7 @@
       "id": "e5yYg",
       "x": 1180,
       "y": 921,
-      "name": "ZiUI / Tokens — Dark",
+      "name": "ziUI / Tokens — Dark",
       "theme": {
         "mode": "dark"
       },
@@ -2025,7 +2025,7 @@
               "id": "peIFu",
               "name": "Title",
               "fill": "$foreground-strong",
-              "content": "ZiUI design tokens",
+              "content": "ziUI design tokens",
               "fontFamily": "$font-sans",
               "fontSize": 28,
               "fontWeight": "600",
@@ -3996,7 +3996,7 @@
       "id": "aRriZ",
       "x": 2400,
       "y": 921,
-      "name": "ZiUI / Button components",
+      "name": "ziUI / Button components",
       "theme": {
         "mode": "light"
       },
@@ -4452,7 +4452,7 @@
       "id": "HzERq",
       "x": 2400,
       "y": 1141,
-      "name": "ZiUI / Button — Light",
+      "name": "ziUI / Button — Light",
       "theme": {
         "mode": "light"
       },
@@ -6276,7 +6276,7 @@
       "id": "V3WIlw",
       "x": 3660,
       "y": 1141,
-      "name": "ZiUI / Button — Dark",
+      "name": "ziUI / Button — Dark",
       "theme": {
         "mode": "dark"
       },
@@ -8100,7 +8100,7 @@
       "id": "PaFk3",
       "x": 2400,
       "y": 2521,
-      "name": "ZiUI / Docs components",
+      "name": "ziUI / Docs components",
       "theme": {
         "mode": "light"
       },
@@ -8449,7 +8449,7 @@
       "id": "h4uLiT",
       "x": 2400,
       "y": 2861,
-      "name": "ZiUI / Docs — Button page (Light)",
+      "name": "ziUI / Docs — Button page (Light)",
       "theme": {
         "mode": "light"
       },
@@ -8519,7 +8519,7 @@
                       "id": "a00hAm",
                       "name": "Mark letter",
                       "fill": "#ffffff",
-                      "content": "Z",
+                      "content": "z",
                       "fontFamily": "$font-sans",
                       "fontSize": 12,
                       "fontWeight": "700"
@@ -8531,7 +8531,7 @@
                   "id": "IXeji",
                   "name": "Wordmark",
                   "fill": "$foreground-strong",
-                  "content": "ZiUI",
+                  "content": "ziUI",
                   "fontFamily": "$font-sans",
                   "fontSize": 15,
                   "fontWeight": "600",
@@ -9248,7 +9248,7 @@
                           "fill": "$muted-foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Installs the theme tokens too if they are missing. Run npx shadcn add @ziui/theme first to apply the full ZiUI palette.",
+                          "content": "Installs the theme tokens too if they are missing. Run npx shadcn add @ziui/theme first to apply the full ziUI palette.",
                           "lineHeight": 1.6,
                           "fontFamily": "$font-sans",
                           "fontSize": 14,
@@ -10057,7 +10057,7 @@
       "id": "MXfQP",
       "x": 3960,
       "y": 2861,
-      "name": "ZiUI / Docs — Button page (Dark)",
+      "name": "ziUI / Docs — Button page (Dark)",
       "theme": {
         "mode": "dark"
       },
@@ -10127,7 +10127,7 @@
                       "id": "LmOoQ",
                       "name": "Mark letter",
                       "fill": "#ffffff",
-                      "content": "Z",
+                      "content": "z",
                       "fontFamily": "$font-sans",
                       "fontSize": 12,
                       "fontWeight": "700"
@@ -10139,7 +10139,7 @@
                   "id": "F8ddiJ",
                   "name": "Wordmark",
                   "fill": "$foreground-strong",
-                  "content": "ZiUI",
+                  "content": "ziUI",
                   "fontFamily": "$font-sans",
                   "fontSize": 15,
                   "fontWeight": "600",
@@ -10856,7 +10856,7 @@
                           "fill": "$muted-foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Installs the theme tokens too if they are missing. Run npx shadcn add @ziui/theme first to apply the full ZiUI palette.",
+                          "content": "Installs the theme tokens too if they are missing. Run npx shadcn add @ziui/theme first to apply the full ziUI palette.",
                           "lineHeight": 1.6,
                           "fontFamily": "$font-sans",
                           "fontSize": 14,
@@ -11665,7 +11665,7 @@
       "id": "q1JelF",
       "x": 2400,
       "y": 5037,
-      "name": "ZiUI / Docs — Search ⌘K (Light)",
+      "name": "ziUI / Docs — Search ⌘K (Light)",
       "theme": {
         "mode": "light"
       },
@@ -12337,7 +12337,7 @@
       "id": "nwd32",
       "x": 3380,
       "y": 5037,
-      "name": "ZiUI / Docs — Search ⌘K (Dark)",
+      "name": "ziUI / Docs — Search ⌘K (Dark)",
       "theme": {
         "mode": "dark"
       },
@@ -13009,7 +13009,7 @@
       "id": "ILeOa",
       "x": 2400,
       "y": 5777,
-      "name": "ZiUI / Docs — Mobile (Light)",
+      "name": "ziUI / Docs — Mobile (Light)",
       "theme": {
         "mode": "light"
       },
@@ -13082,7 +13082,7 @@
                       "id": "ZAB99",
                       "name": "Mark letter",
                       "fill": "#ffffff",
-                      "content": "Z",
+                      "content": "z",
                       "fontFamily": "$font-sans",
                       "fontSize": 12,
                       "fontWeight": "700"
@@ -13094,7 +13094,7 @@
                   "id": "X9xiY",
                   "name": "Wordmark",
                   "fill": "$foreground-strong",
-                  "content": "ZiUI",
+                  "content": "ziUI",
                   "fontFamily": "$font-sans",
                   "fontSize": 15,
                   "fontWeight": "600"
@@ -13393,7 +13393,7 @@
       "id": "liAYO",
       "x": 2850,
       "y": 5777,
-      "name": "ZiUI / Docs — Mobile drawer (Light)",
+      "name": "ziUI / Docs — Mobile drawer (Light)",
       "theme": {
         "mode": "light"
       },
@@ -13466,7 +13466,7 @@
                       "id": "OlbH3",
                       "name": "Mark letter",
                       "fill": "#ffffff",
-                      "content": "Z",
+                      "content": "z",
                       "fontFamily": "$font-sans",
                       "fontSize": 12,
                       "fontWeight": "700"
@@ -13478,7 +13478,7 @@
                   "id": "Ege8s",
                   "name": "Wordmark",
                   "fill": "$foreground-strong",
-                  "content": "ZiUI",
+                  "content": "ziUI",
                   "fontFamily": "$font-sans",
                   "fontSize": 15,
                   "fontWeight": "600"
@@ -13868,7 +13868,7 @@
                           "id": "hIDxV",
                           "name": "Mark letter",
                           "fill": "#ffffff",
-                          "content": "Z",
+                          "content": "z",
                           "fontFamily": "$font-sans",
                           "fontSize": 12,
                           "fontWeight": "700"
@@ -13880,7 +13880,7 @@
                       "id": "r9bPg",
                       "name": "Wordmark",
                       "fill": "$foreground-strong",
-                      "content": "ZiUI",
+                      "content": "ziUI",
                       "fontFamily": "$font-sans",
                       "fontSize": 15,
                       "fontWeight": "600"
@@ -14139,7 +14139,7 @@
       "id": "cdpSX",
       "x": 3300,
       "y": 5777,
-      "name": "ZiUI / Docs — Mobile (Dark)",
+      "name": "ziUI / Docs — Mobile (Dark)",
       "theme": {
         "mode": "dark"
       },
@@ -14212,7 +14212,7 @@
                       "id": "wGE1b",
                       "name": "Mark letter",
                       "fill": "#ffffff",
-                      "content": "Z",
+                      "content": "z",
                       "fontFamily": "$font-sans",
                       "fontSize": 12,
                       "fontWeight": "700"
@@ -14224,7 +14224,7 @@
                   "id": "s9GKLE",
                   "name": "Wordmark",
                   "fill": "$foreground-strong",
-                  "content": "ZiUI",
+                  "content": "ziUI",
                   "fontFamily": "$font-sans",
                   "fontSize": 15,
                   "fontWeight": "600"
@@ -14523,7 +14523,7 @@
       "id": "b38uA",
       "x": 3750,
       "y": 5777,
-      "name": "ZiUI / Docs — Mobile drawer (Dark)",
+      "name": "ziUI / Docs — Mobile drawer (Dark)",
       "theme": {
         "mode": "dark"
       },
@@ -14596,7 +14596,7 @@
                       "id": "Q0Z3H",
                       "name": "Mark letter",
                       "fill": "#ffffff",
-                      "content": "Z",
+                      "content": "z",
                       "fontFamily": "$font-sans",
                       "fontSize": 12,
                       "fontWeight": "700"
@@ -14608,7 +14608,7 @@
                   "id": "qaEWM",
                   "name": "Wordmark",
                   "fill": "$foreground-strong",
-                  "content": "ZiUI",
+                  "content": "ziUI",
                   "fontFamily": "$font-sans",
                   "fontSize": 15,
                   "fontWeight": "600"
@@ -14998,7 +14998,7 @@
                           "id": "YAADu",
                           "name": "Mark letter",
                           "fill": "#ffffff",
-                          "content": "Z",
+                          "content": "z",
                           "fontFamily": "$font-sans",
                           "fontSize": 12,
                           "fontWeight": "700"
@@ -15010,7 +15010,7 @@
                       "id": "dxM0P",
                       "name": "Wordmark",
                       "fill": "$foreground-strong",
-                      "content": "ZiUI",
+                      "content": "ziUI",
                       "fontFamily": "$font-sans",
                       "fontSize": 15,
                       "fontWeight": "600"

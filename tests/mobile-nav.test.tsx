@@ -21,7 +21,7 @@ describe("MobileNav", () => {
 
     await userEvent.click(screen.getByRole("button", { name: "Open menu" }));
 
-    const drawer = screen.getByRole("dialog", { name: "ZiUI" });
+    const drawer = screen.getByRole("dialog", { name: "ziUI" });
     expect(within(drawer).getByRole("link", { name: "Docs" })).toHaveAttribute("href", "/docs");
     expect(within(drawer).getByRole("link", { name: "Button" })).toHaveAttribute("aria-current", "page");
   });
