@@ -157,3 +157,17 @@
     @apply font-sans;
   }
 }
+/*
+ * Shiki emits both themes as CSS variables (fumadocs sets defaultColor: false),
+ * so the active palette is picked here instead of re-highlighting per theme.
+ */
+@layer components {
+  .shiki,
+  .shiki span {
+    color: var(--shiki-light);
+  }
+  .dark .shiki,
+  .dark .shiki span {
+    color: var(--shiki-dark);
+  }
+}

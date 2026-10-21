@@ -1,13 +1,33 @@
-import Link from "next/link";
-import type { Node, Root } from "fumadocs-core/page-tree";
+"use client";
 
-// Placeholder structure only: rendered straight from the fumadocs page tree.
-// Visual design (active state, collapsible folders, mobile drawer) lands once
-// the docs layout is designed in Pencil.
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { Node, Root } from "fumadocs-core/page-tree";
+import { cn } from "@/lib/utils";
+
+function SidebarLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const active = usePathname() === href;
+
+  return (
+    <Link
+      href={href}
+      aria-current={active ? "page" : undefined}
+      className={cn(
+        "flex h-8 items-center rounded-lg px-3 pb-px text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        active
+          ? "bg-accent font-medium text-foreground"
+          : "text-muted-foreground hover:bg-accent/60 hover:text-foreground",
+      )}
+    >
+      {children}
+    </Link>
+  );
+}
+
 function SidebarNode({ node }: { node: Node }) {
   if (node.type === "separator") {
     return (
-      <li className="mt-4 mb-1 text-xs font-medium text-muted-foreground">
+      <li className="mt-6 px-3 pb-1.5 text-xs font-medium text-muted-foreground first:mt-0">
         {node.name}
       </li>
     );
@@ -17,11 +37,13 @@ function SidebarNode({ node }: { node: Node }) {
     return (
       <li>
         {node.index ? (
-          <Link href={node.index.url}>{node.name}</Link>
+          <SidebarLink href={node.index.url}>{node.name}</SidebarLink>
         ) : (
-          <span className="font-medium">{node.name}</span>
+          <span className="block px-3 pt-4 pb-1.5 text-xs font-medium text-muted-foreground">
+            {node.name}
+          </span>
         )}
-        <ul className="ml-3">
+        <ul className="flex flex-col gap-0.5">
           {node.children.map((child, i) => (
             <SidebarNode key={child.$id ?? i} node={child} />
           ))}
@@ -32,9 +54,7 @@ function SidebarNode({ node }: { node: Node }) {
 
   return (
     <li>
-      <Link href={node.url} className="block py-1 text-sm hover:underline">
-        {node.name}
-      </Link>
+      <SidebarLink href={node.url}>{node.name}</SidebarLink>
     </li>
   );
 }
@@ -42,7 +62,7 @@ function SidebarNode({ node }: { node: Node }) {
 export function Sidebar({ tree }: { tree: Root }) {
   return (
     <nav aria-label="Documentation">
-      <ul>
+      <ul className="flex flex-col gap-0.5">
         {tree.children.map((node, i) => (
           <SidebarNode key={node.$id ?? i} node={node} />
         ))}

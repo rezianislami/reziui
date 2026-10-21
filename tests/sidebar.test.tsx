@@ -1,13 +1,39 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { Root } from "fumadocs-core/page-tree";
 import { Sidebar } from "@/components/docs/sidebar";
+
+const navigation = vi.hoisted(() => ({ pathname: "/" }));
+vi.mock("next/navigation", () => ({ usePathname: () => navigation.pathname }));
 
 function renderTree(children: Root["children"]) {
   return render(<Sidebar tree={{ name: "docs", children }} />);
 }
 
 describe("Sidebar", () => {
+  beforeEach(() => {
+    navigation.pathname = "/";
+  });
+
+  it("marks only the link for the current path as the active page", () => {
+    navigation.pathname = "/docs/components/button";
+    renderTree([
+      { type: "page", name: "Introduction", url: "/docs" },
+      { type: "page", name: "Button", url: "/docs/components/button" },
+    ]);
+
+    expect(screen.getByRole("link", { name: "Button" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("link", { name: "Introduction" })).not.toHaveAttribute("aria-current");
+  });
+
+  it("does not treat a path prefix as active", () => {
+    // /docs is a prefix of every docs URL; only an exact match is the current page.
+    navigation.pathname = "/docs/installation";
+    renderTree([{ type: "page", name: "Introduction", url: "/docs" }]);
+
+    expect(screen.getByRole("link", { name: "Introduction" })).not.toHaveAttribute("aria-current");
+  });
+
   it("renders page items as links to their url", () => {
     renderTree([{ type: "page", name: "Introduction", url: "/docs" }]);
 

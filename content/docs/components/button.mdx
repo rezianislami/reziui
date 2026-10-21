@@ -3,18 +3,18 @@ title: Button
 description: Pill-shaped button with gradient emphasis variants, a loading state and asChild support.
 ---
 
+<ComponentPreview name="button-demo" />
+
 ## Installation
 
-```bash
-npx shadcn@latest add @ziui/button
-```
+<InstallTabs name="button" />
 
-Installs `components/ui/button.tsx` plus `radix-ui`, `class-variance-authority`
-and `lucide-react`. See [Installation](/docs/installation) for the theme step.
+Installs the theme tokens too if they are missing. Run `npx shadcn@latest add @ziui/theme`
+first to apply the full ZiUI palette — see [Installation](/docs/installation).
 
 ## Usage
 
-```tsx
+```tsx title="app/page.tsx"
 import { Button } from "@/components/ui/button";
 
 export function Example() {
@@ -22,7 +22,11 @@ export function Example() {
 }
 ```
 
-## Variants
+## Examples
+
+### Variants
+
+<ComponentPreview name="button-variants" size="sm" />
 
 | Variant | Use for |
 | --- | --- |
@@ -34,12 +38,9 @@ export function Example() {
 | `destructive-secondary` | Less prominent destructive actions. Red label on a surface. |
 | `link` | Inline navigation styled as text. |
 
-```tsx
-<Button variant="secondary">Cancel</Button>
-<Button variant="destructive">Delete project</Button>
-```
+### Sizes
 
-## Sizes
+<ComponentPreview name="button-sizes" size="sm" />
 
 | Size | Height | Notes |
 | --- | --- | --- |
@@ -51,36 +52,15 @@ export function Example() {
 
 Icon-only buttons have no visible text — always pass `aria-label`.
 
-```tsx
-<Button size="icon" variant="secondary" aria-label="Add item">
-  <PlusIcon />
-</Button>
-```
+### Loading
 
-## With an icon
-
-Place the icon before the label; the leading padding shrinks by 2px to balance
-the whitespace built into icon glyphs.
-
-```tsx
-<Button>
-  <PlusIcon />
-  New project
-</Button>
-```
-
-## Loading
+<ComponentPreview name="button-loading" size="sm" />
 
 `loading` disables the button, sets `aria-busy` and shows a spinner before the label.
-
-```tsx
-<Button loading>Saving…</Button>
-```
-
 With `asChild`, no spinner is injected (Slot needs exactly one child); only
 `aria-busy` and `data-loading` are set, so style the loading state yourself.
 
-## As a link
+### As a link
 
 ```tsx
 <Button asChild variant="secondary">
@@ -88,7 +68,7 @@ With `asChild`, no spinner is injected (Slot needs exactly one child); only
 </Button>
 ```
 
-## Props
+## API reference
 
 | Prop | Type | Default |
 | --- | --- | --- |
