@@ -10,7 +10,7 @@ type RegistryItem = (typeof registry)["items"][number];
  * when it writes files into a project).
  */
 export function toConsumerImports(source: string): string {
-  return source.replaceAll(/(["'])@\/registry\/ziui\/ui\//g, "$1@/components/ui/");
+  return source.replaceAll(/(["'])@\/registry\/reziui\/ui\//g, "$1@/components/ui/");
 }
 
 // Synchronous on purpose: with Cache Components, readFileSync counts as a

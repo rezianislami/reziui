@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { examples } from "@/registry/ziui/examples";
+import { examples } from "@/registry/reziui/examples";
 import { getRegistryItem } from "@/lib/registry-source";
 
 // ComponentPreview / InstallTabs throw at build time on unknown names; these

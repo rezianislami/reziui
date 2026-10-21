@@ -9,7 +9,7 @@ description: Rounded-rect label for status and metadata, with tinted status vari
 
 <InstallTabs name="badge" />
 
-Badges are rounded rectangles on purpose: in ziUI every pill-shaped element is
+Badges are rounded rectangles on purpose: in Rezi UI every pill-shaped element is
 a [Button](/docs/components/button), so a pill badge would read as clickable.
 
 ## Usage
@@ -30,21 +30,23 @@ export function Example() {
 
 | Variant | Use for |
 | --- | --- |
-| `default` | Neutral, high-contrast labels such as counts or "New". |
-| `secondary` | Low-emphasis metadata. |
+| `default` | General metadata — counts, categories, "New". |
 | `outline` | Metadata on busy surfaces — versions, branches, tags. |
 | `success` | Healthy or finished states. |
 | `warning` | States that need attention but are not failing. |
 | `info` | Neutral notices such as "Beta" or "Queued". |
 | `destructive` | Failed or blocked states. |
 
-Status variants use Tailwind palette tints whose text clears 4.5:1 in both themes.
+Every variant is a tint with a 1px ring, so badges read as one family. There is no brand-blue badge on purpose: in Rezi UI that blue means "interactive" (buttons, links, focus), so a blue label would look clickable — use `info` for informational status. All text clears 4.5:1 in both themes.
 
 ### With a dot or icon
 
 <ComponentPreview name="badge-icons" size="sm" />
 
-`dot` adds a small indicator in the badge's text color. For an icon, place it
+`dot` adds a small indicator in the badge's text color. `pulse` adds a ring
+that radiates from the dot — keep it for states that are genuinely in progress
+(Building, Live), so the motion carries meaning; it stays still under reduced
+motion and the label still states the status. For an icon, place it
 before the label; the leading padding shrinks to balance the icon's whitespace.
 
 ```tsx
@@ -73,9 +75,10 @@ Static badges never react to the pointer.
 
 | Prop | Type | Default |
 | --- | --- | --- |
-| `variant` | `"default" \| "secondary" \| "outline" \| "success" \| "warning" \| "info" \| "destructive"` | `"default"` |
+| `variant` | `"default" \| "outline" \| "success" \| "warning" \| "info" \| "destructive"` | `"default"` |
 | `size` | `"sm" \| "default"` | `"default"` |
 | `dot` | `boolean` | `false` |
+| `pulse` | `boolean` | `false` |
 | `asChild` | `boolean` | `false` |
 
 All native `<span>` props are forwarded.

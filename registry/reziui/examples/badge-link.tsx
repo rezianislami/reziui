@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Badge } from "@/registry/ziui/ui/badge";
+import { Badge } from "@/registry/reziui/ui/badge";
 
 export default function BadgeLink() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2">
-      <Badge asChild variant="secondary">
+      <Badge asChild>
         <Link href="/docs/components/button">Button</Link>
       </Badge>
       <Badge asChild variant="info" dot>

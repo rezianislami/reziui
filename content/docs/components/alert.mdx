@@ -1,0 +1,80 @@
+---
+title: Alert
+description: Inline message with neutral and status variants, an optional icon and action.
+---
+
+<ComponentPreview name="alert-demo" />
+
+## Installation
+
+<InstallTabs name="alert" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { InfoIcon } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
+export function Example() {
+  return (
+    <Alert variant="info">
+      <InfoIcon />
+      <AlertTitle>New version available</AlertTitle>
+      <AlertDescription>Rezi UI 1.5 adds Tabs, Kbd and Alert.</AlertDescription>
+    </Alert>
+  );
+}
+```
+
+The icon is optional — without one the text starts at the left padding. It is
+centred on the title's first line, not on the whole text block.
+
+## Examples
+
+### With an action
+
+<ComponentPreview name="alert-action" size="sm" />
+
+`AlertAction` adds a trailing column, vertically centred across the title and
+description.
+
+### Dismissible
+
+<ComponentPreview name="alert-dismiss" size="sm" />
+
+`AlertDismiss` is opt-in. Use it for tips and announcements, not for alerts that
+tell the user how to recover from an error — that guidance should stay until it
+is acted on. The alert fades and lifts 4px (150ms, ease-out) before
+`onDismiss` runs, then focus moves to the next focusable element so keyboard
+users keep their place. With reduced motion it closes instantly.
+
+## Variants
+
+| Variant | Use for |
+| --- | --- |
+| `default` | Neutral notes and tips. |
+| `info` | New features, announcements. |
+| `success` | Completed or healthy states. |
+| `warning` | Something needs attention soon. |
+| `destructive` | Errors and failed actions. |
+
+Status variants reuse the [Badge](/docs/components/badge) tint tokens. The
+title and icon take the status color; the description stays in the foreground
+color so longer text stays easy to read.
+
+## Accessibility
+
+`Alert` has no live-region role by default, because `role="alert"` makes
+screen readers interrupt immediately. Pass `role="alert"` when an error appears
+after an action, and `role="status"` for non-urgent updates. Alerts that are
+part of the page from the start need neither.
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Alert` | `variant`: `"default" \| "info" \| "success" \| "warning" \| "destructive"`. |
+| `AlertTitle` | First line, 14px medium. |
+| `AlertDescription` | Body, 13px. |
+| `AlertAction` | Optional trailing slot for a button or link. |
+| `AlertDismiss` | Optional close button. `onDismiss` (required) runs after the exit; `label` defaults to "Dismiss". |

@@ -1,0 +1,67 @@
+---
+title: Input
+description: 36px rounded-rect text field with an optional start icon and opt-in clear button.
+---
+
+<ComponentPreview name="input-demo" />
+
+## Installation
+
+<InstallTabs name="input" />
+
+Pair it with `Label`:
+
+<InstallTabs name="label" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+export function Example() {
+  return (
+    <div className="grid gap-1.5">
+      <Label htmlFor="project-name">Project name</Label>
+      <Input id="project-name" placeholder="my-project" />
+    </div>
+  );
+}
+```
+
+Text is 16px on small screens so iOS Safari doesn't zoom in on focus, and 14px
+from the `sm` breakpoint up. Inputs are 36px tall to line up with the default [Button](/docs/components/button),
+and rounded rectangles rather than pills — in Rezi UI the pill shape is
+reserved for actions.
+
+## Examples
+
+### Invalid and disabled
+
+<ComponentPreview name="input-states" size="sm" />
+
+Set `aria-invalid` to switch the ring to the destructive color, and connect the
+error message with `aria-describedby`. Wrap a disabled field in a container with
+`data-disabled="true"` and the `group` class to fade its `Label` as well.
+
+### Search with a clear button
+
+<ComponentPreview name="input-search" size="sm" />
+
+`startIcon` places a decorative icon before the text. `onClear` adds a clear
+button that scales and fades in only while the field is controlled and
+non-empty; give it a specific name with `clearLabel` (for example "Clear search").
+
+The clear button is opt-in on purpose: on ordinary form fields a one-click
+clear can wipe typed data with no undo, and the right edge is often taken by
+password-manager or validation icons. Use it for search and filter fields.
+
+## API reference
+
+| Prop | Type | Notes |
+| --- | --- | --- |
+| `startIcon` | `ReactNode` | Decorative icon before the text. |
+| `onClear` | `() => void` | Shows a clear button while a controlled `value` is non-empty. |
+| `clearLabel` | `string` | Accessible name of the clear button. Defaults to "Clear". |
+
+All native `<input>` props are forwarded.

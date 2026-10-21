@@ -1,5 +1,5 @@
 import { PlusIcon } from "lucide-react";
-import { Button } from "@/registry/ziui/ui/button";
+import { Button } from "@/registry/reziui/ui/button";
 
 export default function ButtonDemo() {
   return (

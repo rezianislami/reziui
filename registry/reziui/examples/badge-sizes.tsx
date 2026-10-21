@@ -1,4 +1,4 @@
-import { Badge } from "@/registry/ziui/ui/badge";
+import { Badge } from "@/registry/reziui/ui/badge";
 
 export default function BadgeSizes() {
   return (

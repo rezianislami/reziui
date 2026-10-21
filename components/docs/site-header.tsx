@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { source } from "@/lib/source";
-import { Button } from "@/registry/ziui/ui/button";
+import { Button } from "@/registry/reziui/ui/button";
 import { MobileNav } from "./mobile-nav";
 import { SearchDialog } from "./search-dialog";
 import { ThemeToggle } from "./theme-toggle";
@@ -27,13 +27,13 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 flex h-15 items-center gap-4 border-b border-(--hairline) bg-background/85 px-4 backdrop-blur md:gap-8 md:px-6">
-      <Link href="/" className="flex items-center gap-2 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring">
-        {/* Placeholder mark until the ziUI logo exists. */}
-        {/* pb-0.5 lifts the lowercase glyph, which sits below the line box's center. */}
-        <span className="flex size-5.5 items-center justify-center rounded-full bg-linear-to-b from-(--btn-primary-from) to-(--btn-primary-to) pb-0.5 text-xs font-bold text-white ring ring-(--btn-primary-ring)">
-          z
+      <Link href="/" className="flex items-center gap-2 rounded-full outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring">
+        {/* Placeholder mark until the Rezi UI logo exists. */}
+        <span className="flex size-5.5 items-center justify-center rounded-full bg-linear-to-b from-(--btn-primary-from) to-(--btn-primary-to) text-xs font-bold text-white ring ring-(--btn-primary-ring)">
+          R
         </span>
-        <span className="text-[15px] font-semibold tracking-tight">ziUI</span>
+        {/* nowrap: the space in "Rezi UI" must never break the wordmark onto two lines. */}
+        <span className="text-[15px] font-semibold tracking-tight whitespace-nowrap">Rezi UI</span>
       </Link>
       <nav aria-label="Main" className="hidden items-center gap-6 text-sm md:flex">
         {nav.map((item) => (

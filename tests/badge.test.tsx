@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { Badge, badgeVariants } from "@/registry/ziui/ui/badge";
+import { Badge, badgeVariants } from "@/registry/reziui/ui/badge";
+
+const variants = ["default", "outline", "success", "warning", "info", "destructive"] as const;
 
 describe("Badge", () => {
   it("renders a non-interactive span with default variant and size", () => {
@@ -15,14 +17,25 @@ describe("Badge", () => {
   });
 
   it("is never pill-shaped, so it cannot be mistaken for a Button", () => {
-    for (const variant of ["default", "secondary", "outline", "success", "warning", "info", "destructive"] as const) {
+    for (const variant of variants) {
       expect(badgeVariants({ variant }).split(" ")).not.toContain("rounded-full");
     }
   });
 
+  it("keeps every variant in one tinted family with a 1px inset ring", () => {
+    for (const variant of variants) {
+      expect(badgeVariants({ variant }).split(" "), variant).toEqual(expect.arrayContaining(["ring", "ring-inset"]));
+    }
+  });
+
+  it("never uses the brand blue that means 'interactive'", () => {
+    for (const variant of variants) {
+      expect(badgeVariants({ variant }), variant).not.toMatch(/\b(bg|text|ring)-primary\b|--primary-|--btn-primary/);
+    }
+  });
+
   it.each([
-    ["default", "bg-foreground"],
-    ["secondary", "bg-accent"],
+    ["default", "bg-accent"],
     ["outline", "ring-border"],
     ["success", "bg-(--success-tint)"],
     ["warning", "text-(--warning-text)"],
@@ -34,7 +47,7 @@ describe("Badge", () => {
     expect(screen.getByText("Label")).toHaveClass(expected);
   });
 
-  it("renders the sm size", () => {
+  it("renders the sm size on the small type step", () => {
     render(<Badge size="sm">v1.4.0</Badge>);
 
     expect(screen.getByText("v1.4.0")).toHaveClass("h-4.5", "text-[11px]");
@@ -69,12 +82,24 @@ describe("Badge", () => {
     expect(link.querySelector('[data-slot="badge-dot"]')).not.toBeNull();
   });
 
-  it("only styles hover when rendered as a link", () => {
-    const classes = badgeVariants({ variant: "secondary" }).split(" ");
-    const hover = classes.filter((c) => c.includes("hover:"));
+  it("only styles hover and the enlarged hit area when rendered as a link", () => {
+    const classes = badgeVariants({ variant: "default" }).split(" ");
+    const linkOnly = classes.filter((c) => c.includes("hover:") || c.includes("after:"));
 
-    expect(hover.length).toBeGreaterThan(0);
-    for (const c of hover) expect(c.startsWith("[a&]:hover:")).toBe(true);
+    expect(linkOnly.length).toBeGreaterThan(0);
+    for (const c of linkOnly) expect(c.startsWith("[a&]:"), c).toBe(true);
+  });
+
+  it("uses an offset outline for focus so it survives forced-colors mode", () => {
+    const classes = badgeVariants().split(" ");
+
+    expect(classes).toEqual(expect.arrayContaining(["outline-hidden", "focus-visible:outline-2", "focus-visible:outline-solid", "focus-visible:outline-ring"]));
+    expect(classes).not.toContain("outline-none");
+  });
+
+  it("uses logical padding for the leading icon so it mirrors in RTL", () => {
+    expect(badgeVariants({ size: "default" })).toContain(":ps-1.5");
+    expect(badgeVariants({ size: "default" })).not.toMatch(/:pl-/);
   });
 
   it("merges a custom className", () => {

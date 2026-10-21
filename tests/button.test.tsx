@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
-import { Button, buttonVariants } from "@/registry/ziui/ui/button";
+import { Button, buttonVariants } from "@/registry/reziui/ui/button";
 
 describe("Button", () => {
   it("renders a native button with default variant and size", () => {
@@ -80,8 +80,40 @@ describe("Button", () => {
 
     expect(button).toBeDisabled();
     expect(button).toHaveAttribute("aria-busy", "true");
-    expect(button.querySelector("svg.animate-spin")).not.toBeNull();
+    // Spins only when motion is allowed; aria-busy carries the state otherwise.
+    expect(button.querySelector("svg")).toHaveClass("motion-safe:animate-spin");
+    expect(button.querySelector("svg")).not.toHaveClass("animate-spin");
     expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it("scales on press unless static, and only when motion is allowed", () => {
+    render(
+      <>
+        <Button>Pressable</Button>
+        <Button static>Still</Button>
+      </>,
+    );
+
+    expect(screen.getByRole("button", { name: "Pressable" })).toHaveClass("motion-safe:not-disabled:active:scale-[0.96]");
+    expect(screen.getByRole("button", { name: "Still" })).not.toHaveClass("motion-safe:not-disabled:active:scale-[0.96]");
+  });
+
+  it("focuses with an offset outline, never a box-shadow ring", () => {
+    for (const variant of ["default", "secondary", "destructive"] as const) {
+      const classes = buttonVariants({ variant }).split(" ");
+      expect(classes, variant).toEqual(
+        // outline-solid is required: outline-hidden sets --tw-outline-style to none,
+        // so outline-2 alone draws nothing.
+        expect.arrayContaining(["outline-hidden", "focus-visible:outline-2", "focus-visible:outline-solid", "focus-visible:outline-offset-2", "focus-visible:outline-ring"]),
+      );
+      expect(classes.some((c) => c.startsWith("focus-visible:ring")), variant).toBe(false);
+    }
+  });
+
+  it("extends the 20px sizes to a 24px hit area", () => {
+    for (const size of ["xs", "icon-xs"] as const) {
+      expect(buttonVariants({ size }).split(" "), size).toEqual(expect.arrayContaining(["relative", "after:absolute", "after:-inset-0.5"]));
+    }
   });
 
   it("renders the child element with asChild", () => {

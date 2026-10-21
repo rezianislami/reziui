@@ -1,0 +1,59 @@
+---
+title: Tabs
+description: Pill-track tabs with a raised active tab, built on Radix Tabs.
+---
+
+<ComponentPreview name="tabs-demo" />
+
+The raised pill is one shared indicator that slides and resizes to the active
+tab (200ms). Before hydration, and with reduced motion, the active tab still
+shows the pill — it just doesn't travel.
+
+## Installation
+
+<InstallTabs name="tabs" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+export function Example() {
+  return (
+    <Tabs defaultValue="overview">
+      <TabsList>
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="settings">Settings</TabsTrigger>
+      </TabsList>
+      <TabsContent value="overview">…</TabsContent>
+      <TabsContent value="settings">…</TabsContent>
+    </Tabs>
+  );
+}
+```
+
+## Examples
+
+### Icons and disabled tabs
+
+<ComponentPreview name="tabs-icons" size="sm" />
+
+Place an icon before the label inside `TabsTrigger`. Give every tab in a list
+an icon, or none: a mix makes the labels start at different offsets and reads
+as two kinds of tab. A `disabled` trigger is skipped by keyboard navigation and
+fades to 45% opacity.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `←` `→` | Move focus between triggers and activate them. |
+| `Home` `End` | Jump to the first or last trigger. |
+| `Tab` | Move focus into the active panel. |
+
+## API reference
+
+Each part forwards the props of its Radix Tabs counterpart (`Root`, `List`,
+`Trigger`, `Content`) — `value`, `defaultValue`, `onValueChange`,
+`orientation` and `activationMode` on `Tabs`, `value` and `disabled` on
+`TabsTrigger` and `TabsContent`.

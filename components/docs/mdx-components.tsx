@@ -52,7 +52,7 @@ export const mdxComponents: MDXComponents = {
     </CodeBlock>
   ),
   table: ({ className, ...props }) => (
-    <div className="my-5 overflow-x-auto rounded-xl bg-card ring ring-border">
+    <div className="my-5 overflow-x-auto rounded-[0.75rem] bg-card ring ring-border">
       <table className={cn("w-full text-left text-[13px]", className)} {...props} />
     </div>
   ),

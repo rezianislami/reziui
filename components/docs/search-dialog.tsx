@@ -6,7 +6,8 @@ import { useFetchSearch, type SearchResultItem } from "fumadocs-core/search/clie
 import { CornerDownLeftIcon, FileTextIcon, HashIcon, SearchIcon } from "lucide-react";
 import { Dialog } from "radix-ui";
 import { cn } from "@/lib/utils";
-import { Button } from "@/registry/ziui/ui/button";
+import { Button } from "@/registry/reziui/ui/button";
+import { Kbd, KbdGroup } from "@/registry/reziui/ui/kbd";
 
 export type SearchHit = {
   id: string;
@@ -60,15 +61,33 @@ export function SearchDialog({ pageTitles }: SearchDialogProps) {
   const groups = useMemo(() => groupResults(data?.items ?? [], pageTitles), [data, pageTitles]);
   const hits = useMemo(() => groups.flatMap((group) => group.hits), [groups]);
 
+  const [pressed, setPressed] = useState({ mod: false, k: false });
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey)) {
+      const mod = event.metaKey || event.ctrlKey;
+      const isK = event.key.toLowerCase() === "k";
+      setPressed({ mod, k: mod && isK });
+      if (isK && mod) {
         event.preventDefault();
         setOpen((value) => !value);
       }
     }
+    function onKeyUp(event: KeyboardEvent) {
+      setPressed({ mod: event.metaKey || event.ctrlKey, k: false });
+    }
+    // Keyup never arrives if the window loses focus mid-press (e.g. ⌘-Tab).
+    function reset() {
+      setPressed({ mod: false, k: false });
+    }
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener("keyup", onKeyUp);
+    window.addEventListener("blur", reset);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("keyup", onKeyUp);
+      window.removeEventListener("blur", reset);
+    };
   }, []);
 
   function changeQuery(value: string) {
@@ -100,10 +119,14 @@ export function SearchDialog({ pageTitles }: SearchDialogProps) {
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger className="hidden h-8.5 w-64 cursor-pointer items-center gap-2 rounded-full bg-card pr-1.5 pl-3 text-[13px] text-muted-foreground ring ring-border transition-colors outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring md:flex">
+      <Dialog.Trigger className="hidden h-8.5 w-65 cursor-pointer items-center gap-2 rounded-full bg-card ps-3 pe-1.5 text-[13px] text-muted-foreground ring ring-border transition-colors outline-hidden hover:text-foreground focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring md:flex">
         <SearchIcon className="size-3.5" aria-hidden="true" />
         Search docs…
-        <kbd className="ml-auto rounded-full bg-accent px-1.5 py-0.5 font-mono text-[11px]">⌘K</kbd>
+        {/* The keys echo the real shortcut: they press down while ⌘/Ctrl and K are held. */}
+        <KbdGroup className="ms-auto" aria-hidden="true">
+          <Kbd pressed={pressed.mod}>⌘</Kbd>
+          <Kbd pressed={pressed.k}>K</Kbd>
+        </KbdGroup>
       </Dialog.Trigger>
       <Dialog.Trigger asChild>
         <Button variant="ghost" size="icon" aria-label="Search docs" className="md:hidden">
@@ -133,9 +156,7 @@ export function SearchDialog({ pageTitles }: SearchDialogProps) {
               className="h-full flex-1 bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
             />
             <Dialog.Close asChild>
-              <kbd className="cursor-pointer rounded-full bg-accent px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground">
-                esc
-              </kbd>
+              <Kbd className="cursor-pointer">esc</Kbd>
             </Dialog.Close>
           </div>
 
@@ -193,7 +214,7 @@ export function SearchDialog({ pageTitles }: SearchDialogProps) {
               ["esc", "close"],
             ].map(([key, label]) => (
               <span key={label} className="flex items-center gap-1.5">
-                <kbd className="rounded bg-card px-1.5 font-mono text-[11px] text-foreground ring ring-border">{key}</kbd>
+                <Kbd>{key}</Kbd>
                 {label}
               </span>
             ))}

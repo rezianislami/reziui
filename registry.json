@@ -1,13 +1,13 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "ziui",
-  "homepage": "https://ziui.dev",
+  "name": "reziui",
+  "homepage": "https://reziui.dev",
   "items": [
     {
       "name": "theme",
       "type": "registry:theme",
-      "title": "ziUI Theme",
-      "description": "ziUI color tokens for light and dark mode, including the emphasis button gradients.",
+      "title": "Rezi UI Theme",
+      "description": "Rezi UI color tokens for light and dark mode, including the emphasis button gradients.",
       "cssVars": {
         "light": {
           "background": "oklch(0.9875 0 0)",
@@ -21,7 +21,7 @@
           "secondary": "oklch(1 0 0)",
           "secondary-foreground": "oklch(0.205 0 0)",
           "muted": "oklch(0.96 0 0)",
-          "muted-foreground": "oklch(0.556 0 0)",
+          "muted-foreground": "oklch(0.54 0 0)",
           "accent": "oklch(0.97 0 0)",
           "accent-foreground": "oklch(0.205 0 0)",
           "destructive": "oklch(0.53 0.21 27)",
@@ -99,10 +99,10 @@
       "title": "Button",
       "description": "Pill button with gradient emphasis variants, loading state and asChild support.",
       "dependencies": ["radix-ui", "class-variance-authority", "lucide-react"],
-      "registryDependencies": ["utils", "@ziui/theme"],
+      "registryDependencies": ["utils", "@reziui/theme"],
       "files": [
         {
-          "path": "registry/ziui/ui/button.tsx",
+          "path": "registry/reziui/ui/button.tsx",
           "type": "registry:ui"
         }
       ]
@@ -113,10 +113,92 @@
       "title": "Badge",
       "description": "Rounded-rect label for status and metadata, with tinted status variants, an optional dot and asChild support.",
       "dependencies": ["radix-ui", "class-variance-authority"],
-      "registryDependencies": ["utils", "@ziui/theme"],
+      "registryDependencies": ["utils", "@reziui/theme"],
       "files": [
         {
-          "path": "registry/ziui/ui/badge.tsx",
+          "path": "registry/reziui/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Pill-track tabs with a raised active tab, built on Radix Tabs.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Keyboard key with a 2px bottom edge, plus a group for shortcuts.",
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Inline message with neutral and status variants, an optional icon, action and dismiss button.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Accessible form label built on Radix Label.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "36px rounded-rect text field with an optional start icon and opt-in clear button.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Surface with header, content and a tinted footer for actions.",
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/card.tsx",
           "type": "registry:ui"
         }
       ]

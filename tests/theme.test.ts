@@ -48,7 +48,12 @@ describe("theme tokens", () => {
         const source = read(file.path)
           .replace(/\/\*[\s\S]*?\*\//g, "")
           .replace(/^\s*\/\/.*$/gm, "");
-        const referenced = new Set([...source.matchAll(/var\(--([\w-]+)\)|\(--([\w-]+)\)/g)].map((m) => m[1] ?? m[2]));
+        // Variables the component sets itself with an arbitrary property
+        // (`[--btn-ps-icon:…]`) are local, not theme tokens.
+        const local = new Set([...source.matchAll(/\[--([\w-]+):/g)].map((m) => m[1]));
+        const referenced = new Set(
+          [...source.matchAll(/var\(--([\w-]+)\)|\(--([\w-]+)\)/g)].map((m) => m[1] ?? m[2]).filter((name) => !local.has(name)),
+        );
 
         for (const name of referenced) {
           expect(theme.cssVars.light, `--${name} in ${file.path}`).toHaveProperty(name);
@@ -58,7 +63,7 @@ describe("theme tokens", () => {
   );
 
   it.each(uiItems.map((item) => [item.name, item] as const))("makes %s depend on the theme item", (_, item) => {
-    expect(item.registryDependencies).toContain("@ziui/theme");
+    expect(item.registryDependencies).toContain("@reziui/theme");
   });
 
   it("defines dark values for every status token", () => {

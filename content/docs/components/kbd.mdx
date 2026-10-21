@@ -1,0 +1,46 @@
+---
+title: Kbd
+description: Keyboard key with a 2px bottom edge, plus a group for shortcuts.
+---
+
+<ComponentPreview name="kbd-demo" />
+
+## Installation
+
+<InstallTabs name="kbd" />
+
+The 2px bottom edge is what makes a key read as a physical key; without it the
+shape would look like an outline [Badge](/docs/components/badge).
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
+
+export function Example() {
+  return (
+    <KbdGroup>
+      <Kbd>Ctrl</Kbd>+<Kbd>K</Kbd>
+    </KbdGroup>
+  );
+}
+```
+
+## Examples
+
+### Pressed
+
+<ComponentPreview name="kbd-pressed" size="sm" />
+
+`pressed` drops the key 1px and thins its bottom edge, like a physical key.
+Drive it from real key events to echo a shortcut back at the user — the docs
+search button does this for ⌘K.
+
+## API reference
+
+| Component | Element | Notes |
+| --- | --- | --- |
+| `Kbd` | `<kbd>` | One key. Mono 11px, 20px tall, grows with its label. `pressed` renders it held down. |
+| `KbdGroup` | `<span>` | Keys of one shortcut with their separators. |
+
+Both forward all native props of their element.

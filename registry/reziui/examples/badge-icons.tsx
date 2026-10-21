@@ -1,5 +1,5 @@
 import { CircleCheckIcon, CircleXIcon, InfoIcon, TriangleAlertIcon } from "lucide-react";
-import { Badge } from "@/registry/ziui/ui/badge";
+import { Badge } from "@/registry/reziui/ui/badge";
 
 export default function BadgeIcons() {
   return (
@@ -8,7 +8,7 @@ export default function BadgeIcons() {
         <Badge variant="success" dot>
           Ready
         </Badge>
-        <Badge variant="warning" dot>
+        <Badge variant="warning" pulse>
           Building
         </Badge>
         <Badge variant="destructive" dot>

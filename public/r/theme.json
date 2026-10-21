@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme",
-  "title": "ziUI Theme",
-  "description": "ziUI color tokens for light and dark mode, including the emphasis button gradients.",
+  "title": "Rezi UI Theme",
+  "description": "Rezi UI color tokens for light and dark mode, including the emphasis button gradients.",
   "cssVars": {
     "light": {
       "background": "oklch(0.9875 0 0)",
@@ -16,7 +16,7 @@
       "secondary": "oklch(1 0 0)",
       "secondary-foreground": "oklch(0.205 0 0)",
       "muted": "oklch(0.96 0 0)",
-      "muted-foreground": "oklch(0.556 0 0)",
+      "muted-foreground": "oklch(0.54 0 0)",
       "accent": "oklch(0.97 0 0)",
       "accent-foreground": "oklch(0.205 0 0)",
       "destructive": "oklch(0.53 0.21 27)",

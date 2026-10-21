@@ -2,7 +2,7 @@ import { basename } from "node:path";
 import { highlightCode } from "@/lib/highlight";
 import { getRegistryItem, readRegistrySource } from "@/lib/registry-source";
 import { CodeBlock } from "./code-block";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/reziui/ui/tabs";
 
 type InstallTabsProps = {
   /** Registry item name, e.g. "button". */
@@ -13,7 +13,7 @@ export async function InstallTabs({ name }: InstallTabsProps) {
   const item = getRegistryItem(name);
   if (!item) throw new Error(`Unknown registry item "${name}" in <InstallTabs />`);
 
-  const cli = `npx shadcn@latest add @ziui/${name}`;
+  const cli = `npx shadcn@latest add @reziui/${name}`;
   const deps: string[] = ("dependencies" in item && item.dependencies) || [];
   const files: { path: string }[] = ("files" in item && item.files) || [];
 
@@ -41,7 +41,7 @@ export async function InstallTabs({ name }: InstallTabsProps) {
         )}
         <p className="text-sm text-muted-foreground">
           Copy the source into <code className="font-mono text-foreground">components/ui</code>, then add
-          the <code className="font-mono text-foreground">@ziui/theme</code> tokens to your global CSS.
+          the <code className="font-mono text-foreground">@reziui/theme</code> tokens to your global CSS.
         </p>
         {files.map((file, i) => (
           <CodeBlock key={file.path} title={`components/ui/${basename(file.path)}`}>

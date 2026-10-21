@@ -10,7 +10,7 @@ export function Pager({ tree, url }: { tree: Root; url: string }) {
       {previous ? (
         <Link
           href={previous.url}
-          className="flex flex-col gap-1 rounded-xl bg-card px-4.5 py-3.5 ring ring-border transition-colors hover:bg-accent"
+          className="flex flex-col gap-1 rounded-[0.75rem] bg-card px-4.5 py-3.5 ring ring-border transition-colors hover:bg-accent"
         >
           <span className="text-xs text-muted-foreground">Previous</span>
           <span className="text-sm font-medium text-foreground">← {previous.name}</span>
@@ -21,7 +21,7 @@ export function Pager({ tree, url }: { tree: Root; url: string }) {
       {next && (
         <Link
           href={next.url}
-          className="flex flex-col items-end gap-1 rounded-xl bg-card px-4.5 py-3.5 ring ring-border transition-colors hover:bg-accent"
+          className="flex flex-col items-end gap-1 rounded-[0.75rem] bg-card px-4.5 py-3.5 ring ring-border transition-colors hover:bg-accent"
         >
           <span className="text-xs text-muted-foreground">Next</span>
           <span className="text-sm font-medium text-foreground">{next.name} →</span>

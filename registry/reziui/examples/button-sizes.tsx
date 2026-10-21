@@ -1,4 +1,4 @@
-import { Button } from "@/registry/ziui/ui/button";
+import { Button } from "@/registry/reziui/ui/button";
 
 export default function ButtonSizes() {
   return (

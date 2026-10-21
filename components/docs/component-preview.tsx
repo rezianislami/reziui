@@ -1,9 +1,9 @@
 import { basename } from "node:path";
 import { highlightCode } from "@/lib/highlight";
-import { examples } from "@/registry/ziui/examples";
+import { examples } from "@/registry/reziui/examples";
 import { readRegistrySource } from "@/lib/registry-source";
 import { CodeBlock } from "./code-block";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/reziui/ui/tabs";
 
 type ComponentPreviewProps = {
   /** Key in the examples map, e.g. "button-demo". */
@@ -31,8 +31,8 @@ export async function ComponentPreview({ name, size = "default" }: ComponentPrev
           data-slot="preview-stage"
           className={
             size === "sm"
-              ? "flex min-h-36 items-center justify-center rounded-xl bg-card p-6 ring ring-border md:p-8"
-              : "flex min-h-56 items-center justify-center rounded-xl bg-card p-6 ring ring-border md:min-h-72 md:p-10"
+              ? "flex min-h-36 items-center justify-center rounded-[0.75rem] bg-card p-6 ring ring-border md:p-8"
+              : "flex min-h-56 items-center justify-center rounded-[0.75rem] bg-card p-6 ring ring-border md:min-h-72 md:p-10"
           }
         >
           <Example />

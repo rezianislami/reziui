@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "description": "Keyboard key with a 2px bottom edge, plus a group for shortcuts.",
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/kbd.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype KbdProps = React.ComponentProps<\"kbd\"> & {\n  /**\n   * Renders the key pressed down: it drops 1px and its bottom edge thins from\n   * 2px to 1px, like a physical key. Drive it from real key events to echo the\n   * user's shortcut back at them.\n   */\n  pressed?: boolean;\n};\n\n// The 2px bottom border is what makes a Kbd read as a physical key; without it\n// the shape would be indistinguishable from an outline Badge. Pressing trades\n// 1px of that edge for 1px of downward travel, so the key's footprint stays put.\nfunction Kbd({ className, pressed = false, ...props }: KbdProps) {\n  return (\n    <kbd\n      data-slot=\"kbd\"\n      data-pressed={pressed || undefined}\n      className={cn(\n        \"inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded-[0.25rem] border border-b-2 border-border bg-card px-1.5 font-mono text-[11px] leading-none font-medium text-foreground select-none\",\n        \"motion-safe:transition-[translate,border-bottom-width] motion-safe:duration-75 motion-safe:ease-out\",\n        \"data-pressed:translate-y-px data-pressed:border-b\",\n        \"[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\n/** Groups keys of one shortcut, e.g. Ctrl + Shift + P. */\nfunction KbdGroup({ className, ...props }: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"kbd-group\"\n      className={cn(\"inline-flex items-center gap-1 text-xs text-muted-foreground\", className)}\n      {...props}\n    />\n  );\n}\n\nexport { Kbd, KbdGroup };\nexport type { KbdProps };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

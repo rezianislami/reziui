@@ -24,11 +24,11 @@ describe("CopyButton", () => {
   }
 
   it("copies a string value and flags the copied state", async () => {
-    const user = setup(<CopyButton value="npx shadcn add @ziui/button" aria-label="Copy" />);
+    const user = setup(<CopyButton value="npx shadcn add @reziui/button" aria-label="Copy" />);
 
     await user.click(screen.getByRole("button", { name: "Copy" }));
 
-    expect(writeText).toHaveBeenCalledWith("npx shadcn add @ziui/button");
+    expect(writeText).toHaveBeenCalledWith("npx shadcn add @reziui/button");
     expect(screen.getByRole("button", { name: "Copy" })).toHaveAttribute("data-copied", "true");
   });
 

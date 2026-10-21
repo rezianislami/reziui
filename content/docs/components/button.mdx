@@ -9,8 +9,8 @@ description: Pill-shaped button with gradient emphasis variants, a loading state
 
 <InstallTabs name="button" />
 
-Installs the theme tokens too if they are missing. Run `npx shadcn@latest add @ziui/theme`
-first to apply the full ziUI palette — see [Installation](/docs/installation).
+Installs the theme tokens too if they are missing. Run `npx shadcn@latest add @reziui/theme`
+first to apply the full Rezi UI palette — see [Installation](/docs/installation).
 
 ## Usage
 
@@ -60,6 +60,20 @@ Icon-only buttons have no visible text — always pass `aria-label`.
 With `asChild`, no spinner is injected (Slot needs exactly one child); only
 `aria-busy` and `data-loading` are set, so style the loading state yourself.
 
+### Success
+
+<ComponentPreview name="button-success" size="sm" />
+
+Pass `success` (controlled) to cross-fade the label to a check and
+`successLabel` ("Saved" by default) after an async action, then reset it
+yourself. The button always hugs what it shows: while `loading` it shrinks to
+an icon-only circle with the spinner, then grows to fit the success label
+(200ms; instant under reduced motion). The button keeps its name while loading
+and the success label is announced to screen readers.
+
+Keep the button's container from depending on its width (e.g. not centered
+among siblings that would shift), since it changes size during the morph.
+
 ### As a link
 
 ```tsx
@@ -76,5 +90,12 @@ With `asChild`, no spinner is injected (Slot needs exactly one child); only
 | `size` | `"xs" \| "sm" \| "default" \| "lg" \| "icon-xs" \| "icon-sm" \| "icon" \| "icon-lg"` | `"default"` |
 | `loading` | `boolean` | `false` |
 | `asChild` | `boolean` | `false` |
+| `static` | `boolean` | `false` |
+| `success` | `boolean` | — |
+| `successLabel` | `ReactNode` | `"Saved"` |
 
 All native `<button>` props are forwarded.
+
+Buttons scale to 96% while pressed; `static` turns that off where movement would
+distract. Both the press scale and the loading spinner stay still under
+`prefers-reduced-motion` — the label and `aria-busy` still carry the state.

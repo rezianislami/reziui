@@ -21,7 +21,7 @@ export function CodeBlock({ title, children, className }: CodeBlockProps) {
   return (
     <figure
       data-slot="code-block"
-      className={cn("not-prose overflow-hidden rounded-xl bg-card ring ring-border", className)}
+      className={cn("not-prose overflow-hidden rounded-[0.75rem] bg-card ring ring-border", className)}
     >
       <figcaption className="flex h-10 items-center gap-2 border-b border-(--hairline) pr-2 pl-3.5">
         <span className="truncate font-mono text-xs text-muted-foreground">{title ?? "code"}</span>

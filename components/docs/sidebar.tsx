@@ -13,7 +13,7 @@ function SidebarLink({ href, children }: { href: string; children: React.ReactNo
       href={href}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "flex h-8 items-center rounded-lg px-3 pb-px text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "flex h-8 items-center rounded-md px-3 pb-px text-sm transition-colors outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring",
         active
           ? "bg-accent font-medium text-foreground"
           : "text-muted-foreground hover:bg-accent/60 hover:text-foreground",

@@ -3,18 +3,18 @@ import { getRegistryItem, readRegistrySource, toConsumerImports } from "@/lib/re
 
 describe("toConsumerImports", () => {
   it("rewrites registry ui imports to the consumer components path", () => {
-    expect(toConsumerImports('import { Button } from "@/registry/ziui/ui/button";')).toBe(
+    expect(toConsumerImports('import { Button } from "@/registry/reziui/ui/button";')).toBe(
       'import { Button } from "@/components/ui/button";',
     );
-    expect(toConsumerImports("import { Button } from '@/registry/ziui/ui/button';")).toBe(
+    expect(toConsumerImports("import { Button } from '@/registry/reziui/ui/button';")).toBe(
       "import { Button } from '@/components/ui/button';",
     );
   });
 
   it.each([
-    ['import Demo from "@/registry/ziui/examples/button-demo";', "a non-ui registry folder"],
-    ["// see @/registry/ziui/ui/button for details", "an unquoted mention in a comment"],
-    ['import x from "@/registry/ziui/uikit";', "a path that only starts with ui"],
+    ['import Demo from "@/registry/reziui/examples/button-demo";', "a non-ui registry folder"],
+    ["// see @/registry/reziui/ui/button for details", "an unquoted mention in a comment"],
+    ['import x from "@/registry/reziui/uikit";', "a path that only starts with ui"],
   ])("leaves %s untouched (%s)", (input) => {
     expect(toConsumerImports(input)).toBe(input);
   });
@@ -22,10 +22,10 @@ describe("toConsumerImports", () => {
 
 describe("readRegistrySource", () => {
   it("reads a registry file with consumer imports applied", () => {
-    const source = readRegistrySource("registry/ziui/examples/button-demo.tsx");
+    const source = readRegistrySource("registry/reziui/examples/button-demo.tsx");
 
     expect(source).toContain('from "@/components/ui/button"');
-    expect(source).not.toContain("@/registry/ziui/ui/");
+    expect(source).not.toContain("@/registry/reziui/ui/");
   });
 
   it("rejects paths outside the registry folder", () => {

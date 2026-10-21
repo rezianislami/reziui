@@ -1,0 +1,54 @@
+---
+title: Card
+description: Surface with header, content and a tinted footer for actions.
+---
+
+<ComponentPreview name="card-demo" />
+
+## Installation
+
+<InstallTabs name="card" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+
+export function Example() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Create project</CardTitle>
+        <CardDescription>Deploy a new project in one click.</CardDescription>
+      </CardHeader>
+      <CardContent>…</CardContent>
+      <CardFooter>
+        <Button variant="secondary">Cancel</Button>
+        <Button>Create</Button>
+      </CardFooter>
+    </Card>
+  );
+}
+```
+
+## Examples
+
+### Content only
+
+<ComponentPreview name="card-stat" size="sm" />
+
+Every part is optional. A card with only `CardContent` is a padded surface.
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Card` | Rounded surface with a 1px ring and a light shadow. |
+| `CardHeader` | Stacks `CardTitle` and `CardDescription`. |
+| `CardTitle` | 16px semibold. |
+| `CardDescription` | 13px, muted. |
+| `CardContent` | 20px padding. |
+| `CardFooter` | Right-aligned actions on a slightly elevated surface with a hairline above. |
+
+All parts forward the native props of their `<div>`.

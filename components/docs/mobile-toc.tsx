@@ -12,8 +12,8 @@ export function MobileToc({ items }: { items: TableOfContents }) {
   if (items.length === 0) return null;
 
   return (
-    <Collapsible.Root open={open} onOpenChange={setOpen} className="mt-5 rounded-xl bg-card ring ring-border xl:hidden">
-      <Collapsible.Trigger className="flex h-10 w-full cursor-pointer items-center px-3.5 text-[13px] font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl">
+    <Collapsible.Root open={open} onOpenChange={setOpen} className="mt-5 rounded-md bg-card ring ring-border xl:hidden">
+      <Collapsible.Trigger className="flex h-10 w-full cursor-pointer items-center px-3.5 text-[13px] font-medium outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring rounded-md">
         On this page
         <ChevronDownIcon
           className={cn("ml-auto size-4 text-muted-foreground transition-transform", open && "rotate-180")}
