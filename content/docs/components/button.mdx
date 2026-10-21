@@ -1,0 +1,100 @@
+---
+title: Button
+description: Pill-shaped button with gradient emphasis variants, a loading state and asChild support.
+---
+
+## Installation
+
+```bash
+npx shadcn@latest add @ziui/button
+```
+
+Installs `components/ui/button.tsx` plus `radix-ui`, `class-variance-authority`
+and `lucide-react`. See [Installation](/docs/installation) for the theme step.
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+export function Example() {
+  return <Button>Save changes</Button>;
+}
+```
+
+## Variants
+
+| Variant | Use for |
+| --- | --- |
+| `default` | The primary action on a screen. Blue gradient, white label. |
+| `secondary` | Most other actions. Surface fill with a 1px ring. |
+| `outline` | Actions on tinted or busy backgrounds. Transparent fill. |
+| `ghost` | Low-emphasis actions in toolbars and menus. |
+| `destructive` | Irreversible actions such as delete. Red gradient. |
+| `destructive-secondary` | Less prominent destructive actions. Red label on a surface. |
+| `link` | Inline navigation styled as text. |
+
+```tsx
+<Button variant="secondary">Cancel</Button>
+<Button variant="destructive">Delete project</Button>
+```
+
+## Sizes
+
+| Size | Height | Notes |
+| --- | --- | --- |
+| `xs` | 20px | Dense tables and tags. |
+| `sm` | 26px | Compact toolbars. |
+| `default` | 36px | Standard forms and dialogs. |
+| `lg` | 40px | Hero and page-level calls to action. |
+| `icon-xs` · `icon-sm` · `icon` · `icon-lg` | 20 · 26 · 36 · 40px | Icon-only, always circular. |
+
+Icon-only buttons have no visible text — always pass `aria-label`.
+
+```tsx
+<Button size="icon" variant="secondary" aria-label="Add item">
+  <PlusIcon />
+</Button>
+```
+
+## With an icon
+
+Place the icon before the label; the leading padding shrinks by 2px to balance
+the whitespace built into icon glyphs.
+
+```tsx
+<Button>
+  <PlusIcon />
+  New project
+</Button>
+```
+
+## Loading
+
+`loading` disables the button, sets `aria-busy` and shows a spinner before the label.
+
+```tsx
+<Button loading>Saving…</Button>
+```
+
+With `asChild`, no spinner is injected (Slot needs exactly one child); only
+`aria-busy` and `data-loading` are set, so style the loading state yourself.
+
+## As a link
+
+```tsx
+<Button asChild variant="secondary">
+  <a href="/pricing">See pricing</a>
+</Button>
+```
+
+## Props
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `variant` | `"default" \| "secondary" \| "outline" \| "ghost" \| "destructive" \| "destructive-secondary" \| "link"` | `"default"` |
+| `size` | `"xs" \| "sm" \| "default" \| "lg" \| "icon-xs" \| "icon-sm" \| "icon" \| "icon-lg"` | `"default"` |
+| `loading` | `boolean` | `false` |
+| `asChild` | `boolean` | `false` |
+
+All native `<button>` props are forwarded.
