@@ -7,6 +7,7 @@ import { ChevronRightIcon } from "lucide-react";
 import { source } from "@/lib/source";
 import { CopyButton } from "@/components/docs/copy-button";
 import { mdxComponents } from "@/components/docs/mdx-components";
+import { MobileToc } from "@/components/docs/mobile-toc";
 import { Pager } from "@/components/docs/pager";
 import { Toc } from "@/components/docs/toc";
 
@@ -34,7 +35,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <>
-      <article className="mx-auto w-full max-w-3xl min-w-0 px-14 pt-9 pb-18">
+      <article className="mx-auto w-full max-w-3xl min-w-0 px-5 pt-6 pb-16 md:px-14 md:pt-9 md:pb-18">
         {crumbs.length > 0 && (
           <nav aria-label="Breadcrumb" className="mb-3 flex items-center gap-1.5 text-[13px] text-muted-foreground">
             {crumbs.map((crumb, i) => (
@@ -48,15 +49,24 @@ export default async function Page({ params }: PageProps) {
           </nav>
         )}
         <div className="flex items-start gap-4">
-          <h1 className="text-[34px] leading-tight font-semibold tracking-tight text-foreground">{page.data.title}</h1>
-          <CopyButton value={markdown} variant="secondary" className="mt-2 ml-auto shrink-0">
-            Copy page
+          <h1 className="text-[28px] leading-tight font-semibold tracking-tight text-foreground md:text-[34px]">
+            {page.data.title}
+          </h1>
+          {/* Icon-only below sm; aria-label keeps the name once the label is display:none. */}
+          <CopyButton
+            value={markdown}
+            variant="secondary"
+            aria-label="Copy page"
+            className="mt-1 ml-auto shrink-0 max-sm:size-8 max-sm:px-0 md:mt-2"
+          >
+            <span className="max-sm:hidden">Copy page</span>
           </CopyButton>
         </div>
         {page.data.description && (
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">{page.data.description}</p>
+          <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground md:text-base">{page.data.description}</p>
         )}
-        <div className="mt-10">
+        <MobileToc items={page.data.toc} />
+        <div className="mt-8 md:mt-10">
           <MDX components={mdxComponents} />
         </div>
         <Pager tree={tree} url={page.url} />

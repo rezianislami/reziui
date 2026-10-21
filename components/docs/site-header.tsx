@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { source } from "@/lib/source";
 import { Button } from "@/registry/ziui/ui/button";
+import { MobileNav } from "./mobile-nav";
 import { SearchDialog } from "./search-dialog";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -20,8 +22,11 @@ function GitHubIcon() {
 }
 
 export function SiteHeader() {
+  const tree = source.getPageTree();
+  const pageTitles = Object.fromEntries(source.getPages().map((page) => [page.url, page.data.title]));
+
   return (
-    <header className="sticky top-0 z-40 flex h-15 items-center gap-8 border-b border-(--hairline) bg-background/85 px-6 backdrop-blur">
+    <header className="sticky top-0 z-40 flex h-15 items-center gap-4 border-b border-(--hairline) bg-background/85 px-4 backdrop-blur md:gap-8 md:px-6">
       <Link href="/" className="flex items-center gap-2 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring">
         {/* Placeholder mark until the ZiUI logo exists. */}
         <span className="flex size-5.5 items-center justify-center rounded-full bg-linear-to-b from-(--btn-primary-from) to-(--btn-primary-to) text-xs font-bold text-white ring ring-(--btn-primary-ring)">
@@ -29,21 +34,22 @@ export function SiteHeader() {
         </span>
         <span className="text-[15px] font-semibold tracking-tight">ZiUI</span>
       </Link>
-      <nav aria-label="Main" className="flex items-center gap-6 text-sm">
+      <nav aria-label="Main" className="hidden items-center gap-6 text-sm md:flex">
         {nav.map((item) => (
           <Link key={item.href} href={item.href} className="text-muted-foreground transition-colors hover:text-foreground">
             {item.label}
           </Link>
         ))}
       </nav>
-      <div className="ml-auto flex items-center gap-2">
-        <SearchDialog />
+      <div className="ml-auto flex items-center gap-1 md:gap-2">
+        <SearchDialog pageTitles={pageTitles} />
         <ThemeToggle />
-        <Button asChild variant="ghost" size="icon">
+        <Button asChild variant="ghost" size="icon" className="hidden md:inline-flex">
           <a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="GitHub">
             <GitHubIcon />
           </a>
         </Button>
+        <MobileNav tree={tree} links={nav} />
       </div>
     </header>
   );

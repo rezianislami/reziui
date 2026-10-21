@@ -31,8 +31,8 @@ export async function ComponentPreview({ name, size = "default" }: ComponentPrev
           data-slot="preview-stage"
           className={
             size === "sm"
-              ? "flex min-h-36 items-center justify-center rounded-xl bg-card p-8 ring ring-border"
-              : "flex min-h-72 items-center justify-center rounded-xl bg-card p-10 ring ring-border"
+              ? "flex min-h-36 items-center justify-center rounded-xl bg-card p-6 ring ring-border md:p-8"
+              : "flex min-h-56 items-center justify-center rounded-xl bg-card p-6 ring ring-border md:min-h-72 md:p-10"
           }
         >
           <Example />
