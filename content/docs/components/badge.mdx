@@ -1,0 +1,81 @@
+---
+title: Badge
+description: Rounded-rect label for status and metadata, with tinted status variants, an optional dot and asChild support.
+---
+
+<ComponentPreview name="badge-demo" />
+
+## Installation
+
+<InstallTabs name="badge" />
+
+Badges are rounded rectangles on purpose: in ziUI every pill-shaped element is
+a [Button](/docs/components/button), so a pill badge would read as clickable.
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Badge } from "@/components/ui/badge";
+
+export function Example() {
+  return <Badge variant="success">Active</Badge>;
+}
+```
+
+## Examples
+
+### Variants
+
+<ComponentPreview name="badge-variants" size="sm" />
+
+| Variant | Use for |
+| --- | --- |
+| `default` | Neutral, high-contrast labels such as counts or "New". |
+| `secondary` | Low-emphasis metadata. |
+| `outline` | Metadata on busy surfaces — versions, branches, tags. |
+| `success` | Healthy or finished states. |
+| `warning` | States that need attention but are not failing. |
+| `info` | Neutral notices such as "Beta" or "Queued". |
+| `destructive` | Failed or blocked states. |
+
+Status variants use Tailwind palette tints whose text clears 4.5:1 in both themes.
+
+### With a dot or icon
+
+<ComponentPreview name="badge-icons" size="sm" />
+
+`dot` adds a small indicator in the badge's text color. For an icon, place it
+before the label; the leading padding shrinks to balance the icon's whitespace.
+
+```tsx
+<Badge variant="warning" dot>
+  Building
+</Badge>
+```
+
+### Sizes
+
+<ComponentPreview name="badge-sizes" size="sm" />
+
+| Size | Height | Notes |
+| --- | --- | --- |
+| `sm` | 18px | Dense rows — table cells, inline metadata. |
+| `default` | 20px | Standalone labels. |
+
+### As a link
+
+<ComponentPreview name="badge-link" size="sm" />
+
+With `asChild`, the badge styles the child element and gains a hover state.
+Static badges never react to the pointer.
+
+## API reference
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `variant` | `"default" \| "secondary" \| "outline" \| "success" \| "warning" \| "info" \| "destructive"` | `"default"` |
+| `size` | `"sm" \| "default"` | `"default"` |
+| `dot` | `boolean` | `false` |
+| `asChild` | `boolean` | `false` |
+
+All native `<span>` props are forwarded.

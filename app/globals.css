@@ -76,6 +76,22 @@
   --link: oklch(0.424 0.199 265.638);
   --destructive-text: oklch(0.505 0.213 27.518);
   /*
+   * Status surfaces (badges, later alerts) use Tailwind palette steps:
+   * tint 50 · ring 200 · text 800 in light, tint 950 · ring 900 · text 300 in
+   * dark. Every text/tint pair clears 4.5:1 (WCAG AA).
+   */
+  --success-tint: oklch(0.979 0.021 166.113);
+  --success-ring: oklch(0.905 0.093 164.15);
+  --success-text: oklch(0.432 0.095 166.913);
+  --warning-tint: oklch(0.987 0.022 95.277);
+  --warning-ring: oklch(0.924 0.12 95.746);
+  --warning-text: oklch(0.473 0.137 46.201);
+  --info-tint: oklch(0.977 0.013 236.62);
+  --info-ring: oklch(0.901 0.058 230.902);
+  --info-text: oklch(0.443 0.11 240.79);
+  --destructive-tint: oklch(0.971 0.013 17.38);
+  --destructive-ring: oklch(0.885 0.062 18.334);
+  /*
    * Emphasis buttons (default, destructive) share these in both themes: the
    * gradient spreads *below* the base color instead of lightening the top,
    * so white labels stay >= 4.5:1 (WCAG AA) on every stop.
@@ -131,6 +147,17 @@
   --hairline: oklch(0.269 0 0);
   --link: oklch(0.707 0.165 254.624);
   --destructive-text: oklch(0.704 0.191 22.216);
+  --success-tint: oklch(0.262 0.051 172.552);
+  --success-ring: oklch(0.378 0.077 168.94);
+  --success-text: oklch(0.845 0.143 164.978);
+  --warning-tint: oklch(0.279 0.077 45.635);
+  --warning-ring: oklch(0.414 0.112 45.904);
+  --warning-text: oklch(0.879 0.169 91.605);
+  --info-tint: oklch(0.293 0.066 243.157);
+  --info-ring: oklch(0.391 0.09 240.876);
+  --info-text: oklch(0.828 0.111 230.318);
+  --destructive-tint: oklch(0.258 0.092 26.042);
+  --destructive-ring: oklch(0.396 0.141 25.723);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);

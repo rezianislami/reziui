@@ -36,22 +36,35 @@ describe("theme tokens", () => {
     }
   });
 
-  it("defines every button token the button source references", () => {
-    // Comments are stripped first: they quote example syntax like `from-(--var)`
-    // that is not a real token reference.
-    const source = read("registry/ziui/ui/button.tsx")
-      .replace(/\/\*[\s\S]*?\*\//g, "")
-      .replace(/^\s*\/\/.*$/gm, "");
-    const referenced = new Set([...source.matchAll(/var\(--([\w-]+)\)|\(--([\w-]+)\)/g)].map((m) => m[1] ?? m[2]));
+  const uiItems: { name: string; registryDependencies?: string[]; files: { path: string }[] }[] =
+    registry.items.filter((item: { type: string }) => item.type === "registry:ui");
 
-    for (const name of referenced) {
-      expect(theme.cssVars.light, `--${name}`).toHaveProperty(name);
-    }
+  it.each(uiItems.map((item) => [item.name, item] as const))(
+    "defines every token the %s source references",
+    (_, item) => {
+      for (const file of item.files) {
+        // Comments are stripped first: they quote example syntax like
+        // `from-(--var)` that is not a real token reference.
+        const source = read(file.path)
+          .replace(/\/\*[\s\S]*?\*\//g, "")
+          .replace(/^\s*\/\/.*$/gm, "");
+        const referenced = new Set([...source.matchAll(/var\(--([\w-]+)\)|\(--([\w-]+)\)/g)].map((m) => m[1] ?? m[2]));
+
+        for (const name of referenced) {
+          expect(theme.cssVars.light, `--${name} in ${file.path}`).toHaveProperty(name);
+        }
+      }
+    },
+  );
+
+  it.each(uiItems.map((item) => [item.name, item] as const))("makes %s depend on the theme item", (_, item) => {
+    expect(item.registryDependencies).toContain("@ziui/theme");
   });
 
-  it("depends on the theme from the button item", () => {
-    const button = registry.items.find((item: { name: string }) => item.name === "button");
+  it("defines dark values for every status token", () => {
+    const status = Object.keys(theme.cssVars.light).filter((name) => /^(success|warning|info|destructive)-(tint|ring|text)$/.test(name));
 
-    expect(button.registryDependencies).toContain("@ziui/theme");
+    expect(status.length).toBe(12);
+    for (const name of status) expect(theme.cssVars.dark, `--${name} (dark)`).toHaveProperty(name);
   });
 });
