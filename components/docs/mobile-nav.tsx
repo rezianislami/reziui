@@ -11,9 +11,11 @@ import { Sidebar } from "./sidebar";
 type MobileNavProps = {
   tree: Root;
   links: { href: string; label: string }[];
+  /** Pages that show the "New" label in the drawer's sidebar. */
+  newUrls?: string[];
 };
 
-export function MobileNav({ tree, links }: MobileNavProps) {
+export function MobileNav({ tree, links, newUrls }: MobileNavProps) {
   const [open, setOpen] = useState(false);
 
   // Close on any link click inside the sheet (event delegation) instead of
@@ -58,7 +60,7 @@ export function MobileNav({ tree, links }: MobileNavProps) {
               ))}
             </nav>
             <div className="my-5 h-px bg-(--hairline)" />
-            <Sidebar tree={tree} />
+            <Sidebar tree={tree} newUrls={newUrls} />
           </div>
         </Dialog.Content>
       </Dialog.Portal>

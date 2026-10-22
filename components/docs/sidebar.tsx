@@ -1,25 +1,40 @@
 "use client";
 
+import { createContext, useContext, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Node, Root } from "fumadocs-core/page-tree";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/registry/reziui/ui/badge";
+
+// Pages inside their "New" window, computed on the server (see getNewPageUrls).
+const NewUrlsContext = createContext<ReadonlySet<string>>(new Set());
 
 function SidebarLink({ href, children }: { href: string; children: React.ReactNode }) {
   const active = usePathname() === href;
+  const isNew = useContext(NewUrlsContext).has(href);
 
   return (
     <Link
       href={href}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "flex h-8 items-center rounded-md px-3 pb-px text-sm transition-colors outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring",
+        "flex h-8 items-center gap-2 rounded-md px-3 pb-px text-sm transition-colors outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring",
         active
           ? "bg-accent font-medium text-foreground"
           : "text-muted-foreground hover:bg-accent/60 hover:text-foreground",
       )}
     >
       {children}
+      {isNew && (
+        <>
+          {/* Read as "Switch, new" rather than the badge text run into the name. */}
+          <span className="sr-only">, new</span>
+          <Badge size="sm" aria-hidden="true" className="ms-auto">
+            New
+          </Badge>
+        </>
+      )}
     </Link>
   );
 }
@@ -59,14 +74,19 @@ function SidebarNode({ node }: { node: Node }) {
   );
 }
 
-export function Sidebar({ tree }: { tree: Root }) {
+const NO_URLS: string[] = [];
+
+export function Sidebar({ tree, newUrls = NO_URLS }: { tree: Root; newUrls?: string[] }) {
+  const newSet = useMemo(() => new Set(newUrls), [newUrls]);
   return (
-    <nav aria-label="Documentation">
-      <ul className="flex flex-col gap-0.5">
-        {tree.children.map((node, i) => (
-          <SidebarNode key={node.$id ?? i} node={node} />
-        ))}
-      </ul>
-    </nav>
+    <NewUrlsContext.Provider value={newSet}>
+      <nav aria-label="Documentation">
+        <ul className="flex flex-col gap-0.5">
+          {tree.children.map((node, i) => (
+            <SidebarNode key={node.$id ?? i} node={node} />
+          ))}
+        </ul>
+      </nav>
+    </NewUrlsContext.Provider>
   );
 }

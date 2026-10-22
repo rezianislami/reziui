@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { browseGroups } from "@/lib/docs-index";
 import { source } from "@/lib/source";
 import { Button } from "@/registry/reziui/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/registry/reziui/ui/tooltip";
@@ -22,9 +23,16 @@ function GitHubIcon() {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({ newUrls = [] }: { newUrls?: string[] }) {
   const tree = source.getPageTree();
-  const pageTitles = Object.fromEntries(source.getPages().map((page) => [page.url, page.data.title]));
+  const pages = source.getPages();
+  const pageTitles = Object.fromEntries(pages.map((page) => [page.url, page.data.title]));
+  const byUrl = new Map(pages.map((page) => [page.url, page.data]));
+  // Listed in search before anything is typed, in sidebar order.
+  const browse = browseGroups(tree, (url) => {
+    const data = byUrl.get(url);
+    return data && { title: data.title, description: data.description };
+  });
 
   return (
     <header className="sticky top-0 z-40 flex h-15 items-center gap-4 border-b border-(--hairline) bg-background/85 px-4 backdrop-blur md:gap-8 md:px-6">
@@ -44,7 +52,7 @@ export function SiteHeader() {
         ))}
       </nav>
       <div className="ml-auto flex items-center gap-1 md:gap-2">
-        <SearchDialog pageTitles={pageTitles} />
+        <SearchDialog pageTitles={pageTitles} browse={browse} newUrls={newUrls} />
         <ThemeToggle />
         <Tooltip>
           <TooltipTrigger asChild>
@@ -56,7 +64,7 @@ export function SiteHeader() {
           </TooltipTrigger>
           <TooltipContent>GitHub</TooltipContent>
         </Tooltip>
-        <MobileNav tree={tree} links={nav} />
+        <MobileNav tree={tree} links={nav} newUrls={newUrls} />
       </div>
     </header>
   );

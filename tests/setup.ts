@@ -7,3 +7,7 @@ import { afterEach } from "vitest";
 afterEach(() => {
   cleanup();
 });
+
+// jsdom implements no layout, so Element#scrollIntoView is missing; components
+// that keep a selection in view call it unconditionally, as every browser has it.
+Element.prototype.scrollIntoView ??= () => {};

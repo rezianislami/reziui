@@ -5,7 +5,9 @@ import { useRouter } from "next/navigation";
 import { useFetchSearch, type SearchResultItem } from "fumadocs-core/search/client";
 import { CornerDownLeftIcon, FileTextIcon, HashIcon, SearchIcon } from "lucide-react";
 import { Dialog } from "radix-ui";
+import type { BrowseGroup } from "@/lib/docs-index";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/registry/reziui/ui/badge";
 import { Button } from "@/registry/reziui/ui/button";
 import { Kbd, KbdGroup } from "@/registry/reziui/ui/kbd";
 
@@ -47,18 +49,45 @@ export function groupResults(items: SearchResultItem[], pageTitles: Record<strin
   ].filter((group) => group.hits.length > 0);
 }
 
+/** Every page as a hit, with its description as the second line. */
+export function browseResults(browse: BrowseGroup[]): SearchGroup[] {
+  return browse.map((group) => ({
+    label: group.label,
+    hits: group.pages.map((page) => ({
+      id: `browse:${page.url}`,
+      url: page.url,
+      type: "page" as const,
+      title: page.title,
+      context: page.description,
+    })),
+  }));
+}
+
 type SearchDialogProps = {
   /** Page URL → title, so heading hits can name the page they belong to. */
   pageTitles: Record<string, string>;
+  /** Pages listed before anything is typed, grouped like the sidebar. */
+  browse?: BrowseGroup[];
+  /** Pages that carry the "New" label. */
+  newUrls?: string[];
 };
 
-export function SearchDialog({ pageTitles }: SearchDialogProps) {
+const NONE: never[] = [];
+
+export function SearchDialog({ pageTitles, browse = NONE, newUrls = NONE }: SearchDialogProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const { search, onSearchChange, isLoading, data, error } = useFetchSearch({ api: "/api/search", delayMs: 150 });
 
-  const groups = useMemo(() => groupResults(data?.items ?? [], pageTitles), [data, pageTitles]);
+  // An empty query lists every page instead of an empty box, so the catalog
+  // can be browsed from the palette; typing switches to search results.
+  const browsing = search.trim().length === 0;
+  const groups = useMemo(
+    () => (browsing ? browseResults(browse) : groupResults(data?.items ?? [], pageTitles)),
+    [browsing, browse, data, pageTitles],
+  );
+  const newSet = useMemo(() => new Set(newUrls), [newUrls]);
   const hits = useMemo(() => groups.flatMap((group) => group.hits), [groups]);
 
   const [pressed, setPressed] = useState({ mod: false, k: false });
@@ -116,6 +145,14 @@ export function SearchDialog({ pageTitles }: SearchDialogProps) {
   }
 
   const activeId = hits[Math.min(active, hits.length - 1)]?.id;
+
+  // Focus stays in the input (aria-activedescendant), so the browser never
+  // scrolls the list for us; keep the selected option inside the 360px box.
+  // "nearest" leaves the list still while the option is already visible.
+  useEffect(() => {
+    if (!activeId) return;
+    document.getElementById(`search-hit-${activeId}`)?.scrollIntoView({ block: "nearest" });
+  }, [activeId]);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -194,8 +231,18 @@ export function SearchDialog({ pageTitles }: SearchDialogProps) {
                         <Icon className={cn("size-3.5", selected ? "text-foreground" : "text-muted-foreground")} aria-hidden="true" />
                       </span>
                       <span className="flex min-w-0 flex-col">
-                        <span className={cn("truncate text-sm", selected ? "font-medium text-foreground" : "text-foreground/90")}>
-                          {hit.title}
+                        <span className="flex min-w-0 items-center gap-1.5">
+                          <span className={cn("truncate text-sm", selected ? "font-medium text-foreground" : "text-foreground/90")}>
+                            {hit.title}
+                          </span>
+                          {hit.type === "page" && newSet.has(hit.url) && (
+                            <>
+                              <span className="sr-only">, new</span>
+                              <Badge size="sm" aria-hidden="true" className="shrink-0">
+                                New
+                              </Badge>
+                            </>
+                          )}
                         </span>
                         {hit.context && <span className="truncate text-xs text-muted-foreground">{hit.context}</span>}
                       </span>

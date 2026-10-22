@@ -2,7 +2,8 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { SearchResultItem } from "fumadocs-core/search/client";
-import { groupResults, SearchDialog } from "@/components/docs/search-dialog";
+import { browseResults, groupResults, SearchDialog } from "@/components/docs/search-dialog";
+import type { BrowseGroup } from "@/lib/docs-index";
 
 const search = vi.hoisted(() => ({
   state: { search: "", isLoading: false, data: undefined as unknown, error: undefined as Error | undefined },
@@ -24,6 +25,23 @@ const items = [
   { id: "t1", type: "text", url: "/docs/components/button", content: "| Prop | Type |" },
   { id: "tb", type: "table", columns: 2 },
 ] as unknown as SearchResultItem[];
+
+const browse: BrowseGroup[] = [
+  { label: "Getting started", pages: [{ url: "/docs", title: "Introduction", description: "What Rezi UI is." }] },
+  {
+    label: "Components",
+    pages: [
+      { url: "/docs/components/button", title: "Button", description: "Pill-shaped button." },
+      { url: "/docs/components/switch", title: "Switch", description: "On/off toggle." },
+    ],
+  },
+];
+
+function openEmpty(props: Partial<React.ComponentProps<typeof SearchDialog>> = {}) {
+  render(<SearchDialog pageTitles={pageTitles} browse={browse} {...props} />);
+  fireEvent.keyDown(window, { key: "k", metaKey: true });
+  return screen.getByRole("combobox", { name: "Search docs" });
+}
 
 async function openWithResults() {
   search.state = { search: "button", isLoading: false, data: { query: "button", items }, error: undefined };
@@ -143,5 +161,79 @@ describe("SearchDialog", () => {
 
     expect(screen.getByRole("alert")).toHaveTextContent(/Search is unavailable/);
     expect(screen.queryByText(/No results for/)).not.toBeInTheDocument();
+  });
+
+  describe("before anything is typed", () => {
+    it("lists every page, grouped like the sidebar, with descriptions", () => {
+      const input = openEmpty();
+
+      expect(screen.getAllByRole("group").map((g) => g.getAttribute("aria-label"))).toEqual(["Getting started", "Components"]);
+      expect(screen.getAllByRole("option")).toHaveLength(3);
+      expect(screen.getByRole("option", { name: /Switch/ })).toHaveTextContent("On/off toggle.");
+      expect(input).toHaveAttribute("aria-expanded", "true");
+    });
+
+    it("selects the first page and opens it with arrow keys and Enter", async () => {
+      const input = openEmpty();
+
+      expect(screen.getAllByRole("option")[0]).toHaveAttribute("aria-selected", "true");
+      await userEvent.type(input, "{ArrowDown}{ArrowDown}{Enter}");
+
+      expect(router.push).toHaveBeenCalledWith("/docs/components/switch");
+    });
+
+    it("keeps the selected option scrolled into view while arrowing through a long list", async () => {
+      // Regression: the selection moved below the 360px list without scrolling.
+      const scrolled: string[] = [];
+      const scroll = vi.spyOn(Element.prototype, "scrollIntoView").mockImplementation(function (this: Element) {
+        scrolled.push(this.textContent ?? "");
+      });
+      const input = openEmpty();
+
+      await userEvent.type(input, "{ArrowDown}{ArrowDown}");
+
+      expect(scrolled.at(-1)).toMatch(/^Switch/);
+      expect(scroll).toHaveBeenLastCalledWith({ block: "nearest" });
+      scroll.mockRestore();
+    });
+
+    it("labels new pages, read as part of the option name", () => {
+      openEmpty({ newUrls: ["/docs/components/switch"] });
+
+      expect(screen.getByRole("option", { name: /Switch, new/ })).toBeInTheDocument();
+      expect(screen.getByRole("option", { name: /Button/ })).not.toHaveTextContent("New");
+      expect(screen.getByText("New")).toHaveAttribute("aria-hidden", "true");
+    });
+
+    it("treats a whitespace-only query as empty", () => {
+      search.state = { search: "   ", isLoading: false, data: undefined, error: undefined };
+      openEmpty();
+
+      expect(screen.getAllByRole("option")).toHaveLength(3);
+      expect(screen.queryByText(/No results for/)).not.toBeInTheDocument();
+    });
+
+    it("replaces the list with search results once a query is typed", async () => {
+      search.state = { search: "button", isLoading: false, data: { query: "button", items }, error: undefined };
+      openEmpty();
+
+      expect(screen.queryByRole("group", { name: "Getting started" })).toBeNull();
+      expect(screen.getByRole("group", { name: "Headings" })).toBeInTheDocument();
+    });
+  });
+});
+
+describe("browseResults", () => {
+  it("turns every browse page into a page hit with a unique id", () => {
+    const groups = browseResults(browse);
+    const hits = groups.flatMap((g) => g.hits);
+
+    expect(hits.map((h) => h.type)).toEqual(["page", "page", "page"]);
+    expect(new Set(hits.map((h) => h.id)).size).toBe(3);
+    expect(hits[1]).toMatchObject({ url: "/docs/components/button", title: "Button", context: "Pill-shaped button." });
+  });
+
+  it("returns nothing for an empty catalog", () => {
+    expect(browseResults([])).toEqual([]);
   });
 });

@@ -89,4 +89,23 @@ describe("Sidebar", () => {
     expect(screen.getByRole("navigation", { name: "Documentation" })).toBeInTheDocument();
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
+
+  it("labels pages in their New window, read as part of the link name", () => {
+    render(
+      <Sidebar
+        tree={{
+          name: "docs",
+          children: [
+            { type: "page", name: "Button", url: "/docs/components/button" },
+            { type: "page", name: "Switch", url: "/docs/components/switch" },
+          ],
+        }}
+        newUrls={["/docs/components/switch"]}
+      />,
+    );
+
+    expect(screen.getByRole("link", { name: "Switch, new" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Button" })).not.toHaveTextContent("New");
+    expect(screen.getByText("New")).toHaveAttribute("aria-hidden", "true");
+  });
 });
