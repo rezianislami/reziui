@@ -1,0 +1,74 @@
+---
+title: Sheet
+description: Panel that slides in from the start or end edge, laid out like Dialog, built on Radix Dialog.
+added: 2026-10-22
+---
+
+<ComponentPreview name="sheet-demo" />
+
+Slides in over 250ms and out in 200ms over the same scrim as
+[Dialog](/docs/components/dialog); under reduced motion it appears at once.
+Focus stays inside while it is open, and Escape returns it to the trigger.
+
+## Installation
+
+<InstallTabs name="sheet" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import {
+  Sheet,
+  SheetBody,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
+export function Example() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="secondary">Filters</Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Filters</SheetTitle>
+          <SheetDescription>Narrow the project list.</SheetDescription>
+        </SheetHeader>
+        <SheetBody>…</SheetBody>
+        <SheetFooter>…</SheetFooter>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+## Examples
+
+### Navigation
+
+<ComponentPreview name="sheet-navigation" size="sm" />
+
+`side="start"` opens from the left edge in left-to-right layouts and from the
+right in right-to-left ones; `side="end"` (the default) is the mirror. The
+mobile menu of these docs is a start sheet.
+
+The slide direction follows the page language: Tailwind v4's CSS build turns
+the `:dir()` selectors it relies on into a list of right-to-left languages for
+older browsers. Set `lang` on `<html>` (for example `lang="ar"`) along with
+`dir="rtl"`, as accessibility guidelines require anyway.
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Sheet` | Radix `Dialog.Root`: `open`, `defaultOpen`, `onOpenChange`. |
+| `SheetTrigger` · `SheetClose` | Use `asChild` to wrap your own button. |
+| `SheetContent` | `side` (`"start"` \| `"end"`, default `"end"`), `showCloseButton` (default `true`). 320px wide, at most 85% of the viewport. |
+| `SheetHeader` · `SheetTitle` · `SheetDescription` | As in Dialog. Always include a title. |
+| `SheetBody` | Fills the space between header and footer and scrolls. |
+| `SheetFooter` | Tinted strip pinned to the bottom. |

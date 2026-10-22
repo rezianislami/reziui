@@ -26,11 +26,20 @@ describe("MobileNav", () => {
     expect(within(drawer).getByRole("link", { name: "Button" })).toHaveAttribute("aria-current", "page");
   });
 
+  it("slides in from the start edge, so it mirrors in right-to-left layouts", async () => {
+    render(<MobileNav tree={tree} links={links} />);
+    await userEvent.click(screen.getByRole("button", { name: "Open menu" }));
+
+    const sheet = screen.getByRole("dialog", { name: "Rezi UI" });
+    expect(sheet).toHaveAttribute("data-side", "start");
+    expect(sheet.className).not.toMatch(/(^|\s)left-0/);
+  });
+
   it("closes from the close button", async () => {
     render(<MobileNav tree={tree} links={links} />);
     await userEvent.click(screen.getByRole("button", { name: "Open menu" }));
 
-    await userEvent.click(screen.getByRole("button", { name: "Close menu" }));
+    await userEvent.click(screen.getByRole("button", { name: "Close" }));
 
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });

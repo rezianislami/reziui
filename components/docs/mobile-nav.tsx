@@ -3,9 +3,9 @@
 import { useState, type MouseEvent } from "react";
 import Link from "next/link";
 import type { Root } from "fumadocs-core/page-tree";
-import { MenuIcon, XIcon } from "lucide-react";
-import { Dialog } from "radix-ui";
+import { MenuIcon } from "lucide-react";
 import { Button } from "@/registry/reziui/ui/button";
+import { Sheet, SheetBody, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/registry/reziui/ui/sheet";
 import { Sidebar } from "./sidebar";
 
 type MobileNavProps = {
@@ -26,44 +26,33 @@ export function MobileNav({ tree, links, newUrls }: MobileNavProps) {
   }
 
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger asChild>
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
         <Button variant="ghost" size="icon" aria-label="Open menu" className="md:hidden">
           <MenuIcon />
         </Button>
-      </Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/35 md:hidden" />
-        <Dialog.Content
-          aria-describedby={undefined}
-          onClick={closeOnLinkClick}
-          className="fixed inset-y-0 left-0 z-50 flex w-76 max-w-[85vw] flex-col bg-background shadow-2xl ring ring-border md:hidden"
-        >
-          <div className="flex h-14 shrink-0 items-center border-b border-(--hairline) pr-2 pl-4">
-            <Dialog.Title className="text-[15px] font-semibold tracking-tight whitespace-nowrap">Rezi UI</Dialog.Title>
-            <Dialog.Close asChild>
-              <Button variant="ghost" size="icon" aria-label="Close menu" className="ml-auto">
-                <XIcon />
-              </Button>
-            </Dialog.Close>
-          </div>
-          <div className="flex-1 overflow-y-auto px-4 py-5">
-            <nav aria-label="Main" className="flex flex-col gap-0.5">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="flex h-10 items-center rounded-lg px-3 text-[15px] text-foreground hover:bg-accent"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="my-5 h-px bg-(--hairline)" />
-            <Sidebar tree={tree} newUrls={newUrls} />
-          </div>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+      </SheetTrigger>
+      {/* The registry Sheet from the start edge, so it mirrors in RTL. */}
+      <SheetContent side="start" aria-describedby={undefined} onClick={closeOnLinkClick}>
+        <SheetHeader>
+          <SheetTitle className="whitespace-nowrap">Rezi UI</SheetTitle>
+        </SheetHeader>
+        <SheetBody className="px-4">
+          <nav aria-label="Main" className="flex flex-col gap-0.5">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex h-10 items-center rounded-lg px-3 text-[15px] text-foreground hover:bg-accent"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="my-5 h-px bg-(--hairline)" />
+          <Sidebar tree={tree} newUrls={newUrls} />
+        </SheetBody>
+      </SheetContent>
+    </Sheet>
   );
 }

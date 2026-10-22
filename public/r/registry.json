@@ -331,6 +331,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Panel that slides in from the start or end edge, laid out like Dialog, built on Radix Dialog.",
+      "dependencies": ["radix-ui", "lucide-react", "tw-animate-css"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

@@ -30,6 +30,8 @@ import PopoverDemo from "./popover-demo";
 import RadioGroupDemo from "./radio-group-demo";
 import SelectDemo from "./select-demo";
 import SelectStates from "./select-states";
+import SheetDemo from "./sheet-demo";
+import SheetNavigation from "./sheet-navigation";
 import SwitchDemo from "./switch-demo";
 import SwitchStates from "./switch-states";
 import TabsDemo from "./tabs-demo";
@@ -85,4 +87,6 @@ export const examples: Record<string, Example> = {
   "select-demo": { component: SelectDemo, file: "registry/reziui/examples/select-demo.tsx" },
   "select-states": { component: SelectStates, file: "registry/reziui/examples/select-states.tsx" },
   "textarea-demo": { component: TextareaDemo, file: "registry/reziui/examples/textarea-demo.tsx" },
+  "sheet-demo": { component: SheetDemo, file: "registry/reziui/examples/sheet-demo.tsx" },
+  "sheet-navigation": { component: SheetNavigation, file: "registry/reziui/examples/sheet-navigation.tsx" },
 };
