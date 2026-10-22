@@ -9483,7 +9483,7 @@
       "type": "frame",
       "id": "h4uLiT",
       "x": 0,
-      "y": 10584,
+      "y": 11850,
       "name": "Rezi UI / Docs — Button page (Light)",
       "theme": {
         "mode": "light"
@@ -9962,6 +9962,22 @@
                       "descendants": {
                         "md4OP": {
                           "content": "Checkbox",
+                          "fill": "$muted-foreground"
+                        },
+                        "qyZxR": {
+                          "enabled": true
+                        }
+                      }
+                    },
+                    {
+                      "id": "z5LL0",
+                      "type": "ref",
+                      "ref": "qYhi2",
+                      "name": "Item Dialog",
+                      "width": "fill_container",
+                      "descendants": {
+                        "md4OP": {
+                          "content": "Dialog",
                           "fill": "$muted-foreground"
                         },
                         "qyZxR": {
@@ -11609,7 +11625,7 @@
       "type": "frame",
       "id": "MXfQP",
       "x": 1520,
-      "y": 10584,
+      "y": 11850,
       "name": "Rezi UI / Docs — Button page (Dark)",
       "theme": {
         "mode": "dark"
@@ -12088,6 +12104,22 @@
                       "descendants": {
                         "md4OP": {
                           "content": "Checkbox",
+                          "fill": "$muted-foreground"
+                        },
+                        "qyZxR": {
+                          "enabled": true
+                        }
+                      }
+                    },
+                    {
+                      "id": "NkZZe",
+                      "type": "ref",
+                      "ref": "qYhi2",
+                      "name": "Item Dialog",
+                      "width": "fill_container",
+                      "descendants": {
+                        "md4OP": {
+                          "content": "Dialog",
                           "fill": "$muted-foreground"
                         },
                         "qyZxR": {
@@ -13735,7 +13767,7 @@
       "type": "frame",
       "id": "q1JelF",
       "x": 0,
-      "y": 13466,
+      "y": 14732,
       "name": "Rezi UI / Docs — Search ⌘K (Light)",
       "theme": {
         "mode": "light"
@@ -13768,30 +13800,31 @@
           "name": "Dialog",
           "clip": true,
           "width": 560,
-          "fill": "$card",
+          "fill": "$popover",
           "cornerRadius": 16,
           "stroke": "$border",
           "strokeWidth": 1,
+          "strokeAlignment": "outer",
           "effect": [
             {
               "type": "shadow",
               "shadowType": "outer",
-              "color": "#00000033",
+              "color": "$overlay-shadow-lg",
               "offset": {
                 "x": 0,
-                "y": 24
+                "y": 8
               },
-              "blur": 48
+              "blur": 24
             },
             {
               "type": "shadow",
               "shadowType": "outer",
-              "color": "$shadow-xs",
+              "color": "$overlay-shadow-sm",
               "offset": {
                 "x": 0,
-                "y": 1
+                "y": 2
               },
-              "blur": 2
+              "blur": 6
             }
           ],
           "layout": "vertical",
@@ -14282,7 +14315,7 @@
       "type": "frame",
       "id": "nwd32",
       "x": 980,
-      "y": 13466,
+      "y": 14732,
       "name": "Rezi UI / Docs — Search ⌘K (Dark)",
       "theme": {
         "mode": "dark"
@@ -14315,30 +14348,31 @@
           "name": "Dialog",
           "clip": true,
           "width": 560,
-          "fill": "$card",
+          "fill": "$popover",
           "cornerRadius": 16,
           "stroke": "$border",
           "strokeWidth": 1,
+          "strokeAlignment": "outer",
           "effect": [
             {
               "type": "shadow",
               "shadowType": "outer",
-              "color": "#00000033",
+              "color": "$overlay-shadow-lg",
               "offset": {
                 "x": 0,
-                "y": 24
+                "y": 8
               },
-              "blur": 48
+              "blur": 24
             },
             {
               "type": "shadow",
               "shadowType": "outer",
-              "color": "$shadow-xs",
+              "color": "$overlay-shadow-sm",
               "offset": {
                 "x": 0,
-                "y": 1
+                "y": 2
               },
-              "blur": 2
+              "blur": 6
             }
           ],
           "layout": "vertical",
@@ -14829,7 +14863,7 @@
       "type": "frame",
       "id": "ILeOa",
       "x": 0,
-      "y": 14206,
+      "y": 15472,
       "name": "Rezi UI / Docs — Mobile (Light)",
       "theme": {
         "mode": "light"
@@ -15213,7 +15247,7 @@
       "type": "frame",
       "id": "liAYO",
       "x": 470,
-      "y": 14206,
+      "y": 15472,
       "name": "Rezi UI / Docs — Mobile drawer (Light)",
       "theme": {
         "mode": "light"
@@ -15981,6 +16015,22 @@
                       }
                     },
                     {
+                      "id": "j761zq",
+                      "type": "ref",
+                      "ref": "qYhi2",
+                      "name": "Item Dialog",
+                      "width": "fill_container",
+                      "descendants": {
+                        "md4OP": {
+                          "content": "Dialog",
+                          "fill": "$muted-foreground"
+                        },
+                        "qyZxR": {
+                          "enabled": true
+                        }
+                      }
+                    },
+                    {
                       "id": "HCz30",
                       "type": "ref",
                       "ref": "qYhi2",
@@ -16104,7 +16154,7 @@
       "type": "frame",
       "id": "cdpSX",
       "x": 940,
-      "y": 14206,
+      "y": 15472,
       "name": "Rezi UI / Docs — Mobile (Dark)",
       "theme": {
         "mode": "dark"
@@ -16488,7 +16538,7 @@
       "type": "frame",
       "id": "b38uA",
       "x": 1410,
-      "y": 14206,
+      "y": 15472,
       "name": "Rezi UI / Docs — Mobile drawer (Dark)",
       "theme": {
         "mode": "dark"
@@ -17248,6 +17298,22 @@
                       "descendants": {
                         "md4OP": {
                           "content": "Checkbox",
+                          "fill": "$muted-foreground"
+                        },
+                        "qyZxR": {
+                          "enabled": true
+                        }
+                      }
+                    },
+                    {
+                      "id": "YfLpL",
+                      "type": "ref",
+                      "ref": "qYhi2",
+                      "name": "Item Dialog",
+                      "width": "fill_container",
+                      "descendants": {
+                        "md4OP": {
+                          "content": "Dialog",
                           "fill": "$muted-foreground"
                         },
                         "qyZxR": {
@@ -21267,6 +21333,7 @@
               "reusable": true,
               "fill": "$foreground",
               "content": "Project name",
+              "lineHeight": 1.5385,
               "fontFamily": "$font-sans",
               "fontSize": 13,
               "fontWeight": "500"
@@ -21742,6 +21809,7 @@
                   "name": "Card title",
                   "fill": "$foreground",
                   "content": "Create project",
+                  "lineHeight": 1.375,
                   "fontFamily": "$font-sans",
                   "fontSize": 16,
                   "fontWeight": "600",
@@ -21807,6 +21875,8 @@
               },
               "gap": 8,
               "padding": [
+                15,
+                20,
                 14,
                 20
               ],
@@ -25075,7 +25145,7 @@
       "type": "frame",
       "id": "Eypjo",
       "x": 0,
-      "y": 10434,
+      "y": 11700,
       "name": "Section 04 · Docs site",
       "theme": {
         "mode": "light"
@@ -27490,7 +27560,7 @@
       "type": "frame",
       "id": "GNjt1",
       "x": 1960,
-      "y": 13466,
+      "y": 14732,
       "name": "Rezi UI / Docs — Search ⌘K empty (Light)",
       "theme": {
         "mode": "light"
@@ -27523,30 +27593,31 @@
           "name": "Dialog",
           "clip": true,
           "width": 560,
-          "fill": "$card",
+          "fill": "$popover",
           "cornerRadius": 16,
           "stroke": "$border",
           "strokeWidth": 1,
+          "strokeAlignment": "outer",
           "effect": [
             {
               "type": "shadow",
               "shadowType": "outer",
-              "color": "#00000033",
+              "color": "$overlay-shadow-lg",
               "offset": {
                 "x": 0,
-                "y": 24
+                "y": 8
               },
-              "blur": 48
+              "blur": 24
             },
             {
               "type": "shadow",
               "shadowType": "outer",
-              "color": "$shadow-xs",
+              "color": "$overlay-shadow-sm",
               "offset": {
                 "x": 0,
-                "y": 1
+                "y": 2
               },
-              "blur": 2
+              "blur": 6
             }
           ],
           "layout": "vertical",
@@ -28094,6 +28165,82 @@
                     {
                       "type": "text",
                       "id": "tCnpg",
+                      "name": "Context",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "textAlign": "right",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "T59GJU",
+                  "name": "Result Dialog",
+                  "width": "fill_container",
+                  "height": 36,
+                  "cornerRadius": "$radius-md",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "s5XQD",
+                      "name": "Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "file-text",
+                      "library": "lucide",
+                      "fill": "$muted-foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "l5bFr3",
+                      "name": "Title row",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bhS2U",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Dialog",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "id": "iIFZG",
+                          "type": "ref",
+                          "ref": "jxNGX",
+                          "name": "New",
+                          "height": 18,
+                          "padding": [
+                            0,
+                            6,
+                            1,
+                            6
+                          ],
+                          "descendants": {
+                            "iDkXW": {
+                              "content": "New",
+                              "fontSize": 11
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "X2oLy",
                       "name": "Context",
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
@@ -28700,7 +28847,7 @@
       "type": "frame",
       "id": "cDncK",
       "x": 2940,
-      "y": 13466,
+      "y": 14732,
       "name": "Rezi UI / Docs — Search ⌘K empty (Dark)",
       "theme": {
         "mode": "dark"
@@ -28733,30 +28880,31 @@
           "name": "Dialog",
           "clip": true,
           "width": 560,
-          "fill": "$card",
+          "fill": "$popover",
           "cornerRadius": 16,
           "stroke": "$border",
           "strokeWidth": 1,
+          "strokeAlignment": "outer",
           "effect": [
             {
               "type": "shadow",
               "shadowType": "outer",
-              "color": "#00000033",
+              "color": "$overlay-shadow-lg",
               "offset": {
                 "x": 0,
-                "y": 24
+                "y": 8
               },
-              "blur": 48
+              "blur": 24
             },
             {
               "type": "shadow",
               "shadowType": "outer",
-              "color": "$shadow-xs",
+              "color": "$overlay-shadow-sm",
               "offset": {
                 "x": 0,
-                "y": 1
+                "y": 2
               },
-              "blur": 2
+              "blur": 6
             }
           ],
           "layout": "vertical",
@@ -29304,6 +29452,82 @@
                     {
                       "type": "text",
                       "id": "Kc8S6",
+                      "name": "Context",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "textAlign": "right",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cwyYe",
+                  "name": "Result Dialog",
+                  "width": "fill_container",
+                  "height": 36,
+                  "cornerRadius": "$radius-md",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "XnGNv",
+                      "name": "Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "file-text",
+                      "library": "lucide",
+                      "fill": "$muted-foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "F3a1I",
+                      "name": "Title row",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "u3v7DQ",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Dialog",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "id": "Sd9TB",
+                          "type": "ref",
+                          "ref": "jxNGX",
+                          "name": "New",
+                          "height": 18,
+                          "padding": [
+                            0,
+                            6,
+                            1,
+                            6
+                          ],
+                          "descendants": {
+                            "iDkXW": {
+                              "content": "New",
+                              "fontSize": 11
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "s5lVE",
                       "name": "Context",
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
@@ -32115,6 +32339,952 @@
                           }
                         }
                       ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "IUMJw",
+      "x": 0,
+      "y": 10291,
+      "name": "Rezi UI / Dialog — Light",
+      "theme": {
+        "mode": "light"
+      },
+      "width": 1100,
+      "fill": "$background",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 56,
+      "children": [
+        {
+          "type": "frame",
+          "id": "eRDSi",
+          "name": "Heading",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 4,
+          "children": [
+            {
+              "type": "text",
+              "id": "Ds8Fy",
+              "name": "H",
+              "fill": "$foreground-strong",
+              "content": "Dialog",
+              "fontFamily": "$font-sans",
+              "fontSize": 22,
+              "fontWeight": "600",
+              "letterSpacing": -0.3
+            },
+            {
+              "type": "text",
+              "id": "hCbkg",
+              "name": "Sub",
+              "fill": "$muted-foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Modal window over a 40% black scrim. 448px wide (viewport − 32px on phones), radius 16, popover surface with a 1px border and the overlay shadow. Same anatomy as Card: 20px header with 16/600 title and 13px description, 20px content, footer on surface-elevated with a hairline top border. Scrim fades; the window fades and scales in from 96% (150ms), out in 100ms. Focus is trapped inside and returns to the trigger; Esc closes.",
+              "lineHeight": 1.5,
+              "fontFamily": "$font-sans",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "nNYtO",
+          "name": "Caption",
+          "fill": "$muted-foreground",
+          "content": "edit form · close button top-end",
+          "fontFamily": "$font-mono",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "hSd92",
+          "name": "Scene edit profile",
+          "clip": true,
+          "width": "fill_container",
+          "height": 400,
+          "fill": "$background",
+          "cornerRadius": 12,
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "W22QK",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "Scrim",
+              "fill": "#00000066",
+              "width": 988,
+              "height": 400
+            },
+            {
+              "type": "frame",
+              "id": "z1KDl",
+              "name": "Dialog edit profile",
+              "clip": true,
+              "width": 448,
+              "fill": "$popover",
+              "cornerRadius": 16,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "strokeAlignment": "outer",
+              "effect": [
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "$overlay-shadow-lg",
+                  "offset": {
+                    "x": 0,
+                    "y": 8
+                  },
+                  "blur": 24
+                },
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "$overlay-shadow-sm",
+                  "offset": {
+                    "x": 0,
+                    "y": 2
+                  },
+                  "blur": 6
+                }
+              ],
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DmYMI",
+                  "name": "Header",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    20,
+                    48,
+                    0,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "w9EkS",
+                      "name": "Title",
+                      "fill": "$foreground",
+                      "content": "Edit profile",
+                      "lineHeight": 1.375,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600",
+                      "letterSpacing": -0.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "BVkEN",
+                      "name": "Description",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Changes are visible to everyone on your team.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "CW71D",
+                  "name": "Content",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "W0GGqm",
+                      "name": "Field Name",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "id": "RetOs",
+                          "type": "ref",
+                          "ref": "rOzW7",
+                          "name": "Label",
+                          "content": "Name"
+                        },
+                        {
+                          "id": "nXXdh",
+                          "type": "ref",
+                          "ref": "RCSHY",
+                          "name": "Input",
+                          "width": "fill_container",
+                          "descendants": {
+                            "Nj5wl": {
+                              "content": "Rezi",
+                              "fill": "$foreground"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WdEje",
+                      "name": "Field Username",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "id": "bMJZc",
+                          "type": "ref",
+                          "ref": "rOzW7",
+                          "name": "Label",
+                          "content": "Username"
+                        },
+                        {
+                          "id": "Cyw8T",
+                          "type": "ref",
+                          "ref": "RCSHY",
+                          "name": "Input",
+                          "width": "fill_container",
+                          "descendants": {
+                            "Nj5wl": {
+                              "content": "@rezi",
+                              "fill": "$foreground"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZFFl6",
+                  "name": "Footer",
+                  "width": "fill_container",
+                  "fill": "$surface-elevated",
+                  "stroke": "$hairline",
+                  "strokeWidth": {
+                    "top": 1
+                  },
+                  "gap": 8,
+                  "padding": [
+                    15,
+                    20,
+                    14,
+                    20
+                  ],
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "X6Z8f",
+                      "type": "ref",
+                      "ref": "P2Nxa0",
+                      "name": "Cancel",
+                      "descendants": {
+                        "FhLig": {
+                          "content": "Cancel"
+                        }
+                      }
+                    },
+                    {
+                      "id": "HzByz",
+                      "type": "ref",
+                      "ref": "L6jxsy",
+                      "name": "Save",
+                      "descendants": {
+                        "w8o9Gg": {
+                          "content": "Save changes"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "CjqBl",
+                  "type": "ref",
+                  "ref": "asF0J",
+                  "name": "Close",
+                  "layoutPosition": "absolute",
+                  "x": 410,
+                  "y": 12,
+                  "width": 26,
+                  "height": 26,
+                  "padding": 0,
+                  "cornerRadius": "$radius-full",
+                  "descendants": {
+                    "r1urX": {
+                      "enabled": true,
+                      "icon": "x",
+                      "width": 14,
+                      "height": 14
+                    },
+                    "cOHvz": {
+                      "enabled": false
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "bAWjb",
+          "name": "Caption",
+          "fill": "$muted-foreground",
+          "content": "confirm · destructive · no close button",
+          "fontFamily": "$font-mono",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "XyNp1",
+          "name": "Scene delete",
+          "clip": true,
+          "width": "fill_container",
+          "height": 400,
+          "fill": "$background",
+          "cornerRadius": 12,
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "LFcmD",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "Scrim",
+              "fill": "#00000066",
+              "width": 988,
+              "height": 400
+            },
+            {
+              "type": "frame",
+              "id": "wKWzc",
+              "name": "Dialog delete",
+              "clip": true,
+              "width": 448,
+              "fill": "$popover",
+              "cornerRadius": 16,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "strokeAlignment": "outer",
+              "effect": [
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "$overlay-shadow-lg",
+                  "offset": {
+                    "x": 0,
+                    "y": 8
+                  },
+                  "blur": 24
+                },
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "$overlay-shadow-sm",
+                  "offset": {
+                    "x": 0,
+                    "y": 2
+                  },
+                  "blur": 6
+                }
+              ],
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Gn1na",
+                  "name": "Header",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    20,
+                    20,
+                    0,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YNUa2",
+                      "name": "Title",
+                      "fill": "$foreground",
+                      "content": "Delete project?",
+                      "lineHeight": 1.375,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600",
+                      "letterSpacing": -0.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "SXHiR",
+                      "name": "Description",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "“Rezi UI Docs” and its 12 deployments will be deleted permanently. This can’t be undone.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "UcuyP",
+                  "name": "Gap",
+                  "width": "fill_container",
+                  "height": 20
+                },
+                {
+                  "type": "frame",
+                  "id": "TXK5D",
+                  "name": "Footer",
+                  "width": "fill_container",
+                  "fill": "$surface-elevated",
+                  "stroke": "$hairline",
+                  "strokeWidth": {
+                    "top": 1
+                  },
+                  "gap": 8,
+                  "padding": [
+                    15,
+                    20,
+                    14,
+                    20
+                  ],
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "g13VZ",
+                      "type": "ref",
+                      "ref": "P2Nxa0",
+                      "name": "Cancel",
+                      "descendants": {
+                        "FhLig": {
+                          "content": "Cancel"
+                        }
+                      }
+                    },
+                    {
+                      "id": "K3Bb4",
+                      "type": "ref",
+                      "ref": "rOnQD",
+                      "name": "Delete",
+                      "descendants": {
+                        "bVbeR": {
+                          "content": "Delete project"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "LOaXs",
+      "x": 1180,
+      "y": 10291,
+      "name": "Rezi UI / Dialog — Dark",
+      "theme": {
+        "mode": "dark"
+      },
+      "width": 1100,
+      "fill": "$background",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 56,
+      "children": [
+        {
+          "type": "frame",
+          "id": "HrbY0",
+          "name": "Heading",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 4,
+          "children": [
+            {
+              "type": "text",
+              "id": "ILQGF",
+              "name": "H",
+              "fill": "$foreground-strong",
+              "content": "Dialog",
+              "fontFamily": "$font-sans",
+              "fontSize": 22,
+              "fontWeight": "600",
+              "letterSpacing": -0.3
+            },
+            {
+              "type": "text",
+              "id": "Ujj5e",
+              "name": "Sub",
+              "fill": "$muted-foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Modal window over a 40% black scrim. 448px wide (viewport − 32px on phones), radius 16, popover surface with a 1px border and the overlay shadow. Same anatomy as Card: 20px header with 16/600 title and 13px description, 20px content, footer on surface-elevated with a hairline top border. Scrim fades; the window fades and scales in from 96% (150ms), out in 100ms. Focus is trapped inside and returns to the trigger; Esc closes.",
+              "lineHeight": 1.5,
+              "fontFamily": "$font-sans",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "xjQW4",
+          "name": "Caption",
+          "fill": "$muted-foreground",
+          "content": "edit form · close button top-end",
+          "fontFamily": "$font-mono",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "r6WWkX",
+          "name": "Scene edit profile",
+          "clip": true,
+          "width": "fill_container",
+          "height": 400,
+          "fill": "$background",
+          "cornerRadius": 12,
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "jzWrR",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "Scrim",
+              "fill": "#00000066",
+              "width": 988,
+              "height": 400
+            },
+            {
+              "type": "frame",
+              "id": "Hsq2J",
+              "name": "Dialog edit profile",
+              "clip": true,
+              "width": 448,
+              "fill": "$popover",
+              "cornerRadius": 16,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "strokeAlignment": "outer",
+              "effect": [
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "$overlay-shadow-lg",
+                  "offset": {
+                    "x": 0,
+                    "y": 8
+                  },
+                  "blur": 24
+                },
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "$overlay-shadow-sm",
+                  "offset": {
+                    "x": 0,
+                    "y": 2
+                  },
+                  "blur": 6
+                }
+              ],
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HyIx6",
+                  "name": "Header",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    20,
+                    48,
+                    0,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "iNRwN",
+                      "name": "Title",
+                      "fill": "$foreground",
+                      "content": "Edit profile",
+                      "lineHeight": 1.375,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600",
+                      "letterSpacing": -0.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "msgWg",
+                      "name": "Description",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Changes are visible to everyone on your team.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "k6yY0L",
+                  "name": "Content",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "EXrMb",
+                      "name": "Field Name",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "id": "WxfNm",
+                          "type": "ref",
+                          "ref": "rOzW7",
+                          "name": "Label",
+                          "content": "Name"
+                        },
+                        {
+                          "id": "ClpPZ",
+                          "type": "ref",
+                          "ref": "RCSHY",
+                          "name": "Input",
+                          "width": "fill_container",
+                          "descendants": {
+                            "Nj5wl": {
+                              "content": "Rezi",
+                              "fill": "$foreground"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dWZHi",
+                      "name": "Field Username",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "id": "ZC8lD",
+                          "type": "ref",
+                          "ref": "rOzW7",
+                          "name": "Label",
+                          "content": "Username"
+                        },
+                        {
+                          "id": "G3TxRc",
+                          "type": "ref",
+                          "ref": "RCSHY",
+                          "name": "Input",
+                          "width": "fill_container",
+                          "descendants": {
+                            "Nj5wl": {
+                              "content": "@rezi",
+                              "fill": "$foreground"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "v0igO",
+                  "name": "Footer",
+                  "width": "fill_container",
+                  "fill": "$surface-elevated",
+                  "stroke": "$hairline",
+                  "strokeWidth": {
+                    "top": 1
+                  },
+                  "gap": 8,
+                  "padding": [
+                    15,
+                    20,
+                    14,
+                    20
+                  ],
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "R34FZE",
+                      "type": "ref",
+                      "ref": "P2Nxa0",
+                      "name": "Cancel",
+                      "descendants": {
+                        "FhLig": {
+                          "content": "Cancel"
+                        }
+                      }
+                    },
+                    {
+                      "id": "g1CZQ",
+                      "type": "ref",
+                      "ref": "L6jxsy",
+                      "name": "Save",
+                      "descendants": {
+                        "w8o9Gg": {
+                          "content": "Save changes"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "Txu1P",
+                  "type": "ref",
+                  "ref": "asF0J",
+                  "name": "Close",
+                  "layoutPosition": "absolute",
+                  "x": 410,
+                  "y": 12,
+                  "width": 26,
+                  "height": 26,
+                  "padding": 0,
+                  "cornerRadius": "$radius-full",
+                  "descendants": {
+                    "r1urX": {
+                      "enabled": true,
+                      "icon": "x",
+                      "width": 14,
+                      "height": 14
+                    },
+                    "cOHvz": {
+                      "enabled": false
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "VW6KS",
+          "name": "Caption",
+          "fill": "$muted-foreground",
+          "content": "confirm · destructive · no close button",
+          "fontFamily": "$font-mono",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "P88S4",
+          "name": "Scene delete",
+          "clip": true,
+          "width": "fill_container",
+          "height": 400,
+          "fill": "$background",
+          "cornerRadius": 12,
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "Q4pN0t",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "Scrim",
+              "fill": "#00000066",
+              "width": 988,
+              "height": 400
+            },
+            {
+              "type": "frame",
+              "id": "yWWEe",
+              "name": "Dialog delete",
+              "clip": true,
+              "width": 448,
+              "fill": "$popover",
+              "cornerRadius": 16,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "strokeAlignment": "outer",
+              "effect": [
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "$overlay-shadow-lg",
+                  "offset": {
+                    "x": 0,
+                    "y": 8
+                  },
+                  "blur": 24
+                },
+                {
+                  "type": "shadow",
+                  "shadowType": "outer",
+                  "color": "$overlay-shadow-sm",
+                  "offset": {
+                    "x": 0,
+                    "y": 2
+                  },
+                  "blur": 6
+                }
+              ],
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jez16",
+                  "name": "Header",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    20,
+                    20,
+                    0,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Pgdyb",
+                      "name": "Title",
+                      "fill": "$foreground",
+                      "content": "Delete project?",
+                      "lineHeight": 1.375,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600",
+                      "letterSpacing": -0.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "BHVZg",
+                      "name": "Description",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "“Rezi UI Docs” and its 12 deployments will be deleted permanently. This can’t be undone.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bT97X",
+                  "name": "Gap",
+                  "width": "fill_container",
+                  "height": 20
+                },
+                {
+                  "type": "frame",
+                  "id": "ZNNO6",
+                  "name": "Footer",
+                  "width": "fill_container",
+                  "fill": "$surface-elevated",
+                  "stroke": "$hairline",
+                  "strokeWidth": {
+                    "top": 1
+                  },
+                  "gap": 8,
+                  "padding": [
+                    15,
+                    20,
+                    14,
+                    20
+                  ],
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "X1164",
+                      "type": "ref",
+                      "ref": "P2Nxa0",
+                      "name": "Cancel",
+                      "descendants": {
+                        "FhLig": {
+                          "content": "Cancel"
+                        }
+                      }
+                    },
+                    {
+                      "id": "JNaz8",
+                      "type": "ref",
+                      "ref": "rOnQD",
+                      "name": "Delete",
+                      "descendants": {
+                        "bVbeR": {
+                          "content": "Delete project"
+                        }
+                      }
                     }
                   ]
                 }

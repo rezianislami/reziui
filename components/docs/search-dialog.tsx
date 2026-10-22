@@ -4,11 +4,11 @@ import { useEffect, useMemo, useState, type KeyboardEvent as ReactKeyboardEvent 
 import { useRouter } from "next/navigation";
 import { useFetchSearch, type SearchResultItem } from "fumadocs-core/search/client";
 import { CornerDownLeftIcon, FileTextIcon, HashIcon, SearchIcon } from "lucide-react";
-import { Dialog } from "radix-ui";
 import type { BrowseGroup } from "@/lib/docs-index";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/registry/reziui/ui/badge";
 import { Button } from "@/registry/reziui/ui/button";
+import { Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from "@/registry/reziui/ui/dialog";
 import { Kbd, KbdGroup } from "@/registry/reziui/ui/kbd";
 
 export type SearchHit = {
@@ -158,8 +158,8 @@ export function SearchDialog({ pageTitles, browse = NONE, newUrls = NONE }: Sear
   }, [activeId]);
 
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger className="hidden h-8.5 w-65 cursor-pointer items-center gap-2 rounded-full bg-card ps-3 pe-1.5 text-[13px] text-muted-foreground ring ring-border transition-colors outline-hidden hover:text-foreground focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring md:flex">
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger className="hidden h-8.5 w-65 cursor-pointer items-center gap-2 rounded-full bg-card ps-3 pe-1.5 text-[13px] text-muted-foreground ring ring-border transition-colors outline-hidden hover:text-foreground focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring md:flex">
         <SearchIcon className="size-3.5" aria-hidden="true" />
         Search docs…
         {/* The keys echo the real shortcut: they press down while ⌘/Ctrl and K are held. */}
@@ -167,117 +167,118 @@ export function SearchDialog({ pageTitles, browse = NONE, newUrls = NONE }: Sear
           <Kbd pressed={pressed.mod}>⌘</Kbd>
           <Kbd pressed={pressed.k}>K</Kbd>
         </KbdGroup>
-      </Dialog.Trigger>
-      <Dialog.Trigger asChild>
+      </DialogTrigger>
+      <DialogTrigger asChild>
         <Button variant="ghost" size="icon" aria-label="Search docs" className="md:hidden">
           <SearchIcon />
         </Button>
-      </Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/40" />
-        <Dialog.Content
-          aria-describedby={undefined}
-          className="fixed top-[12vh] left-1/2 z-50 w-[min(560px,calc(100vw-2rem))] -translate-x-1/2 overflow-hidden rounded-2xl bg-card text-foreground shadow-2xl ring ring-border"
-        >
-          <Dialog.Title className="sr-only">Search documentation</Dialog.Title>
-          <div className="flex h-13 items-center gap-2.5 border-b border-(--hairline) pr-3 pl-4">
-            <SearchIcon className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
-            <input
-              autoFocus
-              value={search}
-              onChange={(event) => changeQuery(event.target.value)}
-              onKeyDown={onInputKeyDown}
-              placeholder="Search docs…"
-              aria-label="Search docs"
-              role="combobox"
-              aria-expanded={hits.length > 0}
-              aria-controls="search-results"
-              aria-activedescendant={activeId ? `search-hit-${activeId}` : undefined}
-              className="h-full flex-1 bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
-            />
-            <Dialog.Close asChild>
-              <Kbd className="cursor-pointer">esc</Kbd>
-            </Dialog.Close>
-          </div>
+      </DialogTrigger>
+      {/* The registry Dialog, placed near the top like a command palette
+          rather than centred, wider, and without its own scroll: the results
+          list scrolls inside. The esc key in the input row replaces the ×. */}
+      <DialogContent
+        aria-describedby={undefined}
+        showCloseButton={false}
+        className="top-[12vh] max-h-none max-w-140 translate-y-0 overflow-hidden"
+      >
+        <DialogTitle className="sr-only">Search documentation</DialogTitle>
+        <div className="flex h-13 items-center gap-2.5 border-b border-(--hairline) pr-3 pl-4">
+          <SearchIcon className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+          <input
+            autoFocus
+            value={search}
+            onChange={(event) => changeQuery(event.target.value)}
+            onKeyDown={onInputKeyDown}
+            placeholder="Search docs…"
+            aria-label="Search docs"
+            role="combobox"
+            aria-expanded={hits.length > 0}
+            aria-controls="search-results"
+            aria-activedescendant={activeId ? `search-hit-${activeId}` : undefined}
+            className="h-full flex-1 bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
+          />
+          <DialogClose asChild>
+            <Kbd className="cursor-pointer">esc</Kbd>
+          </DialogClose>
+        </div>
 
-          <div id="search-results" role="listbox" aria-label="Results" aria-busy={isLoading} className="max-h-[min(360px,60vh)] overflow-y-auto p-2">
-            {error && (
-              <p role="alert" className="px-3 py-8 text-center text-sm text-muted-foreground">
-                Search is unavailable right now. Try again in a moment.
-              </p>
-            )}
-            {!error && search.length > 0 && hits.length === 0 && !isLoading && (
-              <p className="px-3 py-8 text-center text-sm text-muted-foreground">No results for “{search}”.</p>
-            )}
-            {groups.map((group) => (
-              <div key={group.label} role="group" aria-label={group.label}>
-                <p className="px-2.5 pt-2 pb-1 text-[11px] font-medium tracking-wide text-muted-foreground">{group.label}</p>
-                {group.hits.map((hit) => {
-                  const selected = hit.id === activeId;
-                  const Icon = hit.type === "page" ? FileTextIcon : HashIcon;
-                  return (
-                    <div
-                      key={hit.id}
-                      id={`search-hit-${hit.id}`}
-                      role="option"
-                      aria-selected={selected}
-                      onMouseMove={() => {
-                        setActive(hits.indexOf(hit));
-                        setKeyboardNav(false);
-                      }}
-                      onClick={() => go(hit)}
-                      // One line per hit: the title leads, and the context (the page a
-                      // heading belongs to) sits muted at the end. The title is capped
-                      // so the context truncates first and the title stays readable.
-                      // The accent fill is under 3:1 against the dialog: enough for
-                      // pointer feedback, too faint to follow with the keyboard, so
-                      // arrow-key selection adds an inset ring.
-                      className={cn(
-                        "flex h-9 cursor-pointer items-center gap-2.5 rounded-lg px-2.5",
-                        selected && "bg-accent",
-                        selected && keyboardNav && "outline-2 outline-solid -outline-offset-2 outline-ring",
-                      )}
-                    >
-                      <Icon
-                        className={cn("size-4 shrink-0", selected ? "text-foreground" : "text-muted-foreground")}
-                        aria-hidden="true"
-                      />
-                      <span className="flex max-w-[70%] min-w-0 shrink-0 items-center gap-1.5">
-                        <span className={cn("truncate text-sm", selected ? "font-medium text-foreground" : "text-foreground/90")}>
-                          {hit.title}
-                        </span>
-                        {hit.type === "page" && newSet.has(hit.url) && (
-                          <>
-                            <span className="sr-only">, new</span>
-                            <Badge size="sm" aria-hidden="true" className="shrink-0">
-                              New
-                            </Badge>
-                          </>
-                        )}
+        <div id="search-results" role="listbox" aria-label="Results" aria-busy={isLoading} className="max-h-[min(360px,60vh)] overflow-y-auto p-2">
+          {error && (
+            <p role="alert" className="px-3 py-8 text-center text-sm text-muted-foreground">
+              Search is unavailable right now. Try again in a moment.
+            </p>
+          )}
+          {!error && search.length > 0 && hits.length === 0 && !isLoading && (
+            <p className="px-3 py-8 text-center text-sm text-muted-foreground">No results for “{search}”.</p>
+          )}
+          {groups.map((group) => (
+            <div key={group.label} role="group" aria-label={group.label}>
+              <p className="px-2.5 pt-2 pb-1 text-[11px] font-medium tracking-wide text-muted-foreground">{group.label}</p>
+              {group.hits.map((hit) => {
+                const selected = hit.id === activeId;
+                const Icon = hit.type === "page" ? FileTextIcon : HashIcon;
+                return (
+                  <div
+                    key={hit.id}
+                    id={`search-hit-${hit.id}`}
+                    role="option"
+                    aria-selected={selected}
+                    onMouseMove={() => {
+                      setActive(hits.indexOf(hit));
+                      setKeyboardNav(false);
+                    }}
+                    onClick={() => go(hit)}
+                    // One line per hit: the title leads, and the context (the page a
+                    // heading belongs to) sits muted at the end. The title is capped
+                    // so the context truncates first and the title stays readable.
+                    // The accent fill is under 3:1 against the dialog: enough for
+                    // pointer feedback, too faint to follow with the keyboard, so
+                    // arrow-key selection adds an inset ring.
+                    className={cn(
+                      "flex h-9 cursor-pointer items-center gap-2.5 rounded-lg px-2.5",
+                      selected && "bg-accent",
+                      selected && keyboardNav && "outline-2 outline-solid -outline-offset-2 outline-ring",
+                    )}
+                  >
+                    <Icon
+                      className={cn("size-4 shrink-0", selected ? "text-foreground" : "text-muted-foreground")}
+                      aria-hidden="true"
+                    />
+                    <span className="flex max-w-[70%] min-w-0 shrink-0 items-center gap-1.5">
+                      <span className={cn("truncate text-sm", selected ? "font-medium text-foreground" : "text-foreground/90")}>
+                        {hit.title}
                       </span>
-                      <span className="min-w-0 flex-1 truncate text-end text-xs text-muted-foreground">{hit.context}</span>
-                      {selected && <CornerDownLeftIcon className="size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />}
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
+                      {hit.type === "page" && newSet.has(hit.url) && (
+                        <>
+                          <span className="sr-only">, new</span>
+                          <Badge size="sm" aria-hidden="true" className="shrink-0">
+                            New
+                          </Badge>
+                        </>
+                      )}
+                    </span>
+                    <span className="min-w-0 flex-1 truncate text-end text-xs text-muted-foreground">{hit.context}</span>
+                    {selected && <CornerDownLeftIcon className="size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
 
-          <div className="hidden h-10 items-center gap-4 border-t border-(--hairline) bg-(--surface-elevated) px-4 text-xs text-muted-foreground sm:flex">
-            {[
-              ["↑↓", "navigate"],
-              ["↵", "open"],
-              ["esc", "close"],
-            ].map(([key, label]) => (
-              <span key={label} className="flex items-center gap-1.5">
-                <Kbd>{key}</Kbd>
-                {label}
-              </span>
-            ))}
-          </div>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+        <div className="hidden h-10 items-center gap-4 border-t border-(--hairline) bg-(--surface-elevated) px-4 text-xs text-muted-foreground sm:flex">
+          {[
+            ["↑↓", "navigate"],
+            ["↵", "open"],
+            ["esc", "close"],
+          ].map(([key, label]) => (
+            <span key={label} className="flex items-center gap-1.5">
+              <Kbd>{key}</Kbd>
+              {label}
+            </span>
+          ))}
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }

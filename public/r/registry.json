@@ -276,6 +276,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal window with header, body and footer, laid out like Card, built on Radix Dialog.",
+      "dependencies": ["radix-ui", "lucide-react", "tw-animate-css"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

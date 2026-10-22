@@ -1,0 +1,87 @@
+---
+title: Dialog
+description: Modal window with header, body and footer, laid out like Card, built on Radix Dialog.
+added: 2026-10-22
+---
+
+<ComponentPreview name="dialog-demo" />
+
+The scrim fades in while the window fades and scales up from 96% (150ms); both
+close in 100ms, and under reduced motion they appear at once. Focus moves
+inside, Tab stays there, and Escape or the × returns focus to the trigger.
+
+## Installation
+
+<InstallTabs name="dialog" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import {
+  Dialog,
+  DialogBody,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+export function Example() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="secondary">Edit profile</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>Changes are visible to everyone on your team.</DialogDescription>
+        </DialogHeader>
+        <DialogBody>…</DialogBody>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="secondary">Cancel</Button>
+          </DialogClose>
+          <Button>Save changes</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+The parts mirror [Card](/docs/components/card): the same header, 20px body and
+tinted footer, so a form can move between a card and a dialog unchanged.
+Always include a `DialogTitle`; it names the dialog for screen readers.
+
+## Examples
+
+### Confirmation
+
+<ComponentPreview name="dialog-confirm" size="sm" />
+
+Confirm a destructive action with a dialog that has no ×, so it is answered
+with one of its buttons, and pass `role="alertdialog"`. Name the action on the
+confirm button ("Delete project", not "OK") so the dialog can be answered
+without reading the description.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Tab` `Shift Tab` | Move between focusable elements, staying inside the dialog. |
+| `Esc` | Close and return focus to the trigger. |
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Dialog` | Radix `Dialog.Root`: `open`, `defaultOpen`, `onOpenChange`. |
+| `DialogTrigger` · `DialogClose` | Use `asChild` to wrap your own button. |
+| `DialogContent` | 448px wide, 16px from the edges on phones; scrolls when taller than the viewport. `showCloseButton` (default `true`). |
+| `DialogHeader` · `DialogTitle` · `DialogDescription` | Title 16/600, description 13px. |
+| `DialogBody` | 20px padding. |
+| `DialogFooter` | Right-aligned actions on a tinted strip. |

@@ -17,6 +17,8 @@ import CardStat from "./card-stat";
 import CheckboxDemo from "./checkbox-demo";
 import CheckboxSelectAll from "./checkbox-select-all";
 import CheckboxStates from "./checkbox-states";
+import DialogConfirm from "./dialog-confirm";
+import DialogDemo from "./dialog-demo";
 import DropdownMenuDemo from "./dropdown-menu-demo";
 import DropdownMenuOptions from "./dropdown-menu-options";
 import InputDemo from "./input-demo";
@@ -73,4 +75,6 @@ export const examples: Record<string, Example> = {
   "dropdown-menu-demo": { component: DropdownMenuDemo, file: "registry/reziui/examples/dropdown-menu-demo.tsx" },
   "dropdown-menu-options": { component: DropdownMenuOptions, file: "registry/reziui/examples/dropdown-menu-options.tsx" },
   "popover-demo": { component: PopoverDemo, file: "registry/reziui/examples/popover-demo.tsx" },
+  "dialog-confirm": { component: DialogConfirm, file: "registry/reziui/examples/dialog-confirm.tsx" },
+  "dialog-demo": { component: DialogDemo, file: "registry/reziui/examples/dialog-demo.tsx" },
 };
