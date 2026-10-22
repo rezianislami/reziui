@@ -1,0 +1,71 @@
+---
+title: Dropdown Menu
+description: Menu of actions and options with checkbox and radio items, built on Radix Dropdown Menu.
+added: 2026-10-22
+---
+
+<ComponentPreview name="dropdown-menu-demo" />
+
+Opens like the [Popover](/docs/components/popover) and shares its surface.
+Item highlight is instant: it changes on every pointer move, so an animation
+would only add lag.
+
+## Installation
+
+<InstallTabs name="dropdown-menu" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+export function Example() {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="secondary">Open</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem>Rename</DropdownMenuItem>
+        <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+```
+
+## Examples
+
+### Checkbox and radio items
+
+<ComponentPreview name="dropdown-menu-options" size="sm" />
+
+Text starts at the same 32px in every item, so icon, checkbox and radio items
+line up in one menu. Give icon-only triggers an `aria-label`.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Enter` `Space` `↓` | Open the menu from the trigger. |
+| `↑` `↓` | Move between items, skipping disabled ones. |
+| `Enter` `Space` | Select the highlighted item. |
+| `Esc` | Close and return focus to the trigger. |
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `DropdownMenuContent` | 208px minimum. `side`, `align`, `sideOffset` (default `6`). Scrolls when the viewport is short. |
+| `DropdownMenuItem` | `variant="default" \| "destructive"`, `disabled`, `onSelect`. |
+| `DropdownMenuCheckboxItem` | `checked`, `onCheckedChange`. |
+| `DropdownMenuRadioGroup` / `DropdownMenuRadioItem` | `value`, `onValueChange` on the group; `value` on each item. |
+| `DropdownMenuLabel` · `DropdownMenuSeparator` · `DropdownMenuGroup` | Structure. |
+| `DropdownMenuShortcut` | Trailing keyboard hint — display only, bind the shortcut yourself. |
+
+Submenus are not included yet.

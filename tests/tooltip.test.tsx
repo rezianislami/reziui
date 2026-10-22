@@ -1,17 +1,7 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/registry/reziui/ui/tooltip";
-
-// Radix measures the trigger and content with ResizeObserver, which jsdom
-// lacks.
-beforeAll(() => {
-  globalThis.ResizeObserver ??= class {
-    observe() {}
-    unobserve() {}
-    disconnect() {}
-  } as unknown as typeof ResizeObserver;
-});
 
 afterEach(() => {
   vi.useRealTimers();

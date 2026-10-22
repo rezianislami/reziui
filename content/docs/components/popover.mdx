@@ -1,0 +1,48 @@
+---
+title: Popover
+description: Floating panel for rich, interactive content anchored to a trigger, built on Radix Popover.
+added: 2026-10-22
+---
+
+<ComponentPreview name="popover-demo" />
+
+Fades and scales in from the trigger (150ms) and fades out in 100ms; under
+reduced motion it appears at once. Escape or a click outside closes it, and
+focus returns to the trigger.
+
+## Installation
+
+<InstallTabs name="popover" />
+
+The exit animation uses `tw-animate-css`, which `shadcn init` already imports
+into Tailwind v4 projects.
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+export function Example() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="secondary">Share</Button>
+      </PopoverTrigger>
+      <PopoverContent>…</PopoverContent>
+    </Popover>
+  );
+}
+```
+
+Use a popover for content the user interacts with — a form, a link to copy,
+settings. For a short label on hover, use a [Tooltip](/docs/components/tooltip);
+for a list of actions, use a [Dropdown Menu](/docs/components/dropdown-menu).
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Popover` | Radix `Popover.Root`: `open`, `defaultOpen`, `onOpenChange`, `modal`. |
+| `PopoverTrigger` | Use `asChild` to wrap your own button. |
+| `PopoverAnchor` | Positions the content against another element. |
+| `PopoverContent` | 288px wide, 16px padding. `side`, `align` (default `"center"`), `sideOffset` (default `6`). |

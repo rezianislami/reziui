@@ -79,6 +79,12 @@
    * cards and a white thumb (WCAG 1.4.11); --input/--border are too faint.
    */
   --control-off: oklch(0.62 0 0);
+  /*
+   * Floating surfaces (popover, menu). Two blurred layers, no spread, so the
+   * canvas can draw the same shadow. Dark mode needs far stronger alpha to
+   * read at all, and --popover is lifted above --card for the same reason.
+   */
+  --shadow-overlay: 0 8px 24px rgb(0 0 0 / 0.12), 0 2px 6px rgb(0 0 0 / 0.08);
   --link: oklch(0.424 0.199 265.638);
   --destructive-text: oklch(0.505 0.213 27.518);
   /*
@@ -135,7 +141,7 @@
   --foreground: oklch(0.97 0 0);
   --card: oklch(0.17 0 0);
   --card-foreground: oklch(0.97 0 0);
-  --popover: oklch(0.17 0 0);
+  --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.97 0 0);
   --primary: oklch(0.52 0.2 255);
   --primary-foreground: oklch(1 0 0);
@@ -152,6 +158,7 @@
   --surface-elevated: oklch(0.12 0 0);
   --hairline: oklch(0.269 0 0);
   --control-off: oklch(0.5 0 0);
+  --shadow-overlay: 0 8px 24px rgb(0 0 0 / 0.5), 0 2px 6px rgb(0 0 0 / 0.35);
   --link: oklch(0.707 0.165 254.624);
   --destructive-text: oklch(0.704 0.191 22.216);
   --success-tint: oklch(0.262 0.051 172.552);

@@ -11,3 +11,11 @@ afterEach(() => {
 // jsdom implements no layout, so Element#scrollIntoView is missing; components
 // that keep a selection in view call it unconditionally, as every browser has it.
 Element.prototype.scrollIntoView ??= () => {};
+
+// Radix measures popper content (popover, menu, tooltip) with ResizeObserver,
+// which jsdom lacks.
+globalThis.ResizeObserver ??= class {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+} as unknown as typeof ResizeObserver;

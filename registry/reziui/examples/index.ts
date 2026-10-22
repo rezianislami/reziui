@@ -17,11 +17,14 @@ import CardStat from "./card-stat";
 import CheckboxDemo from "./checkbox-demo";
 import CheckboxSelectAll from "./checkbox-select-all";
 import CheckboxStates from "./checkbox-states";
+import DropdownMenuDemo from "./dropdown-menu-demo";
+import DropdownMenuOptions from "./dropdown-menu-options";
 import InputDemo from "./input-demo";
 import InputSearch from "./input-search";
 import InputStates from "./input-states";
 import KbdDemo from "./kbd-demo";
 import KbdPressed from "./kbd-pressed";
+import PopoverDemo from "./popover-demo";
 import SwitchDemo from "./switch-demo";
 import SwitchStates from "./switch-states";
 import TabsDemo from "./tabs-demo";
@@ -67,4 +70,7 @@ export const examples: Record<string, Example> = {
   "switch-states": { component: SwitchStates, file: "registry/reziui/examples/switch-states.tsx" },
   "tooltip-demo": { component: TooltipDemo, file: "registry/reziui/examples/tooltip-demo.tsx" },
   "tooltip-toolbar": { component: TooltipToolbar, file: "registry/reziui/examples/tooltip-toolbar.tsx" },
+  "dropdown-menu-demo": { component: DropdownMenuDemo, file: "registry/reziui/examples/dropdown-menu-demo.tsx" },
+  "dropdown-menu-options": { component: DropdownMenuOptions, file: "registry/reziui/examples/dropdown-menu-options.tsx" },
+  "popover-demo": { component: PopoverDemo, file: "registry/reziui/examples/popover-demo.tsx" },
 };
