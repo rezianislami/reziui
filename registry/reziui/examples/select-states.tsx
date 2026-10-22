@@ -3,7 +3,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export default function SelectStates() {
   return (
-    <div className="grid w-full max-w-2xl gap-6 sm:grid-cols-2">
+    <div className="grid w-full max-w-2xl items-start gap-6 sm:grid-cols-2">
       <div className="grid gap-1.5">
         <Label htmlFor="region-invalid">Region</Label>
         <Select>
