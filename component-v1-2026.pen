@@ -30497,7 +30497,7 @@
                   "fill": "$muted-foreground",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Menu of actions or options. Content 208px min, 4px padding, radius 12; items 32px tall, radius 8 (concentric), 14px text, 16px icon. Text always starts at 32px, so icon, check and radio items line up. Highlight is instant (no transition) — it fires on every pointer move. Opens like the popover; separators inset 4px.",
+                  "content": "Menu of actions or options. Content 208px min, 4px padding, radius 12; items 32px tall, radius 8 (concentric), 14px text, 16px icon. Text always starts at 32px, so icon, check and radio items line up. Highlight is instant (no transition) — it fires on every pointer move. Keyboard focus adds a 2px inset ring, since the accent fill alone is under 3:1; search results use the same treatment. Opens like the popover; separators inset 4px.",
                   "fontFamily": "$font-sans",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -30606,10 +30606,40 @@
                               "enabled": false
                             },
                             "Er1zZ": {
-                              "content": "Highlighted"
+                              "content": "Pointer hover"
                             },
                             "Qjkdo": {
                               "enabled": true,
+                              "content": "⌘D"
+                            }
+                          }
+                        },
+                        {
+                          "id": "zlIKF",
+                          "type": "ref",
+                          "ref": "P41oFD",
+                          "name": "Item Keyboard focus",
+                          "stroke": "$primary",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "width": "fill_container",
+                          "fill": "$accent",
+                          "descendants": {
+                            "ug15Z": {
+                              "enabled": true,
+                              "icon": "keyboard"
+                            },
+                            "qAte9": {
+                              "enabled": false
+                            },
+                            "P5Qwsm": {
+                              "enabled": false
+                            },
+                            "Er1zZ": {
+                              "content": "Keyboard focus"
+                            },
+                            "Qjkdo": {
+                              "enabled": false,
                               "content": "⌘D"
                             }
                           }
@@ -31570,7 +31600,7 @@
                   "fill": "$muted-foreground",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Menu of actions or options. Content 208px min, 4px padding, radius 12; items 32px tall, radius 8 (concentric), 14px text, 16px icon. Text always starts at 32px, so icon, check and radio items line up. Highlight is instant (no transition) — it fires on every pointer move. Opens like the popover; separators inset 4px.",
+                  "content": "Menu of actions or options. Content 208px min, 4px padding, radius 12; items 32px tall, radius 8 (concentric), 14px text, 16px icon. Text always starts at 32px, so icon, check and radio items line up. Highlight is instant (no transition) — it fires on every pointer move. Keyboard focus adds a 2px inset ring, since the accent fill alone is under 3:1; search results use the same treatment. Opens like the popover; separators inset 4px.",
                   "fontFamily": "$font-sans",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -31679,10 +31709,40 @@
                               "enabled": false
                             },
                             "Er1zZ": {
-                              "content": "Highlighted"
+                              "content": "Pointer hover"
                             },
                             "Qjkdo": {
                               "enabled": true,
+                              "content": "⌘D"
+                            }
+                          }
+                        },
+                        {
+                          "id": "X00ab",
+                          "type": "ref",
+                          "ref": "P41oFD",
+                          "name": "Item Keyboard focus",
+                          "stroke": "$primary",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner",
+                          "width": "fill_container",
+                          "fill": "$accent",
+                          "descendants": {
+                            "ug15Z": {
+                              "enabled": true,
+                              "icon": "keyboard"
+                            },
+                            "qAte9": {
+                              "enabled": false
+                            },
+                            "P5Qwsm": {
+                              "enabled": false
+                            },
+                            "Er1zZ": {
+                              "content": "Keyboard focus"
+                            },
+                            "Qjkdo": {
+                              "enabled": false,
                               "content": "⌘D"
                             }
                           }

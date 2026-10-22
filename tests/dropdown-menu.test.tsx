@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import {
@@ -137,6 +137,47 @@ describe("DropdownMenu", () => {
     const item = screen.getByRole("menuitem", { name: "Rename" });
     expect(item).toHaveClass("data-highlighted:bg-accent", "forced-colors:data-highlighted:bg-[Highlight]");
     expect(item.className).not.toMatch(/transition/);
+  });
+
+  it("rings the highlighted item for keyboard users only, since the accent fill is under 3:1", async () => {
+    // Regression: the only highlight was bg-accent, 1.09:1 against the menu in
+    // light mode — too faint to follow with the keyboard. :focus-visible can't
+    // tell them apart (Chrome matches it for hover-driven focus in a menu), so
+    // the content records the last input as data-nav.
+    render(<Actions />);
+    await open("Actions");
+    const menu = screen.getByRole("menu");
+    const item = screen.getByRole("menuitem", { name: "Rename" });
+
+    expect(item).toHaveClass("data-highlighted:outline-2", "data-highlighted:outline-solid", "data-highlighted:outline-ring");
+    expect(item).toHaveClass("group-data-[nav=pointer]/menu:data-highlighted:outline-none");
+    expect(item.className).not.toMatch(/focus-visible:outline-ring/);
+
+    fireEvent.pointerMove(item, { pointerType: "mouse" });
+    expect(menu).toHaveAttribute("data-nav", "pointer");
+
+    await userEvent.keyboard("{ArrowDown}");
+    expect(menu).toHaveAttribute("data-nav", "keyboard");
+  });
+
+  it("still calls the consumer's own key and pointer handlers", async () => {
+    const onKeyDown = vi.fn();
+    const onPointerMove = vi.fn();
+    render(
+      <DropdownMenu>
+        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+        <DropdownMenuContent onKeyDown={onKeyDown} onPointerMove={onPointerMove}>
+          <DropdownMenuItem>One</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>,
+    );
+    await open("Open");
+
+    fireEvent.pointerMove(screen.getByRole("menuitem"), { pointerType: "mouse" });
+    await userEvent.keyboard("{ArrowDown}");
+
+    expect(onPointerMove).toHaveBeenCalled();
+    expect(onKeyDown).toHaveBeenCalled();
   });
 
   it("uses exactly the popover's overlay surface and motion", async () => {

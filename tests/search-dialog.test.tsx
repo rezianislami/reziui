@@ -199,6 +199,22 @@ describe("SearchDialog", () => {
       scroll.mockRestore();
     });
 
+    it("rings the selected option after arrow-key navigation, not after a pointer move", async () => {
+      // Regression: the selection was bg-accent only, 1.09:1 against the
+      // dialog — too faint to follow with the keyboard.
+      const ring = "outline-ring";
+      const input = openEmpty();
+      const selected = () => screen.getAllByRole("option").find((o) => o.getAttribute("aria-selected") === "true")!;
+
+      expect(selected()).not.toHaveClass(ring);
+      await userEvent.type(input, "{ArrowDown}");
+      expect(selected()).toHaveClass("outline-2", "outline-solid", "-outline-offset-2", ring);
+
+      fireEvent.mouseMove(screen.getByRole("option", { name: /Switch/ }));
+      expect(selected()).toHaveTextContent("Switch");
+      expect(selected()).not.toHaveClass(ring);
+    });
+
     it("labels new pages, read as part of the option name", () => {
       openEmpty({ newUrls: ["/docs/components/switch"] });
 

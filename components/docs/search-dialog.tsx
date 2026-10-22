@@ -77,6 +77,9 @@ export function SearchDialog({ pageTitles, browse = NONE, newUrls = NONE }: Sear
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
+  // Whether the selection last moved by arrow key. Focus stays in the input,
+  // so :focus-visible can't mark the selected option; track it instead.
+  const [keyboardNav, setKeyboardNav] = useState(false);
   const { search, onSearchChange, isLoading, data, error } = useFetchSearch({ api: "/api/search", delayMs: 150 });
 
   // An empty query lists every page instead of an empty box, so the catalog
@@ -136,6 +139,7 @@ export function SearchDialog({ pageTitles, browse = NONE, newUrls = NONE }: Sear
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
       event.preventDefault();
       const step = event.key === "ArrowDown" ? 1 : -1;
+      setKeyboardNav(true);
       setActive((index) => (index + step + hits.length) % hits.length);
     } else if (event.key === "Enter") {
       event.preventDefault();
@@ -217,12 +221,22 @@ export function SearchDialog({ pageTitles, browse = NONE, newUrls = NONE }: Sear
                       id={`search-hit-${hit.id}`}
                       role="option"
                       aria-selected={selected}
-                      onMouseMove={() => setActive(hits.indexOf(hit))}
+                      onMouseMove={() => {
+                        setActive(hits.indexOf(hit));
+                        setKeyboardNav(false);
+                      }}
                       onClick={() => go(hit)}
                       // One line per hit: the title leads, and the context (the page a
                       // heading belongs to) sits muted at the end. The title is capped
                       // so the context truncates first and the title stays readable.
-                      className={cn("flex h-9 cursor-pointer items-center gap-2.5 rounded-lg px-2.5", selected && "bg-accent")}
+                      // The accent fill is under 3:1 against the dialog: enough for
+                      // pointer feedback, too faint to follow with the keyboard, so
+                      // arrow-key selection adds an inset ring.
+                      className={cn(
+                        "flex h-9 cursor-pointer items-center gap-2.5 rounded-lg px-2.5",
+                        selected && "bg-accent",
+                        selected && keyboardNav && "outline-2 outline-solid -outline-offset-2 outline-ring",
+                      )}
                     >
                       <Icon
                         className={cn("size-4 shrink-0", selected ? "text-foreground" : "text-muted-foreground")}

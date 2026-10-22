@@ -33,9 +33,17 @@ const overlaySurface = cn(
 // 4px padding with radius 12 around radius-8 items keeps the corners
 // concentric. The content scrolls inside the space Radix reports as available
 // instead of running off-screen in a short viewport.
+//
+// data-nav records whether the menu was last driven by keyboard or pointer,
+// for the item focus ring. Written straight to the DOM so pointer moves don't
+// re-render the menu. Until either happens it is unset, which counts as
+// keyboard: a menu opened from the keyboard highlights its first item at once,
+// while one opened by pointer highlights nothing until the pointer moves.
 function DropdownMenuContent({
   className,
   sideOffset = 6,
+  onKeyDown,
+  onPointerMove,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
   return (
@@ -43,9 +51,17 @@ function DropdownMenuContent({
       <DropdownMenuPrimitive.Content
         data-slot="dropdown-menu-content"
         sideOffset={sideOffset}
+        onKeyDown={(event) => {
+          event.currentTarget.dataset.nav = "keyboard";
+          onKeyDown?.(event);
+        }}
+        onPointerMove={(event) => {
+          event.currentTarget.dataset.nav = "pointer";
+          onPointerMove?.(event);
+        }}
         className={cn(
           overlaySurface,
-          "max-h-(--radix-dropdown-menu-content-available-height) min-w-52 origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto p-1",
+          "group/menu max-h-(--radix-dropdown-menu-content-available-height) min-w-52 origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto p-1",
           className,
         )}
         {...props}
@@ -54,11 +70,14 @@ function DropdownMenuContent({
   );
 }
 
-// The highlight (pointer hover or keyboard focus — Radix doesn't tell them
-// apart) switches instantly: it fires on every pointer move, so a transition
-// would only add lag. Forced-colors mode drops background colors, which would
-// leave keyboard users with no visible item, so it paints the system
-// Highlight pair there instead.
+// The highlight (pointer hover or keyboard focus) switches instantly: it fires
+// on every pointer move, so a transition would only add lag. The accent fill
+// is under 3:1 against the menu — fine as hover feedback, too faint to follow
+// with the keyboard — so the highlighted item also gets an inset 2px ring
+// unless the menu is being driven by the pointer (data-nav, set by
+// DropdownMenuContent). Not :focus-visible: Radix focuses items on hover too,
+// and Chrome matches :focus-visible for that. Forced-colors mode drops
+// background colors, so it paints the system Highlight pair there instead.
 //
 // Every item starts its text at 32px: an icon takes 16px plus the 8px gap,
 // and checkbox/radio items reserve the same space (ps-8) for their indicator,
@@ -66,6 +85,7 @@ function DropdownMenuContent({
 const itemBase = cn(
   "relative flex h-8 cursor-default items-center gap-2 rounded-md px-2 text-sm text-foreground outline-hidden select-none",
   "data-highlighted:bg-accent forced-colors:data-highlighted:bg-[Highlight] forced-colors:data-highlighted:text-[HighlightText]",
+  "data-highlighted:outline-2 data-highlighted:outline-solid data-highlighted:-outline-offset-2 data-highlighted:outline-ring group-data-[nav=pointer]/menu:data-highlighted:outline-none",
   "data-disabled:pointer-events-none data-disabled:opacity-50",
   "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 );
