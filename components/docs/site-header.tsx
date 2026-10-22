@@ -27,12 +27,8 @@ export function SiteHeader({ newUrls = [] }: { newUrls?: string[] }) {
   const tree = source.getPageTree();
   const pages = source.getPages();
   const pageTitles = Object.fromEntries(pages.map((page) => [page.url, page.data.title]));
-  const byUrl = new Map(pages.map((page) => [page.url, page.data]));
   // Listed in search before anything is typed, in sidebar order.
-  const browse = browseGroups(tree, (url) => {
-    const data = byUrl.get(url);
-    return data && { title: data.title, description: data.description };
-  });
+  const browse = browseGroups(tree, (url) => (pageTitles[url] ? { title: pageTitles[url] } : undefined));
 
   return (
     <header className="sticky top-0 z-40 flex h-15 items-center gap-4 border-b border-(--hairline) bg-background/85 px-4 backdrop-blur md:gap-8 md:px-6">

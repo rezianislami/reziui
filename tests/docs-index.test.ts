@@ -47,16 +47,16 @@ describe("browseGroups", () => {
     "/docs/forms": "Forms",
     "/docs/components/switch": "Switch",
   };
-  const lookup = (url: string) => (titles[url] ? { title: titles[url], description: `${titles[url]} page` } : undefined);
+  const lookup = (url: string) => (titles[url] ? { title: titles[url] } : undefined);
 
   it("groups pages under the sidebar's separators, in sidebar order", () => {
     expect(browseGroups(tree, lookup)).toEqual([
-      { label: "Getting started", pages: [{ url: "/docs", title: "Introduction", description: "Introduction page" }] },
+      { label: "Getting started", pages: [{ url: "/docs", title: "Introduction" }] },
       {
         label: "Components",
         pages: [
-          { url: "/docs/forms", title: "Forms", description: "Forms page" },
-          { url: "/docs/components/switch", title: "Switch", description: "Switch page" },
+          { url: "/docs/forms", title: "Forms" },
+          { url: "/docs/components/switch", title: "Switch" },
         ],
       },
     ]);
@@ -71,7 +71,7 @@ describe("browseGroups", () => {
   it("puts pages before any separator in a default group", () => {
     const flat = { name: "Docs", children: [{ type: "page", name: "Introduction", url: "/docs" }] } as unknown as Root;
     expect(browseGroups(flat, lookup)).toEqual([
-      { label: "Pages", pages: [{ url: "/docs", title: "Introduction", description: "Introduction page" }] },
+      { label: "Pages", pages: [{ url: "/docs", title: "Introduction" }] },
     ]);
   });
 });

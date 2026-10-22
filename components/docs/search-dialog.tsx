@@ -49,7 +49,7 @@ export function groupResults(items: SearchResultItem[], pageTitles: Record<strin
   ].filter((group) => group.hits.length > 0);
 }
 
-/** Every page as a hit, with its description as the second line. */
+/** Every page as a hit. No context: the group label already names the section. */
 export function browseResults(browse: BrowseGroup[]): SearchGroup[] {
   return browse.map((group) => ({
     label: group.label,
@@ -58,7 +58,6 @@ export function browseResults(browse: BrowseGroup[]): SearchGroup[] {
       url: page.url,
       type: "page" as const,
       title: page.title,
-      context: page.description,
     })),
   }));
 }
@@ -220,33 +219,30 @@ export function SearchDialog({ pageTitles, browse = NONE, newUrls = NONE }: Sear
                       aria-selected={selected}
                       onMouseMove={() => setActive(hits.indexOf(hit))}
                       onClick={() => go(hit)}
-                      className={cn("flex h-11 cursor-pointer items-center gap-2.5 rounded-lg px-2.5", selected && "bg-accent")}
+                      // One line per hit: the title leads, and the context (the page a
+                      // heading belongs to) sits muted at the end. The title is capped
+                      // so the context truncates first and the title stays readable.
+                      className={cn("flex h-9 cursor-pointer items-center gap-2.5 rounded-lg px-2.5", selected && "bg-accent")}
                     >
-                      <span
-                        className={cn(
-                          "flex size-6.5 shrink-0 items-center justify-center rounded-md",
-                          selected ? "bg-card ring ring-border" : "bg-accent",
-                        )}
-                      >
-                        <Icon className={cn("size-3.5", selected ? "text-foreground" : "text-muted-foreground")} aria-hidden="true" />
-                      </span>
-                      <span className="flex min-w-0 flex-col">
-                        <span className="flex min-w-0 items-center gap-1.5">
-                          <span className={cn("truncate text-sm", selected ? "font-medium text-foreground" : "text-foreground/90")}>
-                            {hit.title}
-                          </span>
-                          {hit.type === "page" && newSet.has(hit.url) && (
-                            <>
-                              <span className="sr-only">, new</span>
-                              <Badge size="sm" aria-hidden="true" className="shrink-0">
-                                New
-                              </Badge>
-                            </>
-                          )}
+                      <Icon
+                        className={cn("size-4 shrink-0", selected ? "text-foreground" : "text-muted-foreground")}
+                        aria-hidden="true"
+                      />
+                      <span className="flex max-w-[70%] min-w-0 shrink-0 items-center gap-1.5">
+                        <span className={cn("truncate text-sm", selected ? "font-medium text-foreground" : "text-foreground/90")}>
+                          {hit.title}
                         </span>
-                        {hit.context && <span className="truncate text-xs text-muted-foreground">{hit.context}</span>}
+                        {hit.type === "page" && newSet.has(hit.url) && (
+                          <>
+                            <span className="sr-only">, new</span>
+                            <Badge size="sm" aria-hidden="true" className="shrink-0">
+                              New
+                            </Badge>
+                          </>
+                        )}
                       </span>
-                      {selected && <CornerDownLeftIcon className="ml-auto size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />}
+                      <span className="min-w-0 flex-1 truncate text-end text-xs text-muted-foreground">{hit.context}</span>
+                      {selected && <CornerDownLeftIcon className="size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />}
                     </div>
                   );
                 })}

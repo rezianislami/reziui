@@ -27,12 +27,12 @@ const items = [
 ] as unknown as SearchResultItem[];
 
 const browse: BrowseGroup[] = [
-  { label: "Getting started", pages: [{ url: "/docs", title: "Introduction", description: "What Rezi UI is." }] },
+  { label: "Getting started", pages: [{ url: "/docs", title: "Introduction" }] },
   {
     label: "Components",
     pages: [
-      { url: "/docs/components/button", title: "Button", description: "Pill-shaped button." },
-      { url: "/docs/components/switch", title: "Switch", description: "On/off toggle." },
+      { url: "/docs/components/button", title: "Button" },
+      { url: "/docs/components/switch", title: "Switch" },
     ],
   },
 ];
@@ -164,12 +164,14 @@ describe("SearchDialog", () => {
   });
 
   describe("before anything is typed", () => {
-    it("lists every page, grouped like the sidebar, with descriptions", () => {
+    it("lists every page on one line, grouped like the sidebar, without a second line", () => {
       const input = openEmpty();
 
       expect(screen.getAllByRole("group").map((g) => g.getAttribute("aria-label"))).toEqual(["Getting started", "Components"]);
       expect(screen.getAllByRole("option")).toHaveLength(3);
-      expect(screen.getByRole("option", { name: /Switch/ })).toHaveTextContent("On/off toggle.");
+      // The group label already names the section, so pages carry no context.
+      expect(screen.getByRole("option", { name: /Switch/ })).toHaveTextContent(/^Switch$/);
+      expect(screen.getByRole("option", { name: /Switch/ })).toHaveClass("h-9");
       expect(input).toHaveAttribute("aria-expanded", "true");
     });
 
@@ -213,6 +215,17 @@ describe("SearchDialog", () => {
       expect(screen.queryByText(/No results for/)).not.toBeInTheDocument();
     });
 
+    it("keeps a heading's page as muted context at the end of its single line", () => {
+      search.state = { search: "button", isLoading: false, data: { query: "button", items }, error: undefined };
+      openEmpty();
+
+      const sizes = screen.getByRole("option", { name: /Sizes/ });
+      expect(sizes).toHaveClass("h-9");
+      const context = sizes.querySelector(".text-end");
+      expect(context).toHaveTextContent("Button");
+      expect(context).toHaveClass("truncate", "text-muted-foreground");
+    });
+
     it("replaces the list with search results once a query is typed", async () => {
       search.state = { search: "button", isLoading: false, data: { query: "button", items }, error: undefined };
       openEmpty();
@@ -230,7 +243,8 @@ describe("browseResults", () => {
 
     expect(hits.map((h) => h.type)).toEqual(["page", "page", "page"]);
     expect(new Set(hits.map((h) => h.id)).size).toBe(3);
-    expect(hits[1]).toMatchObject({ url: "/docs/components/button", title: "Button", context: "Pill-shaped button." });
+    expect(hits[1]).toMatchObject({ url: "/docs/components/button", title: "Button" });
+    expect(hits[1].context).toBeUndefined();
   });
 
   it("returns nothing for an empty catalog", () => {

@@ -15,7 +15,7 @@ export function isNewPage(added: Date | undefined, now: Date): boolean {
   return age >= 0 && age < NEW_PAGE_DAYS * DAY_MS;
 }
 
-export type BrowsePage = { url: string; title: string; description?: string };
+export type BrowsePage = { url: string; title: string };
 export type BrowseGroup = { label: string; pages: BrowsePage[] };
 
 /**
