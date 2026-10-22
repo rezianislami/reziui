@@ -1,0 +1,56 @@
+---
+title: Radio Group
+description: 16px radios with a scaling dot, built on Radix Radio Group.
+added: 2026-10-22
+---
+
+<ComponentPreview name="radio-group-demo" />
+
+Choosing a radio fills it and scales its dot in (150ms); under reduced motion
+the dot appears at once.
+
+## Installation
+
+<InstallTabs name="radio-group" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
+export function Example() {
+  return (
+    <RadioGroup defaultValue="pro" aria-label="Plan">
+      <div className="flex items-center gap-2">
+        <RadioGroupItem id="free" value="free" />
+        <Label htmlFor="free">Free</Label>
+      </div>
+      <div className="flex items-center gap-2">
+        <RadioGroupItem id="pro" value="pro" />
+        <Label htmlFor="pro">Pro</Label>
+      </div>
+    </RadioGroup>
+  );
+}
+```
+
+Use radios for a few options that should all stay visible; for a longer list,
+use a [Select](/docs/components/select). Name the group with `aria-label` or
+`aria-labelledby`. With a description under each label, align the radio to the
+first line with `items-start` and `mt-0.5`, as in the preview.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Tab` | Move into the group (to the checked radio) and out of it. |
+| `↑` `↓` `←` `→` | Move to and select the next radio, skipping disabled ones. |
+| `Space` | Select the focused radio. |
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `RadioGroup` | Radix `RadioGroup.Root`: `value`, `defaultValue`, `onValueChange`, `disabled`, `name`, `required`, `orientation`. Stacks with 12px gaps. |
+| `RadioGroupItem` | `value`, `disabled`. 16px with a 24px hit area; `aria-invalid` for the destructive edge. |

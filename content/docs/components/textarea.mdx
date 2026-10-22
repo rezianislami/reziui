@@ -1,0 +1,41 @@
+---
+title: Textarea
+description: Multi-line field styled like Input that grows with its content.
+added: 2026-10-22
+---
+
+<ComponentPreview name="textarea-demo" />
+
+Same surface, ring and focus as [Input](/docs/components/input). It starts at
+80px and grows with its text through CSS `field-sizing: content` — no script.
+Firefox doesn't support that yet; there it keeps its height, scrolls, and can
+be dragged taller.
+
+## Installation
+
+<InstallTabs name="textarea" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+
+export function Example() {
+  return (
+    <div className="grid gap-1.5">
+      <Label htmlFor="message">Message</Label>
+      <Textarea id="message" placeholder="Tell us about your project" />
+    </div>
+  );
+}
+```
+
+Text is 16px below the `sm` breakpoint so iOS Safari doesn't zoom in on focus,
+and 14px above it. To cap the growth, add a `max-h-*` class; it scrolls past
+that height.
+
+## API reference
+
+`Textarea` forwards every prop of `<textarea>`. `aria-invalid` switches the ring
+to the destructive color.

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "Multi-line field styled like Input that grows with its content.",
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/textarea.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\n// Same surface, ring and focus outline as Input; see there for the 16px text\n// below the sm breakpoint (iOS Safari zooms into smaller fields).\n//\n// field-sizing: content lets the box grow with its text without any script;\n// min-h-20 keeps it from collapsing when empty. Browsers without field-sizing\n// (Firefox) keep the 80px minimum and scroll, and resize-y lets people drag it\n// taller there.\nfunction Textarea({ className, ...props }: React.ComponentProps<\"textarea\">) {\n  return (\n    <textarea\n      data-slot=\"textarea\"\n      className={cn(\n        \"flex field-sizing-content min-h-20 w-full min-w-0 resize-y rounded-md bg-card px-3 py-2 text-base text-foreground shadow-xs ring ring-input transition-[box-shadow] outline-hidden sm:text-sm\",\n        \"placeholder:text-muted-foreground\",\n        \"focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-1 focus-visible:outline-ring\",\n        \"aria-invalid:ring-destructive aria-invalid:focus-visible:outline-destructive\",\n        \"disabled:cursor-not-allowed disabled:bg-accent disabled:opacity-50\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Textarea };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

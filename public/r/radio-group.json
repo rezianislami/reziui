@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group",
+  "title": "Radio Group",
+  "description": "16px radios with a scaling dot, built on Radix Radio Group.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/radio-group.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { RadioGroup as RadioGroupPrimitive } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction RadioGroup({ className, ...props }: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {\n  return <RadioGroupPrimitive.Root data-slot=\"radio-group\" className={cn(\"grid gap-3\", className)} {...props} />;\n}\n\n// Built like Checkbox: the 1px --control-off edge is the only thing that\n// identifies an unselected radio, so it clears 3:1 against the page (WCAG\n// 1.4.11); the selected one fills with --btn-primary rather than --primary,\n// which a consumer's theme may define as another color. The 16px circle has a\n// 24px hit area; pair it with a <Label> to make the text clickable too.\n//\n// The dot is always mounted (forceMount) so it can scale in from 25% and fade\n// (150ms) instead of popping in. Under reduced motion it appears at once.\nfunction RadioGroupItem({ className, ...props }: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {\n  return (\n    <RadioGroupPrimitive.Item\n      data-slot=\"radio-group-item\"\n      className={cn(\n        \"group/radio peer relative inline-flex size-4 shrink-0 cursor-pointer items-center justify-center rounded-full border border-(--control-off) bg-card shadow-xs outline-hidden\",\n        \"motion-safe:transition-[background-color,border-color] motion-safe:duration-150 motion-safe:ease-[cubic-bezier(0.2,0,0,1)]\",\n        \"data-[state=checked]:border-(--btn-primary) data-[state=checked]:bg-(--btn-primary)\",\n        \"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring\",\n        \"aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive\",\n        \"disabled:cursor-not-allowed disabled:opacity-50\",\n        \"after:absolute after:-inset-1\",\n        className,\n      )}\n      {...props}\n    >\n      <RadioGroupPrimitive.Indicator\n        forceMount\n        data-slot=\"radio-group-indicator\"\n        className={cn(\n          \"pointer-events-none block size-1.5 scale-25 rounded-full bg-white opacity-0\",\n          \"motion-safe:transition-[scale,opacity] motion-safe:duration-150 motion-safe:ease-[cubic-bezier(0.2,0,0,1)]\",\n          \"group-data-[state=checked]/radio:scale-100 group-data-[state=checked]/radio:opacity-100\",\n        )}\n      />\n    </RadioGroupPrimitive.Item>\n  );\n}\n\nexport { RadioGroup, RadioGroupItem };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

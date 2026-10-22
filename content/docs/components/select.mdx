@@ -1,0 +1,70 @@
+---
+title: Select
+description: Input-styled select with an overlay list and the check at the end, built on Radix Select.
+added: 2026-10-22
+---
+
+<ComponentPreview name="select-demo" />
+
+The trigger looks like [Input](/docs/components/input), so selects and inputs
+read as one set in a form. The list opens below it on the same surface as the
+[Dropdown Menu](/docs/components/dropdown-menu), with the check at the end so
+option text lines up with the value in the trigger.
+
+## Installation
+
+<InstallTabs name="select" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+export function Example() {
+  return (
+    <div className="grid gap-1.5">
+      <Label htmlFor="framework">Framework</Label>
+      <Select>
+        <SelectTrigger id="framework">
+          <SelectValue placeholder="Select a framework" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="next">Next.js</SelectItem>
+          <SelectItem value="astro">Astro</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+  );
+}
+```
+
+## Examples
+
+### Invalid and disabled
+
+<ComponentPreview name="select-states" size="sm" />
+
+`aria-invalid` on the trigger switches its ring to the destructive color;
+connect the message with `aria-describedby`.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Enter` `Space` `↓` | Open the list. |
+| `↑` `↓` | Move between options, skipping disabled ones. |
+| Typing | Jump to the option starting with those letters. |
+| `Enter` | Choose the highlighted option and close. |
+| `Esc` | Close without changing the value. |
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Select` | Radix `Select.Root`: `value`, `defaultValue`, `onValueChange`, `disabled`, `name`, `required`. |
+| `SelectTrigger` | 36px, full width; pass a width class to size it. Takes `id` for a `Label`. |
+| `SelectValue` | `placeholder`, shown muted until a value is chosen. |
+| `SelectContent` | Opens below the trigger (`position="popper"`), at least as wide; `position="item-aligned"` lays it over the trigger instead. |
+| `SelectItem` | `value`, `disabled`. |
+| `SelectGroup` · `SelectLabel` · `SelectSeparator` | Structure. |

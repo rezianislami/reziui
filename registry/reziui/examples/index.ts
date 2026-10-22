@@ -27,10 +27,14 @@ import InputStates from "./input-states";
 import KbdDemo from "./kbd-demo";
 import KbdPressed from "./kbd-pressed";
 import PopoverDemo from "./popover-demo";
+import RadioGroupDemo from "./radio-group-demo";
+import SelectDemo from "./select-demo";
+import SelectStates from "./select-states";
 import SwitchDemo from "./switch-demo";
 import SwitchStates from "./switch-states";
 import TabsDemo from "./tabs-demo";
 import TabsIcons from "./tabs-icons";
+import TextareaDemo from "./textarea-demo";
 import TooltipDemo from "./tooltip-demo";
 import TooltipToolbar from "./tooltip-toolbar";
 
@@ -77,4 +81,8 @@ export const examples: Record<string, Example> = {
   "popover-demo": { component: PopoverDemo, file: "registry/reziui/examples/popover-demo.tsx" },
   "dialog-confirm": { component: DialogConfirm, file: "registry/reziui/examples/dialog-confirm.tsx" },
   "dialog-demo": { component: DialogDemo, file: "registry/reziui/examples/dialog-demo.tsx" },
+  "radio-group-demo": { component: RadioGroupDemo, file: "registry/reziui/examples/radio-group-demo.tsx" },
+  "select-demo": { component: SelectDemo, file: "registry/reziui/examples/select-demo.tsx" },
+  "select-states": { component: SelectStates, file: "registry/reziui/examples/select-states.tsx" },
+  "textarea-demo": { component: TextareaDemo, file: "registry/reziui/examples/textarea-demo.tsx" },
 };
