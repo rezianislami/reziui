@@ -1,0 +1,57 @@
+---
+title: Switch
+description: On/off toggle that applies immediately, built on Radix Switch.
+---
+
+<ComponentPreview name="switch-demo" />
+
+While pressed, the thumb stretches toward the side it is about to travel to,
+then slides there (200ms). Under reduced motion it jumps; the track color still
+shows the state.
+
+## Installation
+
+<InstallTabs name="switch" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+
+export function Example() {
+  return (
+    <div className="flex items-center gap-2">
+      <Switch id="airplane-mode" />
+      <Label htmlFor="airplane-mode">Airplane mode</Label>
+    </div>
+  );
+}
+```
+
+Use a switch for settings that take effect at once. For a choice that is only
+applied when a form is submitted, use a [Checkbox](/docs/components/checkbox).
+
+## Examples
+
+### States
+
+<ComponentPreview name="switch-states" size="sm" />
+
+Place the `Label` after the switch: it fades with a disabled switch on its own
+(`peer-disabled`). Label the switch for what happens when it is on.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Space` `Enter` | Toggle the switch. |
+
+## API reference
+
+`Switch` forwards every prop of Radix `Switch.Root` — `checked`,
+`defaultChecked`, `onCheckedChange`, `disabled`, `required`, `name` and
+`value`. It renders its own thumb; pass no children.
+
+The off track uses the `--control-off` token, which clears 3:1 against the page
+and the thumb in both themes.

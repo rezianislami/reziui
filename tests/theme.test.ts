@@ -49,10 +49,13 @@ describe("theme tokens", () => {
           .replace(/\/\*[\s\S]*?\*\//g, "")
           .replace(/^\s*\/\/.*$/gm, "");
         // Variables the component sets itself with an arbitrary property
-        // (`[--btn-ps-icon:…]`) are local, not theme tokens.
+        // (`[--btn-ps-icon:…]`) are local, not theme tokens; neither are the
+        // --radix-* variables Radix sets on its own elements at runtime.
         const local = new Set([...source.matchAll(/\[--([\w-]+):/g)].map((m) => m[1]));
         const referenced = new Set(
-          [...source.matchAll(/var\(--([\w-]+)\)|\(--([\w-]+)\)/g)].map((m) => m[1] ?? m[2]).filter((name) => !local.has(name)),
+          [...source.matchAll(/var\(--([\w-]+)\)|\(--([\w-]+)\)/g)]
+            .map((m) => m[1] ?? m[2])
+            .filter((name) => !local.has(name) && !name.startsWith("radix-")),
         );
 
         for (const name of referenced) {

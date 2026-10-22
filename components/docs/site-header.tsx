@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { source } from "@/lib/source";
 import { Button } from "@/registry/reziui/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/registry/reziui/ui/tooltip";
 import { MobileNav } from "./mobile-nav";
 import { SearchDialog } from "./search-dialog";
 import { ThemeToggle } from "./theme-toggle";
@@ -45,11 +46,16 @@ export function SiteHeader() {
       <div className="ml-auto flex items-center gap-1 md:gap-2">
         <SearchDialog pageTitles={pageTitles} />
         <ThemeToggle />
-        <Button asChild variant="ghost" size="icon" className="hidden md:inline-flex">
-          <a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="GitHub">
-            <GitHubIcon />
-          </a>
-        </Button>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button asChild variant="ghost" size="icon" className="hidden md:inline-flex">
+              <a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="GitHub">
+                <GitHubIcon />
+              </a>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>GitHub</TooltipContent>
+        </Tooltip>
         <MobileNav tree={tree} links={nav} />
       </div>
     </header>

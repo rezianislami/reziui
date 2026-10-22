@@ -73,6 +73,12 @@
   --ring: oklch(0.52 0.2 255);
   --surface-elevated: oklch(0.98 0 0);
   --hairline: oklch(0.935 0 0);
+  /*
+   * Boundary of an unselected control (switch track, checkbox edge). It is the
+   * only thing identifying the control, so it clears 3:1 against the page,
+   * cards and a white thumb (WCAG 1.4.11); --input/--border are too faint.
+   */
+  --control-off: oklch(0.62 0 0);
   --link: oklch(0.424 0.199 265.638);
   --destructive-text: oklch(0.505 0.213 27.518);
   /*
@@ -145,6 +151,7 @@
   --ring: oklch(0.52 0.2 255);
   --surface-elevated: oklch(0.12 0 0);
   --hairline: oklch(0.269 0 0);
+  --control-off: oklch(0.5 0 0);
   --link: oklch(0.707 0.165 254.624);
   --destructive-text: oklch(0.704 0.191 22.216);
   --success-tint: oklch(0.262 0.051 172.552);

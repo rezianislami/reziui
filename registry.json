@@ -30,6 +30,7 @@
           "ring": "oklch(0.52 0.2 255)",
           "surface-elevated": "oklch(0.98 0 0)",
           "hairline": "oklch(0.935 0 0)",
+          "control-off": "oklch(0.62 0 0)",
           "link": "oklch(0.424 0.199 265.638)",
           "destructive-text": "oklch(0.505 0.213 27.518)",
           "success-tint": "oklch(0.979 0.021 166.113)",
@@ -77,6 +78,7 @@
           "ring": "oklch(0.52 0.2 255)",
           "surface-elevated": "oklch(0.12 0 0)",
           "hairline": "oklch(0.269 0 0)",
+          "control-off": "oklch(0.5 0 0)",
           "link": "oklch(0.707 0.165 254.624)",
           "destructive-text": "oklch(0.704 0.191 22.216)",
           "success-tint": "oklch(0.262 0.051 172.552)",
@@ -199,6 +201,48 @@
       "files": [
         {
           "path": "registry/reziui/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "On/off toggle with a thumb that stretches toward its travel while pressed, built on Radix Switch.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "16px checkbox whose check stroke draws in, with an indeterminate state, built on Radix Checkbox.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Inverted label for icon-only controls that opens instantly when moving between triggers, built on Radix Tooltip.",
+      "dependencies": ["radix-ui", "tw-animate-css"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/tooltip.tsx",
           "type": "registry:ui"
         }
       ]

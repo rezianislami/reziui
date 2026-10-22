@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "title": "Switch",
+  "description": "On/off toggle with a thumb that stretches toward its travel while pressed, built on Radix Switch.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/switch.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Switch as SwitchPrimitive } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst motion = \"motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.2,0,0,1)]\";\n\n// The off track uses --control-off rather than --input: the track is the only\n// thing that identifies the control, so it must clear 3:1 against the page and\n// against the white thumb (WCAG 1.4.11). The on track reads --btn-primary, not\n// --primary, for the same reason as Button: a consumer's existing --primary\n// survives a registry install and may not be the Rezi UI blue.\n//\n// The thumb slides 16px between the ends of the track. While pressed it\n// stretches from 16px to 20px toward its direction of travel, so on the \"on\"\n// side it also starts 4px earlier to keep its trailing edge pinned — the press\n// previews where the thumb is about to go.\n//\n// It is placed with inset-inline-start rather than translateX: the logical\n// inset follows the element's computed direction, whereas a physical translate\n// needs an rtl: variant, and Tailwind's rtl: matches any [dir=rtl] ancestor —\n// inside a dir=\"ltr\" island on an RTL page that pushes the thumb off the\n// track. Animating the inset costs a layout per frame, negligible for a 16px\n// element. Interruptible CSS transitions (not keyframes), so rapid toggling\n// never queues up animations; under reduced motion the thumb jumps.\n//\n// The track is 20px tall; the ::after extends the hit area to 24px (WCAG 2.5.8)\n// without changing the visible size.\nfunction Switch({ className, ...props }: React.ComponentProps<typeof SwitchPrimitive.Root>) {\n  return (\n    <SwitchPrimitive.Root\n      data-slot=\"switch\"\n      className={cn(\n        \"group/switch peer relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full bg-(--control-off) outline-hidden\",\n        \"data-[state=checked]:bg-(--btn-primary)\",\n        \"motion-safe:transition-[background-color]\",\n        motion,\n        \"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring\",\n        \"disabled:cursor-not-allowed disabled:opacity-50\",\n        \"after:absolute after:inset-x-0 after:-inset-y-0.5\",\n        className,\n      )}\n      {...props}\n    >\n      <SwitchPrimitive.Thumb\n        data-slot=\"switch-thumb\"\n        className={cn(\n          \"pointer-events-none absolute start-0.5 top-0.5 block h-4 w-4 rounded-full bg-white shadow-[0_1px_2px_0_rgb(0_0_0/0.15)]\",\n          \"motion-safe:transition-[inset-inline-start,width]\",\n          motion,\n          \"data-[state=checked]:start-4.5\",\n          \"group-enabled/switch:group-active/switch:w-5\",\n          \"group-enabled/switch:group-active/switch:data-[state=checked]:start-3.5\",\n        )}\n      />\n    </SwitchPrimitive.Root>\n  );\n}\n\nexport { Switch };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

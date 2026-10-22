@@ -1,0 +1,76 @@
+---
+title: Tooltip
+description: Inverted label for icon-only controls, built on Radix Tooltip.
+---
+
+<ComponentPreview name="tooltip-demo" />
+
+Opens after 400ms of hover, or at once on keyboard focus. Fades and scales in
+from the trigger (150ms).
+
+## Installation
+
+<InstallTabs name="tooltip" />
+
+The exit animation uses `tw-animate-css`, which `shadcn init` already imports
+into Tailwind v4 projects. Without it the tooltip still works; it just closes
+without fading.
+
+## Usage
+
+```tsx title="app/layout.tsx"
+import { TooltipProvider } from "@/components/ui/tooltip";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <TooltipProvider>{children}</TooltipProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+```tsx title="app/page.tsx"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+
+export function Example() {
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="secondary" size="icon" aria-label="Copy to clipboard">
+          <CopyIcon />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Copy to clipboard</TooltipContent>
+    </Tooltip>
+  );
+}
+```
+
+A `Tooltip` outside any `TooltipProvider` creates its own, so it works on its
+own — but put one provider near the root so tooltips share a timer (below).
+
+## Examples
+
+### Toolbar
+
+<ComponentPreview name="tooltip-toolbar" size="sm" />
+
+Within one provider, once a tooltip has opened, moving to the next trigger
+within 300ms opens its tooltip instantly and without the entrance animation, so
+scanning a toolbar doesn't flicker.
+
+Tooltips are for short, supplementary labels. They never appear on touch, so
+don't hide anything there that the user needs. Icon-only buttons still need an
+`aria-label`.
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `TooltipProvider` | `delayDuration` (default `400`), `skipDelayDuration` (default `300`). |
+| `Tooltip` | Radix `Tooltip.Root`: `open`, `defaultOpen`, `onOpenChange`, `delayDuration`. |
+| `TooltipTrigger` | Use `asChild` to wrap your own button. |
+| `TooltipContent` | `side` (default `"top"`), `sideOffset` (default `6`), `align`. Wraps at 240px. |

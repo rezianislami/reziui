@@ -20,6 +20,14 @@ describe("ThemeToggle", () => {
     expect(theme.setTheme).toHaveBeenCalledWith("dark");
   });
 
+  it("labels the icon-only button with a tooltip on keyboard focus", async () => {
+    render(<ThemeToggle />);
+
+    await userEvent.tab();
+
+    expect(await screen.findByRole("tooltip")).toHaveTextContent("Toggle theme");
+  });
+
   it("switches dark to light", async () => {
     theme.resolvedTheme = "dark";
     render(<ThemeToggle />);

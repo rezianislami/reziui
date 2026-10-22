@@ -3,6 +3,7 @@
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/registry/reziui/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/registry/reziui/ui/tooltip";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -11,14 +12,19 @@ export function ThemeToggle() {
   // HTML matches the client before next-themes knows the resolved theme —
   // branching on resolvedTheme here would cause a hydration mismatch.
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      aria-label="Toggle theme"
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-    >
-      <MoonIcon className="dark:hidden" />
-      <SunIcon className="hidden dark:block" />
-    </Button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label="Toggle theme"
+          onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+        >
+          <MoonIcon className="dark:hidden" />
+          <SunIcon className="hidden dark:block" />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Toggle theme</TooltipContent>
+    </Tooltip>
   );
 }

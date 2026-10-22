@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "title": "Checkbox",
+  "description": "16px checkbox whose check stroke draws in, with an indeterminate state, built on Radix Checkbox.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/checkbox.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Checkbox as CheckboxPrimitive } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\n// The edge uses --control-off, not --input: for an unchecked box that 1px edge\n// is the only thing identifying the control, so it must clear 3:1 against the\n// page (WCAG 1.4.11). Checked and indeterminate fill with --btn-primary rather\n// than --primary, which a consumer's theme may already define as another color.\n//\n// The 16px box extends its hit area to 24px with an invisible ::after\n// (WCAG 2.5.8); wrap it in a <Label> to make the text clickable as well.\nfunction Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {\n  return (\n    <CheckboxPrimitive.Root\n      data-slot=\"checkbox\"\n      className={cn(\n        \"group/checkbox peer relative inline-flex size-4 shrink-0 cursor-pointer items-center justify-center rounded-[0.25rem] border border-(--control-off) bg-card text-white shadow-xs outline-hidden\",\n        \"motion-safe:transition-[background-color,border-color] motion-safe:duration-150 motion-safe:ease-[cubic-bezier(0.2,0,0,1)]\",\n        \"data-[state=checked]:border-(--btn-primary) data-[state=checked]:bg-(--btn-primary)\",\n        \"data-[state=indeterminate]:border-(--btn-primary) data-[state=indeterminate]:bg-(--btn-primary)\",\n        \"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring\",\n        \"aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive\",\n        \"disabled:cursor-not-allowed disabled:opacity-50\",\n        \"after:absolute after:-inset-1\",\n        className,\n      )}\n      {...props}\n    >\n      <CheckboxIndicator />\n    </CheckboxPrimitive.Root>\n  );\n}\n\n// Both marks are always mounted (forceMount) so they can animate out as well\n// as in. Each path has pathLength=1, so a dash offset of 1 hides the stroke and\n// 0 draws it: checking draws the mark in over 200ms, unchecking erases it in\n// 100ms (exits are softer than entrances). The opacity transition hides the\n// round cap that a zero-length dash would otherwise leave behind. Under reduced\n// motion the mark appears and disappears at once.\nconst mark = cn(\n  \"[stroke-dasharray:1] [stroke-dashoffset:1] opacity-0\",\n  \"motion-safe:transition-[stroke-dashoffset,opacity] motion-safe:duration-100 motion-safe:ease-[cubic-bezier(0.2,0,0,1)]\",\n);\n\nfunction CheckboxIndicator() {\n  return (\n    <CheckboxPrimitive.Indicator forceMount data-slot=\"checkbox-indicator\" className=\"pointer-events-none flex\">\n      <svg\n        viewBox=\"0 0 12 12\"\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeWidth={1.5}\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        aria-hidden=\"true\"\n        className=\"size-3\"\n      >\n        <path\n          data-mark=\"check\"\n          d=\"M2.75 6.25 5 8.5 9.25 3.75\"\n          pathLength={1}\n          className={cn(\n            mark,\n            \"group-data-[state=checked]/checkbox:[stroke-dashoffset:0] group-data-[state=checked]/checkbox:opacity-100 motion-safe:group-data-[state=checked]/checkbox:duration-200\",\n          )}\n        />\n        <path\n          data-mark=\"indeterminate\"\n          d=\"M3 6h6\"\n          pathLength={1}\n          className={cn(\n            mark,\n            \"group-data-[state=indeterminate]/checkbox:[stroke-dashoffset:0] group-data-[state=indeterminate]/checkbox:opacity-100 motion-safe:group-data-[state=indeterminate]/checkbox:duration-200\",\n          )}\n        />\n      </svg>\n    </CheckboxPrimitive.Indicator>\n  );\n}\n\nexport { Checkbox };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

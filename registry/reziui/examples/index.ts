@@ -14,13 +14,20 @@ import ButtonSuccess from "./button-success";
 import ButtonVariants from "./button-variants";
 import CardDemo from "./card-demo";
 import CardStat from "./card-stat";
+import CheckboxDemo from "./checkbox-demo";
+import CheckboxSelectAll from "./checkbox-select-all";
+import CheckboxStates from "./checkbox-states";
 import InputDemo from "./input-demo";
 import InputSearch from "./input-search";
 import InputStates from "./input-states";
 import KbdDemo from "./kbd-demo";
 import KbdPressed from "./kbd-pressed";
+import SwitchDemo from "./switch-demo";
+import SwitchStates from "./switch-states";
 import TabsDemo from "./tabs-demo";
 import TabsIcons from "./tabs-icons";
+import TooltipDemo from "./tooltip-demo";
+import TooltipToolbar from "./tooltip-toolbar";
 
 export type Example = {
   component: ComponentType;
@@ -53,4 +60,11 @@ export const examples: Record<string, Example> = {
   "input-search": { component: InputSearch, file: "registry/reziui/examples/input-search.tsx" },
   "card-demo": { component: CardDemo, file: "registry/reziui/examples/card-demo.tsx" },
   "card-stat": { component: CardStat, file: "registry/reziui/examples/card-stat.tsx" },
+  "checkbox-demo": { component: CheckboxDemo, file: "registry/reziui/examples/checkbox-demo.tsx" },
+  "checkbox-select-all": { component: CheckboxSelectAll, file: "registry/reziui/examples/checkbox-select-all.tsx" },
+  "checkbox-states": { component: CheckboxStates, file: "registry/reziui/examples/checkbox-states.tsx" },
+  "switch-demo": { component: SwitchDemo, file: "registry/reziui/examples/switch-demo.tsx" },
+  "switch-states": { component: SwitchStates, file: "registry/reziui/examples/switch-states.tsx" },
+  "tooltip-demo": { component: TooltipDemo, file: "registry/reziui/examples/tooltip-demo.tsx" },
+  "tooltip-toolbar": { component: TooltipToolbar, file: "registry/reziui/examples/tooltip-toolbar.tsx" },
 };

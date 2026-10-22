@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/registry/reziui/ui/tooltip";
 import "./globals.css";
 
 // Registered as --font-sans because globals.css maps the Tailwind font-sans
@@ -31,7 +32,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          {/* One provider for the whole site, so header tooltips share the
+              instant hand-off between neighbouring buttons. */}
+          <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

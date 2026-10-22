@@ -1,0 +1,63 @@
+---
+title: Checkbox
+description: 16px checkbox with a drawn-in check and an indeterminate state, built on Radix Checkbox.
+---
+
+<ComponentPreview name="checkbox-demo" />
+
+Checking draws the check stroke in (200ms); unchecking erases it faster
+(100ms). Under reduced motion the mark appears at once.
+
+## Installation
+
+<InstallTabs name="checkbox" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+
+export function Example() {
+  return (
+    <div className="flex items-center gap-2">
+      <Checkbox id="terms" />
+      <Label htmlFor="terms">Accept terms and conditions</Label>
+    </div>
+  );
+}
+```
+
+## Examples
+
+### States
+
+<ComponentPreview name="checkbox-states" size="sm" />
+
+`aria-invalid` switches the edge to the destructive color; connect the error
+message with `aria-describedby`.
+
+### Select all
+
+<ComponentPreview name="checkbox-select-all" size="sm" />
+
+Pass `checked="indeterminate"` to a parent checkbox when only some of its
+children are checked. Screen readers announce it as "mixed".
+
+With a description under the label, align the box to the first line with
+`mt-0.5` and `items-start`, as in the preview at the top of the page.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Space` | Toggle the checkbox. |
+
+## API reference
+
+`Checkbox` forwards every prop of Radix `Checkbox.Root` — `checked` (`boolean`
+or `"indeterminate"`), `defaultChecked`, `onCheckedChange`, `disabled`,
+`required`, `name` and `value`.
+
+The 16px box has a 24px hit area; wrap the text in a `Label` to make it
+clickable too.

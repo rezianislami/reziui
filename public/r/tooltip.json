@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "description": "Inverted label for icon-only controls that opens instantly when moving between triggers, built on Radix Tooltip.",
+  "dependencies": [
+    "radix-ui",
+    "tw-animate-css"
+  ],
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/tooltip.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Tooltip as TooltipPrimitive } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst ProviderContext = React.createContext(false);\n\n/**\n * Shares one open/skip timer between every tooltip inside it: after one\n * tooltip has opened, moving to another trigger within `skipDelayDuration`\n * opens it instantly. Put one near the root of the app.\n */\nfunction TooltipProvider({\n  delayDuration = 400,\n  skipDelayDuration = 300,\n  ...props\n}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {\n  return (\n    <ProviderContext.Provider value={true}>\n      <TooltipPrimitive.Provider delayDuration={delayDuration} skipDelayDuration={skipDelayDuration} {...props} />\n    </ProviderContext.Provider>\n  );\n}\n\n// A tooltip outside any TooltipProvider gets its own, so it still works on its\n// own. Not unconditionally, as some libraries do: a provider per tooltip gives\n// each one a private timer, which loses the instant hand-off between\n// neighbouring triggers (toolbars, icon rows).\nfunction Tooltip(props: React.ComponentProps<typeof TooltipPrimitive.Root>) {\n  const hasProvider = React.useContext(ProviderContext);\n  const root = <TooltipPrimitive.Root data-slot=\"tooltip\" {...props} />;\n  return hasProvider ? root : <TooltipProvider>{root}</TooltipProvider>;\n}\n\nfunction TooltipTrigger(props: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {\n  return <TooltipPrimitive.Trigger data-slot=\"tooltip-trigger\" {...props} />;\n}\n\n// Inverted surface (foreground on background) so the label reads as a\n// transient overlay over any content, cards included. 12/16 type with 4×8\n// padding makes a 24px chip; long text wraps at 240px.\n//\n// Motion: after the open delay it fades and scales up from 96% toward the\n// trigger (transform-origin from Radix), 150ms ease-out, and fades out in\n// 100ms. When it opens instantly (`instant-open`: the user is already moving\n// between triggers) it skips the entrance, so scanning a toolbar doesn't\n// flicker. Keyframes from tw-animate-css rather than transitions, because\n// Radix keeps the content mounted until an exit *animation* ends.\nfunction TooltipContent({\n  className,\n  sideOffset = 6,\n  children,\n  ...props\n}: React.ComponentProps<typeof TooltipPrimitive.Content>) {\n  return (\n    <TooltipPrimitive.Portal>\n      <TooltipPrimitive.Content\n        data-slot=\"tooltip-content\"\n        sideOffset={sideOffset}\n        className={cn(\n          \"z-50 w-fit max-w-60 origin-(--radix-tooltip-content-transform-origin) rounded-[0.375rem] bg-foreground px-2 py-1 text-xs text-pretty text-background shadow-[0_4px_12px_0_rgb(0_0_0/0.12)]\",\n          \"motion-safe:data-[state=delayed-open]:animate-in motion-safe:data-[state=delayed-open]:fade-in-0 motion-safe:data-[state=delayed-open]:zoom-in-96 motion-safe:data-[state=delayed-open]:duration-150 motion-safe:data-[state=delayed-open]:ease-out\",\n          \"motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=closed]:duration-100 motion-safe:data-[state=closed]:ease-out\",\n          className,\n        )}\n        {...props}\n      >\n        {children}\n      </TooltipPrimitive.Content>\n    </TooltipPrimitive.Portal>\n  );\n}\n\nexport { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
