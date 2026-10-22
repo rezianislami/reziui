@@ -45,8 +45,11 @@ description.
 `AlertDismiss` is opt-in. Use it for tips and announcements, not for alerts that
 tell the user how to recover from an error — that guidance should stay until it
 is acted on. The alert fades and lifts 4px (150ms, ease-out) before
-`onDismiss` runs, then focus moves to the next focusable element so keyboard
-users keep their place. With reduced motion it closes instantly.
+`onDismiss` runs. When it was dismissed from the keyboard, focus then moves to
+the first focusable element in the alert's former place — a control you render
+there instead (like "Show alert again") gets it — so keyboard users keep their
+place. A mouse click leaves focus alone, so the page never scrolls. With
+reduced motion it closes instantly.
 
 ## Variants
 

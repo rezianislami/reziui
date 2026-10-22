@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { flushSync } from "react-dom";
 import { cva, type VariantProps } from "class-variance-authority";
 import { XIcon } from "lucide-react";
 
@@ -99,8 +100,11 @@ const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 // When the dismiss button unmounts with its alert, focus would fall back to
-// <body> and a keyboard user would lose their place. Hand it to the next
-// focusable element after the alert, or the previous one at the end of the page.
+// <body> and a keyboard user would lose their place. Hand it to the first
+// focusable element after the spot the alert occupied — looked up *after* the
+// alert has unmounted, so a control rendered in its place (e.g. "Show again")
+// wins over whatever came next before. At the end of the page, fall back to
+// the element before the alert.
 //
 // Candidates must be visible: a hidden element (an inactive tab panel keeps
 // tabindex="0") silently refuses focus, which would drop focus on <body>.
@@ -109,13 +113,23 @@ function isFocusTarget(el: HTMLElement) {
   return !el.closest("[inert]") && (el.checkVisibility?.() ?? true);
 }
 
-function moveFocusPast(alert: HTMLElement) {
-  const all = Array.from(document.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
-    (el) => !alert.contains(el) && isFocusTarget(el),
+function focusables(exclude: HTMLElement) {
+  return Array.from(document.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+    (el) => !exclude.contains(el) && isFocusTarget(el),
   );
-  const next = all.find((el) => alert.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING);
-  const previous = all.findLast((el) => alert.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING);
-  (next ?? previous)?.focus();
+}
+
+/** Remembers where the alert sits, then focuses the right neighbour once it is gone. */
+function captureFocusAnchor(alert: HTMLElement) {
+  const before = focusables(alert).findLast((el) => alert.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING);
+  return () => {
+    const all = focusables(alert);
+    const anchor = before?.isConnected ? before : undefined;
+    const next = anchor
+      ? all.find((el) => anchor.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING)
+      : all[0];
+    (next ?? anchor)?.focus();
+  };
 }
 
 type AlertDismissProps = Omit<React.ComponentProps<"button">, "onClick" | "children"> & {
@@ -137,12 +151,19 @@ const EXIT_FALLBACK_MS = 250;
 function AlertDismiss({ className, onDismiss, label = "Dismiss", ...props }: AlertDismissProps) {
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     const alert = event.currentTarget.closest<HTMLElement>('[data-slot="alert"]');
+    // Only keyboard (and assistive-tech) activation hands focus on: it fires a
+    // click with detail 0, a pointer click has detail >= 1. A mouse user's
+    // focus landing on <body> is harmless, whereas focusing the next control
+    // makes the browser scroll to it — possibly far down the page.
+    const refocus = alert && event.detail === 0 ? captureFocusAnchor(alert) : null;
     let done = false;
     const finish = () => {
       if (done) return;
       done = true;
-      if (alert) moveFocusPast(alert);
-      onDismiss();
+      // flushSync commits the consumer's unmount right away, so the focus
+      // target is chosen from the updated DOM rather than racing React.
+      flushSync(onDismiss);
+      refocus?.();
     };
 
     if (!alert || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

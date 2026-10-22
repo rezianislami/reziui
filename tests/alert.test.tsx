@@ -176,6 +176,13 @@ describe("Alert", () => {
       expect(screen.queryByTestId("alert")).not.toBeInTheDocument();
     });
 
+    // Keyboard activation of a button fires a click with detail 0; a mouse
+    // click has detail >= 1. Only keyboard dismissal hands focus on.
+    const dismissWithKeyboard = async () => {
+      screen.getByRole("button", { name: "Dismiss" }).focus();
+      await userEvent.keyboard("{Enter}");
+    };
+
     it("skips hidden focusable elements when handing focus on", async () => {
       // Regression: an inactive tab panel (tabindex="0", hidden) was picked and
       // refused focus, leaving focus on <body>.
@@ -192,7 +199,7 @@ describe("Alert", () => {
       // Put the hidden panel first in document order after the alert.
       next.before(panel);
 
-      await userEvent.click(screen.getByRole("button", { name: "Dismiss" }));
+      await dismissWithKeyboard();
 
       expect(next).toHaveFocus();
     });
@@ -201,9 +208,79 @@ describe("Alert", () => {
       mockReducedMotion(true);
       render(<Dismissible />);
 
-      await userEvent.click(screen.getByRole("button", { name: "Dismiss" }));
+      await dismissWithKeyboard();
 
       expect(screen.getByRole("button", { name: "Next control" })).toHaveFocus();
+    });
+
+    it("leaves focus alone on a mouse click, so the page never scrolls to a far-away control", async () => {
+      // Regression: clicking close focused the next focusable on the page (the
+      // docs pager, far below) and the browser scrolled to it.
+      mockReducedMotion(true);
+      render(<Dismissible />);
+      const dismiss = screen.getByRole("button", { name: "Dismiss" });
+      const focused: HTMLElement[] = [];
+      const original = HTMLElement.prototype.focus;
+      const focus = vi.spyOn(HTMLElement.prototype, "focus").mockImplementation(function (this: HTMLElement, options) {
+        focused.push(this);
+        original.call(this, options);
+      });
+
+      await userEvent.click(dismiss);
+
+      // The pointer press itself focuses the dismiss button; nothing else may be.
+      expect(focused.filter((el) => el !== dismiss)).toEqual([]);
+      expect(screen.getByRole("button", { name: "Next control" })).not.toHaveFocus();
+      focus.mockRestore();
+    });
+
+    it("focuses whatever renders in the alert's place after it unmounts", async () => {
+      mockReducedMotion(true);
+      function Replaceable() {
+        const [open, setOpen] = useState(true);
+        return (
+          <>
+            <button type="button">Before</button>
+            {open ? (
+              <Alert>
+                <AlertTitle>Tip</AlertTitle>
+                <AlertDismiss onDismiss={() => setOpen(false)} />
+              </Alert>
+            ) : (
+              <button type="button">Show again</button>
+            )}
+            <button type="button">Far below</button>
+          </>
+        );
+      }
+      render(<Replaceable />);
+
+      await dismissWithKeyboard();
+
+      expect(screen.getByRole("button", { name: "Show again" })).toHaveFocus();
+    });
+
+    it("falls back to the previous focusable element at the end of the page", async () => {
+      mockReducedMotion(true);
+      function Last() {
+        const [open, setOpen] = useState(true);
+        return (
+          <>
+            <button type="button">Previous control</button>
+            {open && (
+              <Alert>
+                <AlertTitle>Tip</AlertTitle>
+                <AlertDismiss onDismiss={() => setOpen(false)} />
+              </Alert>
+            )}
+          </>
+        );
+      }
+      render(<Last />);
+
+      await dismissWithKeyboard();
+
+      expect(screen.getByRole("button", { name: "Previous control" })).toHaveFocus();
     });
   });
 });
