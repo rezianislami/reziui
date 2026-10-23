@@ -14,7 +14,7 @@ const nav = [
   { href: "/docs/components/button", label: "Components" },
 ];
 
-function GitHubIcon() {
+export function GitHubIcon() {
   // lucide-react dropped brand icons, so the mark is inlined.
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
