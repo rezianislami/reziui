@@ -1,16 +1,16 @@
 import type { ComponentType } from "react";
 import registry from "@/registry.json";
+import AccordionDemo from "@/registry/reziui/examples/accordion-demo";
+import AvatarGroupDemo from "@/registry/reziui/examples/avatar-group";
 import BadgeDemo from "@/registry/reziui/examples/badge-demo";
 import ButtonSuccess from "@/registry/reziui/examples/button-success";
 import DialogConfirm from "@/registry/reziui/examples/dialog-confirm";
 import DropdownMenuDemo from "@/registry/reziui/examples/dropdown-menu-demo";
 import KbdPressed from "@/registry/reziui/examples/kbd-pressed";
-import RadioGroupDemo from "@/registry/reziui/examples/radio-group-demo";
-import SelectDemo from "@/registry/reziui/examples/select-demo";
 import SheetDemo from "@/registry/reziui/examples/sheet-demo";
+import SliderDemo from "@/registry/reziui/examples/slider-demo";
 import SwitchDemo from "@/registry/reziui/examples/switch-demo";
 import TabsDemo from "@/registry/reziui/examples/tabs-demo";
-import TextareaDemo from "@/registry/reziui/examples/textarea-demo";
 import TooltipToolbar from "@/registry/reziui/examples/tooltip-toolbar";
 
 export const GITHUB_URL = "https://github.com/rezianislami";
@@ -24,10 +24,10 @@ export type Showcase = { title: string; slug: string; description: string; Previ
 // exactly what the docs show and the CLI installs. Overlays start closed and
 // open on click — opened on load they would take focus from the page.
 export const recentlyAdded: Showcase[] = [
+  { title: "Accordion", slug: "accordion", description: "Hairline list whose panels ease open.", Preview: AccordionDemo },
+  { title: "Avatar", slug: "avatar", description: "Photo or initials, alone or in a group.", Preview: AvatarGroupDemo },
+  { title: "Slider", slug: "slider", description: "Value or range on a 4px track.", Preview: SliderDemo },
   { title: "Sheet", slug: "sheet", description: "Panel that slides in from the start or end edge.", Preview: SheetDemo },
-  { title: "Select", slug: "select", description: "Input-styled select with the check at the end.", Preview: SelectDemo },
-  { title: "Radio Group", slug: "radio-group", description: "16px radios with a dot that scales in.", Preview: RadioGroupDemo },
-  { title: "Textarea", slug: "textarea", description: "Multi-line field that grows as you type.", Preview: TextareaDemo },
 ];
 
 export const everyday: Showcase[] = [

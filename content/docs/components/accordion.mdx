@@ -1,0 +1,55 @@
+---
+title: Accordion
+description: Hairline-divided disclosure list with an animated panel height, built on Radix Accordion.
+added: 2026-10-23
+---
+
+<ComponentPreview name="accordion-demo" />
+
+A panel's height animates open over 200ms and closed over 150ms while its
+chevron turns; under reduced motion the panel opens at once. Hovering a row
+darkens its chevron.
+
+## Installation
+
+<InstallTabs name="accordion" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+export function Example() {
+  return (
+    <Accordion type="single" collapsible>
+      <AccordionItem value="shipping">
+        <AccordionTrigger>How long does shipping take?</AccordionTrigger>
+        <AccordionContent>Three to five working days.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+`type="single"` keeps one item open at a time; add `collapsible` so the open
+one can close again. `type="multiple"` lets several stay open. Items are
+divided by a hairline rather than boxed, so an accordion sits inside a card or
+a page section without nesting boxes.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Tab` | Move between triggers and into an open panel. |
+| `Enter` `Space` | Open or close the focused item. |
+| `↓` `↑` | Move to the next or previous trigger. |
+| `Home` `End` | Move to the first or last trigger. |
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Accordion` | Radix `Accordion.Root`: `type` (`"single"` \| `"multiple"`), `value`, `defaultValue`, `onValueChange`, `collapsible`, `disabled`. |
+| `AccordionItem` | `value`, `disabled`. Hairline at the bottom. |
+| `AccordionTrigger` | The whole row is the button, with the chevron at the end. Focus draws a ring 4px outside the row. |
+| `AccordionContent` | The panel; `className` styles the inner block that holds the 16px bottom padding. |

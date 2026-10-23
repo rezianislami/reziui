@@ -1,0 +1,69 @@
+---
+title: Avatar
+description: Photo or initials in a circle, in three sizes, with an overlapping group, built on Radix Avatar.
+added: 2026-10-23
+---
+
+<ComponentPreview name="avatar-demo" />
+
+The initials show while the photo loads and whenever it fails, so a broken
+image never leaves an empty circle. Photos get a 1px outline at 10% black
+(white in dark mode) so light photos keep an edge.
+
+## Installation
+
+<InstallTabs name="avatar" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+export function Example() {
+  return (
+    <Avatar>
+      <AvatarImage src="/people/ana.jpg" alt="Ana Lima" />
+      <AvatarFallback seed="ana@example.com">AL</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+### Gradient fallback
+
+Pass a `seed` (an email or user id, anything stable) to `AvatarFallback` and
+the initials sit on one of six pastel gradients instead of the neutral
+surface. The same seed always gives the same gradient, on the server and in
+the browser, so a person keeps their colour across the app. Six colours run
+out quickly: in a group of four people, two will often share one, so the
+initials remain what tells people apart. Leave `seed` out where avatars are
+dense, such as table rows, and the neutral fallback keeps the page calm.
+
+The hues avoid the brand blue and the status colours, so a coloured avatar is
+never mistaken for a link or a warning; the initials clear 6.6:1 on every
+gradient in both themes.
+
+Avatars are the one round shape besides [Button](/docs/components/button):
+they stand for a person and do nothing on their own. To make one clickable,
+wrap it in a button or link that carries the accessible name.
+
+## Examples
+
+### Group
+
+<ComponentPreview name="avatar-group" size="sm" />
+
+`AvatarGroup` overlaps avatars by 4px with a 2px ring in the page colour. On a
+card, change the ring to match it with
+`className="*:data-[slot=avatar]:ring-card"`. End with `AvatarGroupCount` for
+the rest, and give it screen-reader text, since "+3" alone is ambiguous.
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Avatar` | Radix `Avatar.Root`. `size`: `"sm"` (24px), `"default"` (32px), `"lg"` (40px). |
+| `AvatarImage` | `src`, `alt`. Hidden until it has loaded. |
+| `AvatarFallback` | Initials on the accent surface, or on a gradient picked by `seed`. `delayMs` waits before showing them, to avoid a flash on fast connections. |
+| `AvatarGroup` | Overlapping row. Name it with `role="group"` and `aria-label` when it lists people. |
+| `AvatarGroupCount` | The "+N" circle; takes the same `size`. |

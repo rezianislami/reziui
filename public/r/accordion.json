@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "title": "Accordion",
+  "description": "Hairline-divided disclosure list with an animated panel height, built on Radix Accordion.",
+  "dependencies": [
+    "radix-ui",
+    "lucide-react",
+    "tw-animate-css"
+  ],
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/accordion.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { ChevronDownIcon } from \"lucide-react\";\nimport { Accordion as AccordionPrimitive } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Accordion(props: React.ComponentProps<typeof AccordionPrimitive.Root>) {\n  return <AccordionPrimitive.Root data-slot=\"accordion\" {...props} />;\n}\n\n// Items are divided by a hairline, not boxed: an accordion is a list, and a\n// box per item would make every row look like a separate card.\nfunction AccordionItem({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Item>) {\n  return (\n    <AccordionPrimitive.Item\n      data-slot=\"accordion-item\"\n      className={cn(\"border-b border-(--hairline)\", className)}\n      {...props}\n    />\n  );\n}\n\n// The whole row is the button. Hover darkens the chevron rather than\n// underlining the title: an underline reads as a link, and the row already\n// shows it is clickable through the chevron and the pointer cursor.\n//\n// The focus ring is drawn by ::after, 4px outside the row horizontally (the\n// text starts flush with the row's edge, so a ring on the button itself would\n// touch it) and 4px inside vertically (an outline-offset ring would run into\n// the first line of an open panel below). It is an outline, not a box-shadow\n// ring, so it survives forced-colors mode.\nfunction AccordionTrigger({ className, children, ...props }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {\n  return (\n    <AccordionPrimitive.Header className=\"flex\">\n      <AccordionPrimitive.Trigger\n        data-slot=\"accordion-trigger\"\n        className={cn(\n          \"group/trigger relative flex flex-1 cursor-pointer items-center justify-between gap-4 py-4 text-start text-sm font-medium text-foreground outline-hidden\",\n          \"after:pointer-events-none after:absolute after:-inset-x-1 after:inset-y-1 after:rounded-md\",\n          \"focus-visible:after:outline-2 focus-visible:after:outline-solid focus-visible:after:outline-ring\",\n          \"disabled:cursor-not-allowed disabled:opacity-50\",\n          className,\n        )}\n        {...props}\n      >\n        {children}\n        <ChevronDownIcon\n          aria-hidden=\"true\"\n          className={cn(\n            \"size-4 shrink-0 text-muted-foreground\",\n            \"motion-safe:transition-[rotate,color] motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.2,0,0,1)]\",\n            \"group-hover/trigger:text-foreground group-disabled/trigger:text-muted-foreground\",\n            \"group-data-[state=open]/trigger:rotate-180\",\n          )}\n        />\n      </AccordionPrimitive.Trigger>\n    </AccordionPrimitive.Header>\n  );\n}\n\n// Height animates from 0 to Radix's measured --radix-accordion-content-height:\n// 200ms open, 150ms closed (exits are softer). overflow-hidden stays on the\n// outer element so the padding lives on an inner one and is clipped with the\n// text instead of jumping in at the end. Under reduced motion it opens at once.\nfunction AccordionContent({ className, children, ...props }: React.ComponentProps<typeof AccordionPrimitive.Content>) {\n  return (\n    <AccordionPrimitive.Content\n      data-slot=\"accordion-content\"\n      className={cn(\n        \"overflow-hidden text-sm text-muted-foreground\",\n        \"motion-safe:data-[state=open]:animate-accordion-down motion-safe:data-[state=open]:duration-200 motion-safe:data-[state=open]:ease-[cubic-bezier(0.2,0,0,1)]\",\n        \"motion-safe:data-[state=closed]:animate-accordion-up motion-safe:data-[state=closed]:duration-150 motion-safe:data-[state=closed]:ease-out\",\n      )}\n      {...props}\n    >\n      <div className={cn(\"pb-4 leading-normal text-pretty\", className)}>{children}</div>\n    </AccordionPrimitive.Content>\n  );\n}\n\nexport { Accordion, AccordionContent, AccordionItem, AccordionTrigger };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

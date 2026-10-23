@@ -1,7 +1,10 @@
 import type { ComponentType } from "react";
+import AccordionDemo from "./accordion-demo";
 import AlertActionDemo from "./alert-action";
 import AlertDemo from "./alert-demo";
 import AlertDismissDemo from "./alert-dismiss";
+import AvatarDemo from "./avatar-demo";
+import AvatarGroupDemo from "./avatar-group";
 import BadgeDemo from "./badge-demo";
 import BadgeIcons from "./badge-icons";
 import BadgeLink from "./badge-link";
@@ -32,6 +35,8 @@ import SelectDemo from "./select-demo";
 import SelectStates from "./select-states";
 import SheetDemo from "./sheet-demo";
 import SheetNavigation from "./sheet-navigation";
+import SliderDemo from "./slider-demo";
+import SliderRange from "./slider-range";
 import SwitchDemo from "./switch-demo";
 import SwitchStates from "./switch-states";
 import TabsDemo from "./tabs-demo";
@@ -89,4 +94,9 @@ export const examples: Record<string, Example> = {
   "textarea-demo": { component: TextareaDemo, file: "registry/reziui/examples/textarea-demo.tsx" },
   "sheet-demo": { component: SheetDemo, file: "registry/reziui/examples/sheet-demo.tsx" },
   "sheet-navigation": { component: SheetNavigation, file: "registry/reziui/examples/sheet-navigation.tsx" },
+  "accordion-demo": { component: AccordionDemo, file: "registry/reziui/examples/accordion-demo.tsx" },
+  "avatar-demo": { component: AvatarDemo, file: "registry/reziui/examples/avatar-demo.tsx" },
+  "avatar-group": { component: AvatarGroupDemo, file: "registry/reziui/examples/avatar-group.tsx" },
+  "slider-demo": { component: SliderDemo, file: "registry/reziui/examples/slider-demo.tsx" },
+  "slider-range": { component: SliderRange, file: "registry/reziui/examples/slider-range.tsx" },
 };

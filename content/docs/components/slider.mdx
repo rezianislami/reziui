@@ -1,0 +1,52 @@
+---
+title: Slider
+description: Value or range on a 4px track with 16px thumbs, built on Radix Slider.
+added: 2026-10-23
+---
+
+<ComponentPreview name="slider-demo" />
+
+The thumb follows the pointer and the keyboard directly, with no easing to
+wait for; the filled part of the track shows the value.
+
+## Installation
+
+<InstallTabs name="slider" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Slider } from "@/components/ui/slider";
+
+export function Example() {
+  return <Slider defaultValue={[50]} max={100} step={1} aria-label="Volume" />;
+}
+```
+
+Values are always arrays, one number per thumb. Name the slider with
+`aria-label` or `aria-labelledby`: it is passed to the thumb, which is the
+element that receives focus. Show the current value next to the label, as in
+the preview, when the exact number matters.
+
+## Examples
+
+### Range
+
+<ComponentPreview name="slider-range" size="sm" />
+
+Two values make two thumbs. Name each with `thumbLabels`, and keep them apart
+with `minStepsBetweenThumbs`.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `←` `↓` / `→` `↑` | Decrease or increase by one step. |
+| `Page Down` / `Page Up` | Decrease or increase by ten steps. |
+| `Home` / `End` | Jump to the minimum or maximum. |
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Slider` | Radix `Slider.Root`: `value`, `defaultValue`, `onValueChange`, `onValueCommit`, `min`, `max`, `step`, `minStepsBetweenThumbs`, `disabled`, `orientation`, `inverted`, `name`. `thumbLabels` names each thumb. |

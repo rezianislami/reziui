@@ -31,6 +31,7 @@
           "surface-elevated": "oklch(0.98 0 0)",
           "hairline": "oklch(0.935 0 0)",
           "control-off": "oklch(0.62 0 0)",
+          "control-track": "oklch(0.922 0 0)",
           "shadow-overlay": "0 8px 24px rgb(0 0 0 / 0.12), 0 2px 6px rgb(0 0 0 / 0.08)",
           "link": "oklch(0.424 0.199 265.638)",
           "destructive-text": "oklch(0.505 0.213 27.518)",
@@ -80,6 +81,7 @@
           "surface-elevated": "oklch(0.12 0 0)",
           "hairline": "oklch(0.269 0 0)",
           "control-off": "oklch(0.5 0 0)",
+          "control-track": "oklch(0.269 0 0)",
           "shadow-overlay": "0 8px 24px rgb(0 0 0 / 0.5), 0 2px 6px rgb(0 0 0 / 0.35)",
           "link": "oklch(0.707 0.165 254.624)",
           "destructive-text": "oklch(0.704 0.191 22.216)",
@@ -342,6 +344,48 @@
       "files": [
         {
           "path": "registry/reziui/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Hairline-divided disclosure list with an animated panel height, built on Radix Accordion.",
+      "dependencies": ["radix-ui", "lucide-react", "tw-animate-css"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Photo or initials in a circle, in three sizes, with an overlapping group, built on Radix Avatar.",
+      "dependencies": ["radix-ui", "class-variance-authority"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Value or range on a 4px track with 16px thumbs, built on Radix Slider.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/slider.tsx",
           "type": "registry:ui"
         }
       ]
