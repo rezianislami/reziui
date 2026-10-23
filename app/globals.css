@@ -67,6 +67,38 @@
   }
 }
 
+/*
+ * Component motion. These also ship with the registry items (Skeleton,
+ * Progress) through their `css` and `cssVars.theme` fields, so an install
+ * adds the same keyframes to the consumer's CSS.
+ */
+@theme {
+  /* A highlight crosses each skeleton block from start to end, every 1.6s. */
+  --animate-skeleton-shimmer: skeleton-shimmer 1.6s ease-in-out infinite;
+  /* A 30% segment slides from the start of the track to its end and back. */
+  --animate-progress-indeterminate: progress-indeterminate 1.4s ease-in-out infinite alternate;
+
+  @keyframes skeleton-shimmer {
+    from {
+      translate: -100% 0;
+    }
+    to {
+      translate: 100% 0;
+    }
+  }
+
+  /* 233.33% of a 30%-wide segment is 70% of the track: the segment, pinned
+     to the left edge, ends flush with the right one. */
+  @keyframes progress-indeterminate {
+    from {
+      translate: 0 0;
+    }
+    to {
+      translate: 233.33% 0;
+    }
+  }
+}
+
 @keyframes card-in {
   from {
     opacity: 0;
@@ -203,11 +235,17 @@
    */
   --control-off: oklch(0.62 0 0);
   /*
-   * The empty part of a slider track. Its range fill and thumb carry the
-   * value, so the track only has to read as a groove; --muted is too faint for
-   * that in dark mode, where it sits darker than the card.
+   * The empty part of a slider or progress track. The fill (and a slider's
+   * thumb) carries the value, so the track only has to read as a groove;
+   * --muted is too faint for that in dark mode, where it sits darker than the
+   * card.
    */
   --control-track: oklch(0.922 0 0);
+  /*
+   * Skeleton placeholders. Same lightness as --control-track today, but its
+   * own role: a loading block is content-shaped, not part of a control.
+   */
+  --skeleton: oklch(0.922 0 0);
   /*
    * Floating surfaces (popover, menu). Two blurred layers, no spread, so the
    * canvas can draw the same shadow. Dark mode needs far stronger alpha to
@@ -288,6 +326,7 @@
   --hairline: oklch(0.269 0 0);
   --control-off: oklch(0.5 0 0);
   --control-track: oklch(0.269 0 0);
+  --skeleton: oklch(0.269 0 0);
   --shadow-overlay: 0 8px 24px rgb(0 0 0 / 0.5), 0 2px 6px rgb(0 0 0 / 0.35);
   --link: oklch(0.707 0.165 254.624);
   --destructive-text: oklch(0.704 0.191 22.216);

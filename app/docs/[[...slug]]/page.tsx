@@ -3,13 +3,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBreadcrumbItems } from "fumadocs-core/breadcrumb";
-import { ChevronRightIcon } from "lucide-react";
 import { source } from "@/lib/source";
 import { CopyButton } from "@/components/docs/copy-button";
 import { mdxComponents } from "@/components/docs/mdx-components";
 import { MobileToc } from "@/components/docs/mobile-toc";
 import { Pager } from "@/components/docs/pager";
 import { Toc } from "@/components/docs/toc";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/registry/reziui/ui/breadcrumb";
 
 type PageProps = { params: Promise<{ slug?: string[] }> };
 
@@ -37,16 +44,28 @@ export default async function Page({ params }: PageProps) {
     <>
       <article className="mx-auto w-full max-w-3xl min-w-0 px-5 pt-6 pb-16 md:px-14 md:pt-9 md:pb-18">
         {crumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-3 flex items-center gap-1.5 text-[13px] text-muted-foreground">
-            {crumbs.map((crumb, i) => (
-              <Fragment key={i}>
-                {i > 0 && <ChevronRightIcon className="size-3.5" aria-hidden="true" />}
-                {crumb.url ? <Link href={crumb.url}>{crumb.name}</Link> : <span>{crumb.name}</span>}
-              </Fragment>
-            ))}
-            <ChevronRightIcon className="size-3.5" aria-hidden="true" />
-            <span className="text-foreground">{page.data.title}</span>
-          </nav>
+          <Breadcrumb className="mb-3">
+            <BreadcrumbList>
+              {crumbs.map((crumb, i) => (
+                <Fragment key={i}>
+                  {i > 0 && <BreadcrumbSeparator />}
+                  <BreadcrumbItem>
+                    {crumb.url ? (
+                      <BreadcrumbLink asChild>
+                        <Link href={crumb.url}>{crumb.name}</Link>
+                      </BreadcrumbLink>
+                    ) : (
+                      crumb.name
+                    )}
+                  </BreadcrumbItem>
+                </Fragment>
+              ))}
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{page.data.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
         )}
         <div className="flex items-start gap-4">
           <h1 className="text-[28px] leading-tight font-semibold tracking-tight text-foreground md:text-[34px]">

@@ -1,0 +1,48 @@
+---
+title: Progress
+description: 4px determinate or indeterminate progress bar, built on Radix Progress.
+added: 2026-10-23
+---
+
+<ComponentPreview name="progress-demo" />
+
+A new value eases in over 300ms. The track is the same groove as
+[Slider](/docs/components/slider), without a thumb, because a progress bar is
+not something you drag.
+
+## Installation
+
+<InstallTabs name="progress" />
+
+The CLI also adds the `progress-indeterminate` keyframes and the
+`--animate-progress-indeterminate` theme variable to your global CSS.
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Progress } from "@/components/ui/progress";
+
+export function Example() {
+  return <Progress value={64} aria-label="Upload" />;
+}
+```
+
+Name the bar with `aria-label` or `aria-labelledby`; screen readers then read
+the name with the percentage. Show the number next to the label, as in the
+preview, when people need the exact value.
+
+## Examples
+
+### Indeterminate
+
+<ComponentPreview name="progress-indeterminate" size="sm" />
+
+Leave out `value` (or pass `null`) when the total is unknown. A 30% segment
+slides from end to end and back; under reduced motion it stays in the middle
+and its opacity pulses instead. Both directions flip in right-to-left layouts.
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Progress` | Radix `Progress.Root`: `value` (omit or `null` for indeterminate), `max` (default `100`), `getValueLabel`. |

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "Content-shaped loading placeholder with a soft shimmer that stops under reduced motion.",
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/skeleton.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\n// A content-shaped placeholder on its own --skeleton surface, 8px radius by\n// default (pass rounded-full for an avatar, a height for a line of text).\n//\n// A soft highlight crosses every block every 1.6s, so the page reads as\n// loading rather than empty. It is a pseudo-element moving with `translate`,\n// which the compositor animates without repainting the block. The highlight is\n// white at 60% in light mode and 6% in dark, a lift rather than a flash. It\n// runs end to start in right-to-left layouts, and under reduced motion the\n// blocks sit still.\n//\n// The block is decorative (aria-hidden): mark the loading region itself with\n// aria-busy=\"true\" so assistive technology knows content is on its way.\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      aria-hidden=\"true\"\n      className={cn(\n        \"relative overflow-hidden rounded-md bg-(--skeleton)\",\n        \"after:pointer-events-none after:absolute after:inset-0 after:-translate-x-full\",\n        \"after:bg-linear-to-r after:from-transparent after:via-white/60 after:to-transparent dark:after:via-white/6\",\n        \"motion-safe:after:animate-skeleton-shimmer rtl:after:[animation-direction:reverse]\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Skeleton };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "cssVars": {
+    "theme": {
+      "--animate-skeleton-shimmer": "skeleton-shimmer 1.6s ease-in-out infinite"
+    }
+  },
+  "css": {
+    "@keyframes skeleton-shimmer": {
+      "from": {
+        "translate": "-100% 0"
+      },
+      "to": {
+        "translate": "100% 0"
+      }
+    }
+  },
+  "type": "registry:ui"
+}

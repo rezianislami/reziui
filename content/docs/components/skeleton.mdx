@@ -1,0 +1,44 @@
+---
+title: Skeleton
+description: Content-shaped loading placeholder with a soft shimmer that stops under reduced motion.
+added: 2026-10-23
+---
+
+<ComponentPreview name="skeleton-demo" />
+
+A soft highlight crosses every block every 1.6s, so the page reads as loading
+rather than empty. It runs end to start in right-to-left layouts, and under
+reduced motion the blocks sit still.
+
+## Installation
+
+<InstallTabs name="skeleton" />
+
+The CLI also adds the `skeleton-shimmer` keyframes and the
+`--animate-skeleton-shimmer` theme variable to your global CSS.
+
+## Usage
+
+```tsx title="app/page.tsx"
+import { Skeleton } from "@/components/ui/skeleton";
+
+export function Example() {
+  return (
+    <div aria-busy="true" aria-label="Loading profile" className="flex items-center gap-3">
+      <Skeleton className="size-10 rounded-full" />
+      <Skeleton className="h-3 w-40" />
+    </div>
+  );
+}
+```
+
+Shape each block like the content it stands in for: a circle for an avatar, a
+12px-tall bar for a line of text, the real height for an image. The blocks are
+hidden from assistive technology, so mark the region that is loading with
+`aria-busy="true"` and a label, and remove both when the content arrives.
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Skeleton` | A `div` on the `--skeleton` surface with an 8px radius. Size and shape it with `className`. |

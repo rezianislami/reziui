@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "title": "Progress",
+  "description": "4px determinate or indeterminate progress bar, built on Radix Progress.",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/progress.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Progress as ProgressPrimitive } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\n// The same 4px groove as Slider (--control-track) with the filled part in\n// --btn-primary, which stays the brand blue even if a consumer's theme\n// redefines --primary. Not interactive, so no thumb.\n//\n// With a value, the indicator is a full-width bar translated left by the\n// remaining percentage; a change eases over 300ms. Without one (value null or\n// omitted) it is indeterminate: a 30% segment slides from end to end and back\n// (1.4s). Under reduced motion that segment stays in the middle and its\n// opacity pulses instead, so the \"still working\" cue remains without movement.\n//\n// Right-to-left: the determinate fill must grow from the right, so its offset\n// is multiplied by --progress-dir, which the root sets to -1. The\n// indeterminate segment is pinned to the left edge (absolute, physical) and\n// not flipped: its back-and-forth is symmetric, so direction doesn't matter,\n// and pinning keeps it inside the track however the browser places a narrow\n// block in a right-to-left context.\nfunction Progress({ className, value, max = 100, ...props }: React.ComponentProps<typeof ProgressPrimitive.Root>) {\n  const indeterminate = value === null || value === undefined;\n  const percent = indeterminate ? 0 : Math.min(Math.max(value / max, 0), 1) * 100;\n\n  return (\n    <ProgressPrimitive.Root\n      data-slot=\"progress\"\n      value={value}\n      max={max}\n      className={cn(\n        \"relative h-1 w-full overflow-hidden rounded-full bg-(--control-track) [--progress-dir:1] rtl:[--progress-dir:-1]\",\n        className,\n      )}\n      {...props}\n    >\n      <ProgressPrimitive.Indicator\n        data-slot=\"progress-indicator\"\n        className={cn(\n          \"h-full rounded-full bg-(--btn-primary)\",\n          indeterminate\n            ? \"absolute inset-y-0 left-0 w-[30%] motion-safe:animate-progress-indeterminate motion-reduce:animate-pulse motion-reduce:translate-x-[116.67%]\"\n            : \"w-full motion-safe:transition-[translate] motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.2,0,0,1)]\",\n        )}\n        style={indeterminate ? undefined : { translate: `calc(${percent - 100}% * var(--progress-dir)) 0` }}\n      />\n    </ProgressPrimitive.Root>\n  );\n}\n\nexport { Progress };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "cssVars": {
+    "theme": {
+      "--animate-progress-indeterminate": "progress-indeterminate 1.4s ease-in-out infinite alternate"
+    }
+  },
+  "css": {
+    "@keyframes progress-indeterminate": {
+      "from": {
+        "translate": "0 0"
+      },
+      "to": {
+        "translate": "233.33% 0"
+      }
+    }
+  },
+  "type": "registry:ui"
+}

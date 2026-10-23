@@ -10,6 +10,8 @@ import BadgeIcons from "./badge-icons";
 import BadgeLink from "./badge-link";
 import BadgeSizes from "./badge-sizes";
 import BadgeVariants from "./badge-variants";
+import BreadcrumbCollapsed from "./breadcrumb-collapsed";
+import BreadcrumbDemo from "./breadcrumb-demo";
 import ButtonDemo from "./button-demo";
 import ButtonLoading from "./button-loading";
 import ButtonSizes from "./button-sizes";
@@ -30,11 +32,14 @@ import InputStates from "./input-states";
 import KbdDemo from "./kbd-demo";
 import KbdPressed from "./kbd-pressed";
 import PopoverDemo from "./popover-demo";
+import ProgressDemo from "./progress-demo";
+import ProgressIndeterminate from "./progress-indeterminate";
 import RadioGroupDemo from "./radio-group-demo";
 import SelectDemo from "./select-demo";
 import SelectStates from "./select-states";
 import SheetDemo from "./sheet-demo";
 import SheetNavigation from "./sheet-navigation";
+import SkeletonDemo from "./skeleton-demo";
 import SliderDemo from "./slider-demo";
 import SliderRange from "./slider-range";
 import SwitchDemo from "./switch-demo";
@@ -99,4 +104,9 @@ export const examples: Record<string, Example> = {
   "avatar-group": { component: AvatarGroupDemo, file: "registry/reziui/examples/avatar-group.tsx" },
   "slider-demo": { component: SliderDemo, file: "registry/reziui/examples/slider-demo.tsx" },
   "slider-range": { component: SliderRange, file: "registry/reziui/examples/slider-range.tsx" },
+  "skeleton-demo": { component: SkeletonDemo, file: "registry/reziui/examples/skeleton-demo.tsx" },
+  "progress-demo": { component: ProgressDemo, file: "registry/reziui/examples/progress-demo.tsx" },
+  "progress-indeterminate": { component: ProgressIndeterminate, file: "registry/reziui/examples/progress-indeterminate.tsx" },
+  "breadcrumb-demo": { component: BreadcrumbDemo, file: "registry/reziui/examples/breadcrumb-demo.tsx" },
+  "breadcrumb-collapsed": { component: BreadcrumbCollapsed, file: "registry/reziui/examples/breadcrumb-collapsed.tsx" },
 };

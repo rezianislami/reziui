@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb",
+  "title": "Breadcrumb",
+  "description": "Trail of links to the current page, with a collapsible middle.",
+  "dependencies": [
+    "radix-ui",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "@reziui/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/reziui/ui/breadcrumb.tsx",
+      "content": "import * as React from \"react\";\nimport { ChevronRightIcon, EllipsisIcon } from \"lucide-react\";\nimport { Slot } from \"radix-ui\";\n\nimport { cn } from \"@/lib/utils\";\n\n// A <nav> landmark named \"Breadcrumb\" holding an ordered list, so a screen\n// reader announces both the landmark and how deep the page sits.\nfunction Breadcrumb({ \"aria-label\": ariaLabel = \"Breadcrumb\", ...props }: React.ComponentProps<\"nav\">) {\n  return <nav data-slot=\"breadcrumb\" aria-label={ariaLabel} {...props} />;\n}\n\n// 13px muted text, items 6px apart; wraps rather than overflowing on narrow\n// screens, since a clipped trail hides exactly the levels people came for.\nfunction BreadcrumbList({ className, ...props }: React.ComponentProps<\"ol\">) {\n  return (\n    <ol\n      data-slot=\"breadcrumb-list\"\n      className={cn(\"flex flex-wrap items-center gap-1.5 text-[13px] break-words text-muted-foreground\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction BreadcrumbItem({ className, ...props }: React.ComponentProps<\"li\">) {\n  return <li data-slot=\"breadcrumb-item\" className={cn(\"inline-flex items-center gap-1.5\", className)} {...props} />;\n}\n\n// Links darken to the foreground colour on hover instead of underlining: the\n// whole trail is links, and a row of underlines would be noisy. The invisible\n// ::after grows the 20px-tall text to a 24px hit area (WCAG 2.5.8), and focus\n// gets the same offset outline as Button.\nfunction BreadcrumbLink({ asChild, className, ...props }: React.ComponentProps<\"a\"> & { asChild?: boolean }) {\n  const Comp = asChild ? Slot.Root : \"a\";\n  return (\n    <Comp\n      data-slot=\"breadcrumb-link\"\n      className={cn(\n        \"relative rounded-sm outline-hidden transition-colors hover:text-foreground\",\n        \"after:absolute after:-inset-y-0.5 after:inset-x-0\",\n        \"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-ring\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\n// The current page: plain text, not a link to itself, marked as the current\n// location for assistive technology.\nfunction BreadcrumbPage({ className, ...props }: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"breadcrumb-page\"\n      aria-current=\"page\"\n      className={cn(\"font-normal text-foreground\", className)}\n      {...props}\n    />\n  );\n}\n\n// The chevron mirrors in right-to-left layouts, where the trail reads the\n// other way. Hidden from assistive technology: the list already conveys order.\nfunction BreadcrumbSeparator({ children, className, ...props }: React.ComponentProps<\"li\">) {\n  return (\n    <li\n      data-slot=\"breadcrumb-separator\"\n      role=\"presentation\"\n      aria-hidden=\"true\"\n      className={cn(\"[&>svg]:size-3.5 rtl:[&>svg]:-scale-x-100\", className)}\n      {...props}\n    >\n      {children ?? <ChevronRightIcon />}\n    </li>\n  );\n}\n\n/**\n * Stands in for the hidden middle of a long trail. It is only a visual: wrap\n * it in a DropdownMenuTrigger (asChild on the trigger) to list the hidden\n * levels; the sr-only text names it as \"More\".\n */\nfunction BreadcrumbEllipsis({ className, ...props }: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"breadcrumb-ellipsis\"\n      className={cn(\"flex size-5 items-center justify-center\", className)}\n      {...props}\n    >\n      <EllipsisIcon className=\"size-4\" aria-hidden=\"true\" />\n      <span className=\"sr-only\">More</span>\n    </span>\n  );\n}\n\nexport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

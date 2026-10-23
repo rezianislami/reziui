@@ -32,6 +32,7 @@
           "hairline": "oklch(0.935 0 0)",
           "control-off": "oklch(0.62 0 0)",
           "control-track": "oklch(0.922 0 0)",
+          "skeleton": "oklch(0.922 0 0)",
           "shadow-overlay": "0 8px 24px rgb(0 0 0 / 0.12), 0 2px 6px rgb(0 0 0 / 0.08)",
           "link": "oklch(0.424 0.199 265.638)",
           "destructive-text": "oklch(0.505 0.213 27.518)",
@@ -82,6 +83,7 @@
           "hairline": "oklch(0.269 0 0)",
           "control-off": "oklch(0.5 0 0)",
           "control-track": "oklch(0.269 0 0)",
+          "skeleton": "oklch(0.269 0 0)",
           "shadow-overlay": "0 8px 24px rgb(0 0 0 / 0.5), 0 2px 6px rgb(0 0 0 / 0.35)",
           "link": "oklch(0.707 0.165 254.624)",
           "destructive-text": "oklch(0.704 0.191 22.216)",
@@ -386,6 +388,69 @@
       "files": [
         {
           "path": "registry/reziui/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Content-shaped loading placeholder with a soft shimmer that stops under reduced motion.",
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "cssVars": {
+        "theme": {
+          "--animate-skeleton-shimmer": "skeleton-shimmer 1.6s ease-in-out infinite"
+        }
+      },
+      "css": {
+        "@keyframes skeleton-shimmer": {
+          "from": { "translate": "-100% 0" },
+          "to": { "translate": "100% 0" }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/reziui/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "4px determinate or indeterminate progress bar, built on Radix Progress.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "cssVars": {
+        "theme": {
+          "--animate-progress-indeterminate": "progress-indeterminate 1.4s ease-in-out infinite alternate"
+        }
+      },
+      "css": {
+        "@keyframes progress-indeterminate": {
+          "from": { "translate": "0 0" },
+          "to": { "translate": "233.33% 0" }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/reziui/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Trail of links to the current page, with a collapsible middle.",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/breadcrumb.tsx",
           "type": "registry:ui"
         }
       ]

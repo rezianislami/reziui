@@ -1,0 +1,69 @@
+---
+title: Breadcrumb
+description: Trail of links to the current page, with a collapsible middle.
+added: 2026-10-23
+---
+
+<ComponentPreview name="breadcrumb-demo" />
+
+Links darken on hover and get the same offset focus ring as Button. The
+current page is plain text, marked with `aria-current="page"`. These docs use
+the same component above every page title.
+
+## Installation
+
+<InstallTabs name="breadcrumb" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
+export function Example() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Settings</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+}
+```
+
+Use `asChild` on `BreadcrumbLink` to render your router's link, such as
+`next/link`. The trail wraps on narrow screens rather than clipping, and the
+chevron mirrors in right-to-left layouts.
+
+## Examples
+
+### Collapsed
+
+<ComponentPreview name="breadcrumb-collapsed" size="sm" />
+
+For deep trails, replace the middle levels with `BreadcrumbEllipsis` inside a
+[Dropdown Menu](/docs/components/dropdown-menu) trigger that lists them. The
+ellipsis carries the accessible name "More".
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Breadcrumb` | A `nav` landmark, labelled "Breadcrumb" by default. |
+| `BreadcrumbList` · `BreadcrumbItem` | The ordered list and its items. |
+| `BreadcrumbLink` | An `a`; `asChild` to render your own link. 24px hit area. |
+| `BreadcrumbPage` | The current page, as text with `aria-current="page"`. |
+| `BreadcrumbSeparator` | A chevron by default; pass children for another separator. |
+| `BreadcrumbEllipsis` | The "…" for a collapsed middle; put it in a menu trigger. |
