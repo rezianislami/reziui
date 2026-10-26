@@ -37,6 +37,14 @@ the preview, when the exact number matters.
 Two values make two thumbs. Name each with `thumbLabels`, and keep them apart
 with `minStepsBetweenThumbs`.
 
+### Right-to-left
+
+Radix places the thumb and the filled range from the React direction, not
+from the `dir` attribute in the DOM. In a right-to-left app, wrap it in Radix's
+`DirectionProvider` (`import { Direction } from "radix-ui"`, then
+`<Direction.Provider dir="rtl">`), or pass `dir="rtl"` to the slider. The fill
+then grows from the right and the arrow keys follow the reading direction.
+
 ## Keyboard
 
 | Key | Action |

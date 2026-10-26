@@ -52453,6 +52453,316 @@
         },
         {
           "type": "frame",
+          "id": "xHLGl",
+          "name": "Handled",
+          "width": 1200,
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            0,
+            0,
+            96,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "QSyrg",
+              "name": "Head",
+              "width": "fill_container",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "t5a3u",
+                  "name": "Titles",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xz2sX",
+                      "name": "Eyebrow",
+                      "fill": "$muted-foreground",
+                      "content": "Built in",
+                      "lineHeight": 1.4286,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Z5sXA",
+                      "name": "Title",
+                      "fill": "$foreground-strong",
+                      "content": "Handled for you",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 36,
+                      "fontWeight": "600",
+                      "letterSpacing": -0.9
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "b4yhe",
+              "name": "Grid",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "grKCf",
+                  "name": "Card Keyboard & focus",
+                  "width": "fill_container",
+                  "height": 136,
+                  "fill": "$card",
+                  "cornerRadius": 16,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "v2sTSE",
+                      "name": "Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "keyboard",
+                      "library": "lucide",
+                      "fill": "$foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jvKio",
+                      "name": "Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ZQUQB",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Keyboard & focus",
+                          "lineHeight": 1.4286,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "BrUXE",
+                          "name": "Description",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Arrow keys, Escape, and a visible ring on every control you reach.",
+                          "lineHeight": 1.5385,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "spBlt",
+                  "name": "Card Reduced motion",
+                  "width": "fill_container",
+                  "height": 136,
+                  "fill": "$card",
+                  "cornerRadius": 16,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "zsQrZ",
+                      "name": "Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "pause",
+                      "library": "lucide",
+                      "fill": "$foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Ou5en",
+                      "name": "Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "oLy4t",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Reduced motion",
+                          "lineHeight": 1.4286,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "y9QCs",
+                          "name": "Description",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Animations step aside when the system asks for less motion.",
+                          "lineHeight": 1.5385,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WumoA",
+                  "name": "Card Dark mode",
+                  "width": "fill_container",
+                  "height": 136,
+                  "fill": "$card",
+                  "cornerRadius": 16,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "Wf5Ns",
+                      "name": "Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "moon",
+                      "library": "lucide",
+                      "fill": "$foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gb3Fz",
+                      "name": "Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HLaLn",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Dark mode",
+                          "lineHeight": 1.4286,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "adRqW",
+                          "name": "Description",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Every token has a dark value, with contrast checked in both.",
+                          "lineHeight": 1.5385,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZD802",
+                  "name": "Card Right-to-left",
+                  "width": "fill_container",
+                  "height": 136,
+                  "fill": "$card",
+                  "cornerRadius": 16,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "S0fnK",
+                      "name": "Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "arrow-right-left",
+                      "library": "lucide",
+                      "fill": "$foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Wf9MN",
+                      "name": "Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Wusm5",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Right-to-left",
+                          "lineHeight": 1.4286,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "t1jwG",
+                          "name": "Description",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Logical spacing, with icons and slides that mirror.",
+                          "lineHeight": 1.5385,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
           "id": "Yam0b",
           "name": "New",
           "width": 1200,
@@ -55619,6 +55929,316 @@
         },
         {
           "type": "frame",
+          "id": "w1oqL",
+          "name": "Handled",
+          "width": 1200,
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            0,
+            0,
+            96,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "ZgRXa",
+              "name": "Head",
+              "width": "fill_container",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "z5HCSG",
+                  "name": "Titles",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sZ5Gw",
+                      "name": "Eyebrow",
+                      "fill": "$muted-foreground",
+                      "content": "Built in",
+                      "lineHeight": 1.4286,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HMVEi",
+                      "name": "Title",
+                      "fill": "$foreground-strong",
+                      "content": "Handled for you",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 36,
+                      "fontWeight": "600",
+                      "letterSpacing": -0.9
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "d9Vsn",
+              "name": "Grid",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Z81dna",
+                  "name": "Card Keyboard & focus",
+                  "width": "fill_container",
+                  "height": 136,
+                  "fill": "$card",
+                  "cornerRadius": 16,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "VndsB",
+                      "name": "Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "keyboard",
+                      "library": "lucide",
+                      "fill": "$foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Xre3Q",
+                      "name": "Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "b90f6",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Keyboard & focus",
+                          "lineHeight": 1.4286,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Vj4hz",
+                          "name": "Description",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Arrow keys, Escape, and a visible ring on every control you reach.",
+                          "lineHeight": 1.5385,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "D3lPqk",
+                  "name": "Card Reduced motion",
+                  "width": "fill_container",
+                  "height": 136,
+                  "fill": "$card",
+                  "cornerRadius": 16,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "vUceX",
+                      "name": "Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "pause",
+                      "library": "lucide",
+                      "fill": "$foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RQIMj",
+                      "name": "Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pw6qk",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Reduced motion",
+                          "lineHeight": 1.4286,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "iOaDe",
+                          "name": "Description",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Animations step aside when the system asks for less motion.",
+                          "lineHeight": 1.5385,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wmdR6",
+                  "name": "Card Dark mode",
+                  "width": "fill_container",
+                  "height": 136,
+                  "fill": "$card",
+                  "cornerRadius": 16,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "Cz3wy",
+                      "name": "Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "moon",
+                      "library": "lucide",
+                      "fill": "$foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hqqrj",
+                      "name": "Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "y4Rae",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Dark mode",
+                          "lineHeight": 1.4286,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Jp4ib",
+                          "name": "Description",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Every token has a dark value, with contrast checked in both.",
+                          "lineHeight": 1.5385,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wvKWe",
+                  "name": "Card Right-to-left",
+                  "width": "fill_container",
+                  "height": 136,
+                  "fill": "$card",
+                  "cornerRadius": 16,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "wpDIT",
+                      "name": "Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "arrow-right-left",
+                      "library": "lucide",
+                      "fill": "$foreground"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Q9hfQo",
+                      "name": "Text",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Kdh0g",
+                          "name": "Title",
+                          "fill": "$foreground",
+                          "content": "Right-to-left",
+                          "lineHeight": 1.4286,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "WD0Gc",
+                          "name": "Description",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Logical spacing, with icons and slides that mirror.",
+                          "lineHeight": 1.5385,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
           "id": "T3jwJX",
           "name": "New",
           "width": 1200,
@@ -58595,6 +59215,335 @@
                           "fontFamily": "$font-mono",
                           "fontSize": 12,
                           "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Kwuyh",
+          "name": "Handled",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            0,
+            24,
+            56,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "eJd3L",
+              "name": "Head",
+              "width": "fill_container",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "y2uh9s",
+                  "name": "Titles",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rlFeT",
+                      "name": "Eyebrow",
+                      "fill": "$muted-foreground",
+                      "content": "Built in",
+                      "lineHeight": 1.4286,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "q6Rcio",
+                      "name": "Title",
+                      "fill": "$foreground-strong",
+                      "content": "Handled for you",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 28,
+                      "fontWeight": "600",
+                      "letterSpacing": -0.6
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "F8IDOE",
+              "name": "Grid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Dp57I",
+                  "name": "Row 1",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GI1e3",
+                      "name": "Card Keyboard & focus",
+                      "width": "fill_container",
+                      "height": 176,
+                      "fill": "$card",
+                      "cornerRadius": 16,
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "Xa1G2",
+                          "name": "Icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "keyboard",
+                          "library": "lucide",
+                          "fill": "$foreground"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Fayr9",
+                          "name": "Text",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "o1IV1n",
+                              "name": "Title",
+                              "fill": "$foreground",
+                              "content": "Keyboard & focus",
+                              "lineHeight": 1.4286,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ytE3g",
+                              "name": "Description",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Arrow keys, Escape, and a visible ring on every control you reach.",
+                              "lineHeight": 1.5385,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JeAEc",
+                      "name": "Card Reduced motion",
+                      "width": "fill_container",
+                      "height": 176,
+                      "fill": "$card",
+                      "cornerRadius": 16,
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "onky6",
+                          "name": "Icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "pause",
+                          "library": "lucide",
+                          "fill": "$foreground"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "i7Hyf",
+                          "name": "Text",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "o0os8",
+                              "name": "Title",
+                              "fill": "$foreground",
+                              "content": "Reduced motion",
+                              "lineHeight": 1.4286,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "DNz5o",
+                              "name": "Description",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Animations step aside when the system asks for less motion.",
+                              "lineHeight": 1.5385,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cSYOZ",
+                  "name": "Row 2",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "C4lCeu",
+                      "name": "Card Dark mode",
+                      "width": "fill_container",
+                      "height": 176,
+                      "fill": "$card",
+                      "cornerRadius": 16,
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "UIrhh",
+                          "name": "Icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "moon",
+                          "library": "lucide",
+                          "fill": "$foreground"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "X13BJq",
+                          "name": "Text",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "KxZxs",
+                              "name": "Title",
+                              "fill": "$foreground",
+                              "content": "Dark mode",
+                              "lineHeight": 1.4286,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "J94M8",
+                              "name": "Description",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Every token has a dark value, with contrast checked in both.",
+                              "lineHeight": 1.5385,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BOn6Z",
+                      "name": "Card Right-to-left",
+                      "width": "fill_container",
+                      "height": 176,
+                      "fill": "$card",
+                      "cornerRadius": 16,
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "WUdR0",
+                          "name": "Icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "arrow-right-left",
+                          "library": "lucide",
+                          "fill": "$foreground"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "swCq0",
+                          "name": "Text",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "kE2Jo",
+                              "name": "Title",
+                              "fill": "$foreground",
+                              "content": "Right-to-left",
+                              "lineHeight": 1.4286,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "bqvHK",
+                              "name": "Description",
+                              "fill": "$muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Logical spacing, with icons and slides that mirror.",
+                              "lineHeight": 1.5385,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
                         }
                       ]
                     }

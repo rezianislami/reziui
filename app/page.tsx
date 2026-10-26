@@ -4,6 +4,7 @@ import { ArrowRightIcon, BlocksIcon, TerminalIcon } from "lucide-react";
 import { GitHubIcon, SiteHeader } from "@/components/docs/site-header";
 import { InstallCommand } from "@/components/docs/install-command";
 import { Announcement } from "@/components/landing/announcement";
+import { Principles } from "@/components/landing/principles";
 import { ShowcaseCard } from "@/components/landing/showcase-card";
 import { SpotlightGrid } from "@/components/landing/spotlight-grid";
 import { componentCount, everyday, GITHUB_URL, recentlyAdded, type Showcase } from "@/components/landing/showcases";
@@ -149,6 +150,11 @@ export default async function Home() {
         >
           <p className="text-sm text-muted-foreground">Distributed through the shadcn CLI.</p>
           <InstallCommand />
+        </section>
+
+        <section aria-labelledby="handled" className="flex w-full max-w-[1248px] flex-col gap-7 px-6 pb-14 sm:pb-24">
+          <SectionHeading eyebrow="Built in" title="Handled for you" id="handled" />
+          <Principles />
         </section>
 
         <section aria-labelledby="new" className="flex w-full max-w-[1248px] scroll-mt-20 flex-col gap-7 px-6 pb-14 sm:pb-24">
