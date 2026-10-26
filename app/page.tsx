@@ -4,6 +4,7 @@ import { ArrowRightIcon, BlocksIcon, TerminalIcon } from "lucide-react";
 import { GitHubIcon, SiteHeader } from "@/components/docs/site-header";
 import { InstallCommand } from "@/components/docs/install-command";
 import { Announcement } from "@/components/landing/announcement";
+import { HeroHighlight } from "@/components/landing/hero-highlight";
 import { Principles } from "@/components/landing/principles";
 import { ShowcaseCard } from "@/components/landing/showcase-card";
 import { SpotlightGrid } from "@/components/landing/spotlight-grid";
@@ -110,17 +111,7 @@ export default async function Home() {
             </span>
             <span className={cn("mt-1.5 flex items-center gap-3.5 sm:mt-0", enter, step[2])}>
               <span className="hidden sm:inline">are</span>
-              {/* The tint is a pseudo-element so it can sweep in (scale on the
-                  x axis from the left) while the words stay put. */}
-              <span
-                className={cn(
-                  "relative isolate rounded-lg px-2.5 pb-[3px] text-(--info-text) sm:rounded-[0.625rem] sm:px-3 sm:pb-1",
-                  "before:absolute before:inset-0 before:-z-10 before:origin-left before:rounded-[inherit] before:bg-(--info-tint) before:ring before:ring-(--info-ring) before:ring-inset",
-                  "motion-safe:before:animate-highlight-sweep",
-                )}
-              >
-                already done.
-              </span>
+              <HeroHighlight>already done.</HeroHighlight>
             </span>
           </h1>
           <p className={cn("max-w-[660px] text-base leading-normal text-pretty text-muted-foreground sm:text-lg", enter, step[3])}>
