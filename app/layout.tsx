@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/registry/reziui/ui/toast";
 import { TooltipProvider } from "@/registry/reziui/ui/tooltip";
 import "./globals.css";
 
@@ -35,6 +36,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {/* One provider for the whole site, so header tooltips share the
               instant hand-off between neighbouring buttons. */}
           <TooltipProvider>{children}</TooltipProvider>
+          {/* 72px from the top clears the 60px sticky header with a 12px gap,
+              on phones too (Sonner's phone default is 16px). */}
+          <Toaster offset={{ top: 72 }} mobileOffset={{ top: 72 }} />
         </ThemeProvider>
       </body>
     </html>

@@ -24,3 +24,4 @@ globalThis.ResizeObserver ??= class {
 // capture API.
 Element.prototype.hasPointerCapture ??= () => false;
 Element.prototype.releasePointerCapture ??= () => {};
+Element.prototype.setPointerCapture ??= () => {};

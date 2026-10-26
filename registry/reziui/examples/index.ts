@@ -47,6 +47,9 @@ import SwitchStates from "./switch-states";
 import TabsDemo from "./tabs-demo";
 import TabsIcons from "./tabs-icons";
 import TextareaDemo from "./textarea-demo";
+import ToastDemo from "./toast-demo";
+import ToastPromise from "./toast-promise";
+import ToastTypes from "./toast-types";
 import TooltipDemo from "./tooltip-demo";
 import TooltipToolbar from "./tooltip-toolbar";
 
@@ -109,4 +112,7 @@ export const examples: Record<string, Example> = {
   "progress-indeterminate": { component: ProgressIndeterminate, file: "registry/reziui/examples/progress-indeterminate.tsx" },
   "breadcrumb-demo": { component: BreadcrumbDemo, file: "registry/reziui/examples/breadcrumb-demo.tsx" },
   "breadcrumb-collapsed": { component: BreadcrumbCollapsed, file: "registry/reziui/examples/breadcrumb-collapsed.tsx" },
+  "toast-demo": { component: ToastDemo, file: "registry/reziui/examples/toast-demo.tsx" },
+  "toast-types": { component: ToastTypes, file: "registry/reziui/examples/toast-types.tsx" },
+  "toast-promise": { component: ToastPromise, file: "registry/reziui/examples/toast-promise.tsx" },
 };

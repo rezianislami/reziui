@@ -1,0 +1,106 @@
+---
+title: Toast
+description: Top-centre toasts on the overlay surface, built on Sonner; errors and actions stay until closed.
+added: 2026-10-26
+---
+
+<ComponentPreview name="toast-demo" />
+
+Toasts slide down from the top edge and stack, up to three at a time; hovering
+or focusing the stack fans it out. Under reduced motion they appear without
+moving. Screen readers hear each one through a polite live region, so it never
+interrupts what they are reading.
+
+## Installation
+
+<InstallTabs name="toast" />
+
+## Usage
+
+Render the `Toaster` once, near the root of your app:
+
+```tsx title="app/layout.tsx"
+import { Toaster } from "@/components/ui/toast";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <Toaster />
+      </body>
+    </html>
+  );
+}
+```
+
+Then call `toast` from anywhere:
+
+```tsx title="app/page.tsx"
+"use client";
+
+import { toast } from "@/components/ui/toast";
+
+export function SaveButton() {
+  return <button onClick={() => toast.success("Changes saved")}>Save</button>;
+}
+```
+
+Import `toast` from this file rather than from `sonner`: it keeps errors and
+toasts with an action on screen until they are closed (see below).
+
+## Examples
+
+### Types
+
+<ComponentPreview name="toast-types" size="sm" />
+
+`toast`, `toast.success`, `toast.info`, `toast.warning` and `toast.error`. All
+share one surface; the type shows only in the icon colour, so several toasts at
+once stay calm.
+
+### Promise
+
+<ComponentPreview name="toast-promise" size="sm" />
+
+`toast.promise` shows a spinner while the promise runs, then the success or
+error message.
+
+## Timing
+
+A plain toast leaves after 4 seconds. The timer pauses while the pointer is on
+the stack and while the tab is hidden. Two kinds stay until someone closes
+them, because a disappearing message can't be acted on:
+
+- **Errors** (`toast.error`).
+- **Any toast with an `action`**, such as Retry or Undo.
+
+Pass `duration` to override either rule. `toast.promise` uses one duration for
+every stage, so give it `duration: Infinity` if a failed request must stay.
+
+## Position
+
+The default is the top centre, 24px from the edge (16px on phones). If your app
+has a sticky header, push the toasts below it with `offset`:
+
+```tsx
+<Toaster offset={{ top: 72 }} mobileOffset={{ top: 72 }} />
+```
+
+These docs use 72px for their 60px header.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Alt` `T` | Move focus to the toasts and expand the stack. |
+| `Tab` | Move between a toast's action and close buttons. |
+| `Escape` | Collapse the stack again while focus is in it. |
+| `Enter` `Space` | On the close button, dismiss the toast. |
+
+## API reference
+
+| Export | Notes |
+| --- | --- |
+| `Toaster` | Sonner's `Toaster` with Rezi UI styling: `position` (default `"top-center"`), `offset`, `mobileOffset`, `visibleToasts` (default `3`), `duration` (default `4000`). A close button is always shown. |
+| `toast` | Sonner's `toast` API (`toast`, `success`, `info`, `warning`, `error`, `loading`, `promise`, `dismiss`), with errors and action toasts persistent by default. Options: `description`, `action`, `cancel`, `duration`, `id`. |

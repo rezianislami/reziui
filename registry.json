@@ -454,6 +454,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Top-centre toasts on the overlay surface, built on Sonner; errors and actions stay until closed.",
+      "dependencies": ["sonner", "lucide-react"],
+      "registryDependencies": ["utils", "@reziui/theme"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
