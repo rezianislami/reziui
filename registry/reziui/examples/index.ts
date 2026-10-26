@@ -22,6 +22,8 @@ import CardStat from "./card-stat";
 import CheckboxDemo from "./checkbox-demo";
 import CheckboxSelectAll from "./checkbox-select-all";
 import CheckboxStates from "./checkbox-states";
+import CommandDemo from "./command-demo";
+import CommandDialogDemo from "./command-dialog";
 import DialogConfirm from "./dialog-confirm";
 import DialogDemo from "./dialog-demo";
 import DropdownMenuDemo from "./dropdown-menu-demo";
@@ -115,4 +117,6 @@ export const examples: Record<string, Example> = {
   "toast-demo": { component: ToastDemo, file: "registry/reziui/examples/toast-demo.tsx" },
   "toast-types": { component: ToastTypes, file: "registry/reziui/examples/toast-types.tsx" },
   "toast-promise": { component: ToastPromise, file: "registry/reziui/examples/toast-promise.tsx" },
+  "command-demo": { component: CommandDemo, file: "registry/reziui/examples/command-demo.tsx" },
+  "command-dialog": { component: CommandDialogDemo, file: "registry/reziui/examples/command-dialog.tsx" },
 };

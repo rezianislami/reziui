@@ -1,0 +1,82 @@
+---
+title: Command
+description: Searchable command list, inline or as a ⌘K dialog, built on cmdk.
+added: 2026-10-26
+---
+
+<ComponentPreview name="command-demo" />
+
+Typing filters and ranks the items; the arrow keys move the selection and
+Enter runs it. The selected row gets the accent surface, plus the focus ring
+when the keyboard moved it there, as in [Dropdown Menu](/docs/components/dropdown-menu).
+Focus stays in the input the whole time, so screen readers follow the
+selection without leaving the field.
+
+## Installation
+
+<InstallTabs name="command" />
+
+## Usage
+
+```tsx title="app/page.tsx"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+
+export function Example() {
+  return (
+    <Command label="Commands">
+      <CommandInput placeholder="Type a command or search…" />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Suggestions">
+          <CommandItem onSelect={() => console.log("calendar")}>Calendar</CommandItem>
+          <CommandItem>Search emoji</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  );
+}
+```
+
+Give the command a `label`, which names the list for screen readers. Items match
+on their text; add `keywords` for other words that should find them.
+
+## Examples
+
+### Dialog
+
+<ComponentPreview name="command-dialog" size="sm" />
+
+`CommandDialog` puts the command in a [Dialog](/docs/components/dialog) near the
+top of the screen, with a larger input. Open it from your own shortcut listener;
+in an app that is usually ⌘K (Ctrl+K elsewhere). This example uses ⌘J because
+these docs already use ⌘K for search. The dialog has a screen-reader title and
+description, which you can change with `title` and `description`.
+
+## Keyboard
+
+| Key | Action |
+| --- | --- |
+| `↓` `↑` | Move the selection, skipping disabled items. |
+| `Enter` | Run the selected item. |
+| `Home` `End` | Jump to the first or last item. |
+| `Escape` | Close the dialog (`CommandDialog`). |
+
+## API reference
+
+| Component | Notes |
+| --- | --- |
+| `Command` | cmdk's `Command`: `label`, `value`, `onValueChange`, `filter`, `shouldFilter`, `loop`. |
+| `CommandDialog` | Dialog props (`open`, `onOpenChange`) plus `title` and `description`. |
+| `CommandInput` | The search field, with a search icon. |
+| `CommandList` · `CommandEmpty` | The scrolling list (at most 360px, or 60% of the viewport) and its no-results message. |
+| `CommandGroup` | `heading`, shown as an 11px label. |
+| `CommandItem` | `onSelect`, `value`, `keywords`, `disabled`. A leading icon takes the muted colour and darkens when selected. |
+| `CommandSeparator` | Hairline between groups. |
+| `CommandShortcut` | The key at the end of a row, such as ⌘P. It only displays the key; bind it yourself. |

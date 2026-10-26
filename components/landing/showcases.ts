@@ -1,9 +1,8 @@
 import type { ComponentType } from "react";
 import registry from "@/registry.json";
-import AccordionDemo from "@/registry/reziui/examples/accordion-demo";
 import BadgeDemo from "@/registry/reziui/examples/badge-demo";
-import BreadcrumbDemo from "@/registry/reziui/examples/breadcrumb-demo";
 import ButtonSuccess from "@/registry/reziui/examples/button-success";
+import CommandDialogDemo from "@/registry/reziui/examples/command-dialog";
 import DialogConfirm from "@/registry/reziui/examples/dialog-confirm";
 import DropdownMenuDemo from "@/registry/reziui/examples/dropdown-menu-demo";
 import KbdPressed from "@/registry/reziui/examples/kbd-pressed";
@@ -11,6 +10,7 @@ import ProgressDemo from "@/registry/reziui/examples/progress-demo";
 import SkeletonDemo from "@/registry/reziui/examples/skeleton-demo";
 import SwitchDemo from "@/registry/reziui/examples/switch-demo";
 import TabsDemo from "@/registry/reziui/examples/tabs-demo";
+import ToastDemo from "@/registry/reziui/examples/toast-demo";
 import TooltipToolbar from "@/registry/reziui/examples/tooltip-toolbar";
 
 export const GITHUB_URL = "https://github.com/rezianislami";
@@ -24,10 +24,10 @@ export type Showcase = { title: string; slug: string; description: string; Previ
 // exactly what the docs show and the CLI installs. Overlays start closed and
 // open on click — opened on load they would take focus from the page.
 export const recentlyAdded: Showcase[] = [
+  { title: "Toast", slug: "toast", description: "Messages that stay when they matter.", Preview: ToastDemo },
+  { title: "Command", slug: "command", description: "Searchable actions in a ⌘K palette.", Preview: CommandDialogDemo },
   { title: "Skeleton", slug: "skeleton", description: "Loading blocks with a soft shimmer.", Preview: SkeletonDemo },
   { title: "Progress", slug: "progress", description: "4px bar, with or without a known total.", Preview: ProgressDemo },
-  { title: "Breadcrumb", slug: "breadcrumb", description: "Trail of links with a collapsible middle.", Preview: BreadcrumbDemo },
-  { title: "Accordion", slug: "accordion", description: "Hairline list whose panels ease open.", Preview: AccordionDemo },
 ];
 
 export const everyday: Showcase[] = [

@@ -468,6 +468,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Searchable command list, inline or as a ⌘K dialog, built on cmdk.",
+      "dependencies": ["cmdk", "lucide-react"],
+      "registryDependencies": ["utils", "@reziui/theme", "@reziui/dialog"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
