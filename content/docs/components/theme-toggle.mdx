@@ -1,0 +1,68 @@
+---
+title: Theme Toggle
+description: Ghost icon button that flips light and dark through next-themes, labelled by a tooltip.
+added: 2026-10-26
+---
+
+<ComponentPreview name="theme-toggle-demo" size="sm" />
+
+Shows a moon in light mode and a sun in dark mode. One click flips to the other
+theme; a tooltip names the icon-only control on hover and keyboard focus.
+
+## Installation
+
+<InstallTabs name="theme-toggle" />
+
+The toggle reads and sets the theme through `next-themes`, so wrap the app in
+its provider once. `attribute="class"` puts `.dark` on `<html>`, which is what
+the Rezi UI theme keys its dark tokens on.
+
+```tsx title="app/layout.tsx"
+import { ThemeProvider } from "next-themes";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+`suppressHydrationWarning` is needed because `next-themes` sets the class on
+`<html>` before React hydrates.
+
+## Usage
+
+```tsx title="components/site-header.tsx"
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+
+export function SiteHeader() {
+  return (
+    <header className="flex items-center justify-between">
+      <span>Acme</span>
+      <ThemeToggle />
+    </header>
+  );
+}
+```
+
+## Behaviour
+
+- Both icons are in the server HTML and CSS shows one through the `dark` class,
+  so the first paint matches the theme without a hydration mismatch.
+- Before `next-themes` has resolved the theme on the client, a click switches
+  to dark.
+- It is a [Button](/docs/components/button) (`variant="ghost"`, `size="icon"`)
+  inside a [Tooltip](/docs/components/tooltip), so it shares their focus ring,
+  hit area and tooltip timing.
+
+## API reference
+
+| Component | Element | Notes |
+| --- | --- | --- |
+| `ThemeToggle` | `<button>` | No props. Accessible name "Toggle theme". |

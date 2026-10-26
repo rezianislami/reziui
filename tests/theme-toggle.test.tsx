@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { ThemeToggle } from "@/components/docs/theme-toggle";
+import { ThemeToggle } from "@/registry/reziui/ui/theme-toggle";
 
 const theme = vi.hoisted(() => ({ resolvedTheme: "light" as string | undefined, setTheme: vi.fn() }));
 vi.mock("next-themes", () => ({ useTheme: () => theme }));
@@ -45,5 +45,17 @@ describe("ThemeToggle", () => {
     await userEvent.click(screen.getByRole("button", { name: "Toggle theme" }));
 
     expect(theme.setTheme).toHaveBeenCalledWith("dark");
+  });
+
+  it.each(["light", "dark", undefined])("renders the same markup whatever the resolved theme (%s)", (resolved) => {
+    // Branching on resolvedTheme would make server and client HTML differ;
+    // both icons must always render and only CSS may choose between them.
+    theme.resolvedTheme = resolved;
+    render(<ThemeToggle />);
+
+    const icons = screen.getByRole("button", { name: "Toggle theme" }).querySelectorAll("svg");
+    expect(icons).toHaveLength(2);
+    expect(icons[0]).toHaveClass("dark:hidden");
+    expect(icons[1]).toHaveClass("hidden", "dark:block");
   });
 });

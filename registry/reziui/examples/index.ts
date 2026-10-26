@@ -49,6 +49,7 @@ import SwitchStates from "./switch-states";
 import TabsDemo from "./tabs-demo";
 import TabsIcons from "./tabs-icons";
 import TextareaDemo from "./textarea-demo";
+import ThemeToggleDemo from "./theme-toggle-demo";
 import ToastDemo from "./toast-demo";
 import ToastPromise from "./toast-promise";
 import ToastTypes from "./toast-types";
@@ -93,6 +94,7 @@ export const examples: Record<string, Example> = {
   "switch-states": { component: SwitchStates, file: "registry/reziui/examples/switch-states.tsx" },
   "tooltip-demo": { component: TooltipDemo, file: "registry/reziui/examples/tooltip-demo.tsx" },
   "tooltip-toolbar": { component: TooltipToolbar, file: "registry/reziui/examples/tooltip-toolbar.tsx" },
+  "theme-toggle-demo": { component: ThemeToggleDemo, file: "registry/reziui/examples/theme-toggle-demo.tsx" },
   "dropdown-menu-demo": { component: DropdownMenuDemo, file: "registry/reziui/examples/dropdown-menu-demo.tsx" },
   "dropdown-menu-options": { component: DropdownMenuOptions, file: "registry/reziui/examples/dropdown-menu-options.tsx" },
   "popover-demo": { component: PopoverDemo, file: "registry/reziui/examples/popover-demo.tsx" },

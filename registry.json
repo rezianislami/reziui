@@ -482,6 +482,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:ui",
+      "title": "Theme Toggle",
+      "description": "Ghost icon button that flips light and dark through next-themes, labelled by a tooltip.",
+      "dependencies": ["next-themes", "lucide-react"],
+      "registryDependencies": ["utils", "@reziui/theme", "@reziui/button", "@reziui/tooltip"],
+      "files": [
+        {
+          "path": "registry/reziui/ui/theme-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
