@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRightIcon, BlocksIcon, TerminalIcon } from "lucide-react";
 import { GitHubIcon, SiteHeader } from "@/components/docs/site-header";
 import { InstallCommand } from "@/components/docs/install-command";
+import { Announcement } from "@/components/landing/announcement";
 import { ShowcaseCard } from "@/components/landing/showcase-card";
 import { SpotlightGrid } from "@/components/landing/spotlight-grid";
 import { componentCount, everyday, GITHUB_URL, recentlyAdded, type Showcase } from "@/components/landing/showcases";
@@ -80,13 +81,7 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <div className="flex min-h-10 items-center justify-center gap-2 border-b border-(--hairline) bg-(--surface-elevated) px-4 py-1.5 text-center text-xs text-muted-foreground sm:gap-3 sm:text-[13px]">
-        <span className="hidden sm:inline">{newTitles.slice(0, -1).join(", ")} and {newTitles.at(-1)} are here</span>
-        <span className="sm:hidden">{newTitles.length} new components</span>
-        <Button asChild variant="secondary" size="sm">
-          <a href="#new">See what&apos;s new →</a>
-        </Button>
-      </div>
+      <Announcement titles={newTitles} />
       <SiteHeader newUrls={newUrls} />
 
       <main className="flex flex-1 flex-col items-center">

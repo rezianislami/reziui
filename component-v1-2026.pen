@@ -51470,24 +51470,149 @@
           "name": "Announcement",
           "width": "fill_container",
           "height": 40,
-          "fill": "$surface-elevated",
-          "stroke": "$hairline",
-          "strokeWidth": {
-            "bottom": 1
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 270,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$surface-elevated",
+                "position": 0
+              },
+              {
+                "color": "$announce-tint",
+                "position": 0.5
+              },
+              {
+                "color": "$surface-elevated",
+                "position": 1
+              }
+            ]
           },
+          "stroke": "$hairline",
           "gap": 12,
           "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
-              "type": "text",
-              "id": "E37ex",
-              "name": "Text",
-              "fill": "$muted-foreground",
-              "content": "Skeleton, Progress, Breadcrumb and Accordion are here",
-              "fontFamily": "$font-sans",
-              "fontSize": 13,
-              "fontWeight": "normal"
+              "type": "frame",
+              "id": "z8Cgb",
+              "name": "Message",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "skIRL",
+                  "type": "ref",
+                  "ref": "jxNGX",
+                  "name": "New",
+                  "height": 18,
+                  "padding": [
+                    0,
+                    6,
+                    1,
+                    6
+                  ],
+                  "descendants": {
+                    "iDkXW": {
+                      "content": "New",
+                      "fontSize": 11
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "lnhUk",
+                  "name": "Line",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cukaz",
+                      "name": "Name",
+                      "fill": "$foreground",
+                      "content": "Skeleton",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "bhu7u",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": ", ",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AGgGy",
+                      "name": "Name",
+                      "fill": "$foreground",
+                      "content": "Progress",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lLmgA",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": ", ",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CYDqZ",
+                      "name": "Name",
+                      "fill": "$foreground",
+                      "content": "Breadcrumb",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xEwPT",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": " and ",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kzM0t",
+                      "name": "Name",
+                      "fill": "$foreground",
+                      "content": "Accordion",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "uDqsQ",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": " are here",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "pk59p",
@@ -51507,6 +51632,39 @@
                   "fontSize": 12
                 }
               }
+            },
+            {
+              "type": "rectangle",
+              "id": "X14od",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 39,
+              "name": "Glow line",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 270,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#0063d700",
+                    "position": 0
+                  },
+                  {
+                    "color": "$primary",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#0063d700",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 1440,
+              "height": 1
             }
           ]
         },
@@ -54478,24 +54636,149 @@
           "name": "Announcement",
           "width": "fill_container",
           "height": 40,
-          "fill": "$surface-elevated",
-          "stroke": "$hairline",
-          "strokeWidth": {
-            "bottom": 1
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 270,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$surface-elevated",
+                "position": 0
+              },
+              {
+                "color": "$announce-tint",
+                "position": 0.5
+              },
+              {
+                "color": "$surface-elevated",
+                "position": 1
+              }
+            ]
           },
+          "stroke": "$hairline",
           "gap": 12,
           "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
-              "type": "text",
-              "id": "yGKGz",
-              "name": "Text",
-              "fill": "$muted-foreground",
-              "content": "Skeleton, Progress, Breadcrumb and Accordion are here",
-              "fontFamily": "$font-sans",
-              "fontSize": 13,
-              "fontWeight": "normal"
+              "type": "frame",
+              "id": "ZsrHY",
+              "name": "Message",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "cDw6R",
+                  "type": "ref",
+                  "ref": "jxNGX",
+                  "name": "New",
+                  "height": 18,
+                  "padding": [
+                    0,
+                    6,
+                    1,
+                    6
+                  ],
+                  "descendants": {
+                    "iDkXW": {
+                      "content": "New",
+                      "fontSize": 11
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "LqfOG",
+                  "name": "Line",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "c6lCv",
+                      "name": "Name",
+                      "fill": "$foreground",
+                      "content": "Skeleton",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SqhRA",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": ", ",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Gkvpi",
+                      "name": "Name",
+                      "fill": "$foreground",
+                      "content": "Progress",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VN0uf",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": ", ",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GG1H4",
+                      "name": "Name",
+                      "fill": "$foreground",
+                      "content": "Breadcrumb",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GKdZO",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": " and ",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "O9vvT",
+                      "name": "Name",
+                      "fill": "$foreground",
+                      "content": "Accordion",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "m1RjQ5",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": " are here",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "i5q4T",
@@ -54515,6 +54798,39 @@
                   "fontSize": 12
                 }
               }
+            },
+            {
+              "type": "rectangle",
+              "id": "S4mcu",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 39,
+              "name": "Glow line",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 270,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#0063d700",
+                    "position": 0
+                  },
+                  {
+                    "color": "$primary",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#0063d700",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 1440,
+              "height": 1
             }
           ]
         },
@@ -57476,24 +57792,79 @@
           "name": "Announcement",
           "width": "fill_container",
           "height": 40,
-          "fill": "$surface-elevated",
-          "stroke": "$hairline",
-          "strokeWidth": {
-            "bottom": 1
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 270,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$surface-elevated",
+                "position": 0
+              },
+              {
+                "color": "$announce-tint",
+                "position": 0.5
+              },
+              {
+                "color": "$surface-elevated",
+                "position": 1
+              }
+            ]
           },
+          "stroke": "$hairline",
           "gap": 8,
           "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
-              "type": "text",
-              "id": "g1Neb",
-              "name": "Text",
-              "fill": "$muted-foreground",
-              "content": "4 new components",
-              "fontFamily": "$font-sans",
-              "fontSize": 12,
-              "fontWeight": "normal"
+              "type": "frame",
+              "id": "M3Ektj",
+              "name": "Message",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "g5JNd",
+                  "type": "ref",
+                  "ref": "jxNGX",
+                  "name": "New",
+                  "height": 18,
+                  "padding": [
+                    0,
+                    6,
+                    1,
+                    6
+                  ],
+                  "descendants": {
+                    "iDkXW": {
+                      "content": "New",
+                      "fontSize": 11
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "t9Igv",
+                  "name": "Line",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ndi0C",
+                      "name": "Joiner",
+                      "fill": "$muted-foreground",
+                      "content": "4 new components",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "e9RDIt",
@@ -57513,6 +57884,39 @@
                   "fontSize": 12
                 }
               }
+            },
+            {
+              "type": "rectangle",
+              "id": "h2L5Fx",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 39,
+              "name": "Glow line",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 270,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#0063d700",
+                    "position": 0
+                  },
+                  {
+                    "color": "$primary",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#0063d700",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 390,
+              "height": 1
             }
           ]
         },
@@ -68067,6 +68471,23 @@
         },
         {
           "value": "#262626",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "announce-tint": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f1f4f8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#08121f",
           "theme": {
             "mode": "dark"
           }
