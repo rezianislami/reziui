@@ -3,10 +3,10 @@ import { browseGroups } from "@/lib/docs-index";
 import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 import { Button } from "@/registry/reziui/ui/button";
+import { ThemeToggle } from "@/registry/reziui/ui/theme-toggle";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/registry/reziui/ui/tooltip";
 import { MobileNav } from "./mobile-nav";
 import { SearchDialog } from "./search-dialog";
-import { ThemeToggle } from "./theme-toggle";
 
 const GITHUB_URL = "https://github.com/rezianislami";
 
