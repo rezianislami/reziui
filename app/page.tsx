@@ -35,7 +35,10 @@ function SectionHeading({ eyebrow, title, id, link }: { eyebrow: string; title: 
     <div className="flex items-end justify-between gap-6">
       <div className="flex flex-col gap-1">
         <p className="text-sm text-muted-foreground">{eyebrow}</p>
-        <h2 id={id} className="text-[28px] leading-tight font-semibold tracking-[-0.6px] sm:text-4xl sm:tracking-[-0.9px]">
+        {/* scroll-margin belongs on the element that carries the id: an anchor
+            jump reads it from the target only. 136px clears the sticky
+            banner + header (100px) plus the eyebrow line above the title. */}
+        <h2 id={id} className="scroll-mt-34 text-[28px] leading-tight font-semibold tracking-[-0.6px] sm:text-4xl sm:tracking-[-0.9px]">
           {title}
         </h2>
       </div>
@@ -83,8 +86,15 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <Announcement titles={newTitles} />
-      <SiteHeader newUrls={newUrls} />
+      {/* Banner and header stick as one block, so the header stays flush under
+          the banner. Sticking each one separately would need the header's
+          offset to know the banner's height, which wraps on narrow screens;
+          the header's own sticky is a no-op inside this wrapper. Anchor
+          targets on this page clear both (scroll-mt on SectionHeading). */}
+      <div className="sticky top-0 z-40">
+        <Announcement titles={newTitles} />
+        <SiteHeader newUrls={newUrls} />
+      </div>
 
       <main className="flex flex-1 flex-col items-center">
         <section className="flex w-full flex-col items-center gap-5 px-6 pt-12 pb-8 text-center sm:gap-6 sm:pt-24 sm:pb-10">
@@ -148,7 +158,7 @@ export default async function Home() {
           <Principles />
         </section>
 
-        <section aria-labelledby="new" className="flex w-full max-w-[1248px] scroll-mt-20 flex-col gap-7 px-6 pb-14 sm:pb-24">
+        <section aria-labelledby="new" className="flex w-full max-w-[1248px] flex-col gap-7 px-6 pb-14 sm:pb-24">
           <SectionHeading eyebrow="New" title="Recently added" id="new" />
           <Grid items={recentlyAdded} newUrls={newUrls} />
         </section>

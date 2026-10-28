@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE_URL } from "@/lib/site";
 import { Toaster } from "@/registry/reziui/ui/toast";
 import { TooltipProvider } from "@/registry/reziui/ui/tooltip";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 // Registered as --font-sans because globals.css maps the Tailwind font-sans
@@ -38,7 +40,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <SmoothScroll />
+        {/* Light by default, matching the portfolio; a visitor's toggle choice still persists. */}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {/* One provider for the whole site, so header tooltips share the
               instant hand-off between neighbouring buttons. */}
           <TooltipProvider>{children}</TooltipProvider>

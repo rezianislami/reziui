@@ -71539,6 +71539,107 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "Kk2lk",
+      "x": 2600,
+      "y": -780,
+      "name": "Rezi UI / Favicon (512)",
+      "width": 512,
+      "height": 512,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "sJGwl",
+          "name": "Mark",
+          "width": 512,
+          "height": 512,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$btn-primary-from",
+                "position": 0
+              },
+              {
+                "color": "$btn-primary-to",
+                "position": 1
+              }
+            ]
+          },
+          "cornerRadius": "$radius-full",
+          "stroke": "$btn-primary-ring",
+          "strokeWidth": 12,
+          "strokeAlignment": "inner",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "rNAPQ",
+              "name": "Mark letter",
+              "fill": "#ffffff",
+              "content": "R",
+              "lineHeight": 1,
+              "fontFamily": "$font-sans",
+              "fontSize": 300,
+              "fontWeight": "700"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "F0Vp9S",
+      "x": 3192,
+      "y": -780,
+      "name": "Rezi UI / Apple touch icon (180)",
+      "width": 180,
+      "height": 180,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "enabled": true,
+        "rotation": 180,
+        "size": {
+          "height": 1
+        },
+        "colors": [
+          {
+            "color": "$btn-primary-from",
+            "position": 0
+          },
+          {
+            "color": "$btn-primary-to",
+            "position": 1
+          }
+        ]
+      },
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "nMBVp",
+          "name": "Mark letter",
+          "fill": "#ffffff",
+          "content": "R",
+          "lineHeight": 1,
+          "fontFamily": "$font-sans",
+          "fontSize": 104,
+          "fontWeight": "700"
+        }
+      ]
     }
   ],
   "themes": {
