@@ -5,6 +5,7 @@ A shadcn-compatible component registry and its docs site, built with Next.js 16,
 Live at https://reziui.rezianislami.workers.dev. Consumers install components with the shadcn CLI:
 
 ```bash
+npx shadcn@latest init --base radix   # skip if the project already uses shadcn
 npx shadcn@latest registry add @reziui=https://reziui.rezianislami.workers.dev/r/{name}.json
 npx shadcn@latest add @reziui/theme
 npx shadcn@latest add @reziui/button

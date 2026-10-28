@@ -38,8 +38,12 @@ function SelectTrigger({ className, children, ...props }: React.ComponentProps<t
       {...props}
     >
       {children}
-      <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="text-muted-foreground" aria-hidden="true" />
+      {/* The chevron sits inside Icon's span rather than replacing it with
+          `asChild`: the shadcn CLI rewrites `asChild` to Base UI's `render`
+          when installing into a Base UI project, which Radix does not accept.
+          `flex` keeps the span from adding line-height around the svg. */}
+      <SelectPrimitive.Icon className="flex text-muted-foreground">
+        <ChevronDownIcon aria-hidden="true" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );

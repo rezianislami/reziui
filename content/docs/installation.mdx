@@ -5,7 +5,12 @@ description: Add the Rezi UI registry to your project.
 
 Rezi UI targets **Tailwind CSS v4**. Projects on Tailwind v3 are not supported.
 
-1. Set up shadcn in your project: `npx shadcn@latest init`
+1. Set up shadcn in your project: `npx shadcn@latest init --base radix`
+
+   Rezi UI is built on Radix. `--base radix` keeps your own shadcn components on
+   the same primitives; without it the CLI defaults to Base UI. Rezi UI
+   components still install into a Base UI project, but you end up with two
+   primitive libraries side by side.
 2. Add the Rezi UI namespace: `npx shadcn@latest registry add @reziui=https://reziui.rezianislami.workers.dev/r/{name}.json`
 
    Or add it to `components.json` by hand:
