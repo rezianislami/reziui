@@ -9,23 +9,11 @@ import { Principles } from "@/components/landing/principles";
 import { ShowcaseCard } from "@/components/landing/showcase-card";
 import { SpotlightGrid } from "@/components/landing/spotlight-grid";
 import { componentCount, everyday, GITHUB_URL, recentlyAdded, type Showcase } from "@/components/landing/showcases";
+import { DELAY, ENTER, ENTER_TOP } from "@/lib/motion";
 import { getNewPageUrls } from "@/lib/source";
 import { cn } from "@/lib/utils";
 import { Button } from "@/registry/reziui/ui/button";
 
-// Hero entrance: each block fades and rises 8px, 100ms after the previous
-// one, once on load. fill-mode both keeps a block hidden until its turn. All
-// motion-safe:, so with reduced motion everything is simply there.
-const enter =
-  "motion-safe:animate-in motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-2 motion-safe:duration-400 motion-safe:ease-[cubic-bezier(0.2,0,0,1)] motion-safe:fill-mode-both";
-const step = [
-  "",
-  "motion-safe:[animation-delay:100ms]",
-  "motion-safe:[animation-delay:200ms]",
-  "motion-safe:[animation-delay:300ms]",
-  "motion-safe:[animation-delay:400ms]",
-  "motion-safe:[animation-delay:500ms]",
-];
 
 const footerLink =
   "rounded-sm outline-hidden hover:text-foreground focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring";
@@ -91,14 +79,14 @@ export default async function Home() {
           offset to know the banner's height, which wraps on narrow screens;
           the header's own sticky is a no-op inside this wrapper. Anchor
           targets on this page clear both (scroll-mt on SectionHeading). */}
-      <div className="sticky top-0 z-40">
+      <div className={cn("sticky top-0 z-40", ENTER_TOP)}>
         <Announcement titles={newTitles} />
         <SiteHeader newUrls={newUrls} />
       </div>
 
       <main className="flex flex-1 flex-col items-center">
         <section className="flex w-full flex-col items-center gap-5 px-6 pt-12 pb-8 text-center sm:gap-6 sm:pt-24 sm:pb-10">
-          <p className={cn("flex h-9 items-center gap-3 rounded-full bg-card px-4 text-[13px] shadow-xs ring ring-border", enter, step[0])}>
+          <p className={cn("flex h-9 items-center gap-3 rounded-full bg-card px-4 text-[13px] shadow-xs ring ring-border", ENTER, DELAY[0])}>
             <span className="flex items-center gap-1.5">
               <BlocksIcon className="size-3.5 text-muted-foreground" aria-hidden="true" />
               <strong className="font-semibold">{componentCount}</strong>
@@ -116,19 +104,19 @@ export default async function Home() {
               display:none on the other layout, so screen readers hear the
               sentence once. */}
           <h1 className="flex max-w-3xl flex-col items-center text-[40px] leading-[1.05] font-semibold tracking-[-1.2px] text-balance sm:text-[64px] sm:tracking-[-2px]">
-            <span className={cn(enter, step[1])}>
+            <span className={cn(ENTER, DELAY[1])}>
               The details you’d skip<span className="sm:hidden"> are</span>
             </span>
-            <span className={cn("mt-1.5 flex items-center gap-3.5 sm:mt-0", enter, step[2])}>
+            <span className={cn("mt-1.5 flex items-center gap-3.5 sm:mt-0", ENTER, DELAY[2])}>
               <span className="hidden sm:inline">are</span>
               <HeroHighlight>already done.</HeroHighlight>
             </span>
           </h1>
-          <p className={cn("max-w-[660px] text-base leading-normal text-pretty text-muted-foreground sm:text-lg", enter, step[3])}>
+          <p className={cn("max-w-[660px] text-base leading-normal text-pretty text-muted-foreground sm:text-lg", ENTER, DELAY[3])}>
             Accessible, motion-tuned React components with focus rings, reduced motion and dark mode handled — copy
             them in with the shadcn CLI.
           </p>
-          <div className={cn("flex flex-wrap items-center justify-center gap-2.5 pt-2 sm:gap-3", enter, step[4])}>
+          <div className={cn("flex flex-wrap items-center justify-center gap-2.5 pt-2 sm:gap-3", ENTER, DELAY[4])}>
             <Button asChild size="lg">
               <Link href="/docs/components/button">Browse components</Link>
             </Button>
@@ -145,8 +133,8 @@ export default async function Home() {
           aria-label="Install"
           className={cn(
             "flex w-full max-w-[672px] flex-col items-center gap-4 px-6 pt-4 pb-16 sm:px-0 sm:pt-10 sm:pb-26",
-            enter,
-            step[5],
+            ENTER,
+            DELAY[5],
           )}
         >
           <p className="text-sm text-muted-foreground">Distributed through the shadcn CLI.</p>

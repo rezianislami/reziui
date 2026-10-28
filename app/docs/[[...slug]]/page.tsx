@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBreadcrumbItems } from "fumadocs-core/breadcrumb";
+import { DELAY, ENTER } from "@/lib/motion";
 import { source } from "@/lib/source";
+import { cn } from "@/lib/utils";
 import { CopyButton } from "@/components/docs/copy-button";
 import { mdxComponents } from "@/components/docs/mdx-components";
 import { MobileToc } from "@/components/docs/mobile-toc";
@@ -41,7 +43,7 @@ export default async function Page({ params }: PageProps) {
     <>
       <article className="mx-auto w-full max-w-3xl min-w-0 px-5 pt-6 pb-16 md:px-14 md:pt-9 md:pb-18">
         {crumbs.length > 0 && (
-          <Breadcrumb className="mb-3">
+          <Breadcrumb className={cn("mb-3", ENTER)}>
             <BreadcrumbList>
               {crumbs.map((crumb, i) => (
                 <Fragment key={i}>
@@ -64,7 +66,7 @@ export default async function Page({ params }: PageProps) {
             </BreadcrumbList>
           </Breadcrumb>
         )}
-        <div className="flex items-start gap-4">
+        <div className={cn("flex items-start gap-4", ENTER, DELAY[1])}>
           <h1 className="text-[28px] leading-tight font-semibold tracking-tight text-foreground md:text-[34px]">
             {page.data.title}
           </h1>
@@ -79,10 +81,10 @@ export default async function Page({ params }: PageProps) {
           </CopyButton>
         </div>
         {page.data.description && (
-          <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground md:text-base">{page.data.description}</p>
+          <p className={cn("mt-3 text-[15px] leading-relaxed text-muted-foreground md:text-base", ENTER, DELAY[2])}>{page.data.description}</p>
         )}
         <MobileToc items={page.data.toc} />
-        <div className="mt-8 md:mt-10">
+        <div className={cn("mt-8 md:mt-10", ENTER, DELAY[3])}>
           <MDX components={mdxComponents} />
         </div>
         <Pager tree={tree} url={page.url} />

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ENTER_TOP } from "@/lib/motion";
 import { getNewPageUrls, source } from "@/lib/source";
 import { SiteHeader } from "@/components/docs/site-header";
 import { Sidebar } from "@/components/docs/sidebar";
@@ -8,7 +9,7 @@ export default async function DocsLayout({ children }: { children: ReactNode }) 
 
   return (
     <>
-      <SiteHeader newUrls={newUrls} />
+      <SiteHeader newUrls={newUrls} className={ENTER_TOP} />
       <div className="flex flex-1">
         {/* Sticky below the 60px header; scrolls on its own when the list outgrows
             the viewport. Below md the same tree lives in the header's drawer. */}

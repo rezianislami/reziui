@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { browseGroups } from "@/lib/docs-index";
 import { source } from "@/lib/source";
+import { cn } from "@/lib/utils";
 import { Button } from "@/registry/reziui/ui/button";
 import { ThemeToggle } from "@/registry/reziui/ui/theme-toggle";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/registry/reziui/ui/tooltip";
@@ -23,7 +24,7 @@ export function GitHubIcon() {
   );
 }
 
-export function SiteHeader({ newUrls = [] }: { newUrls?: string[] }) {
+export function SiteHeader({ newUrls = [], className }: { newUrls?: string[]; className?: string }) {
   const tree = source.getPageTree();
   const pages = source.getPages();
   const pageTitles = Object.fromEntries(pages.map((page) => [page.url, page.data.title]));
@@ -31,7 +32,12 @@ export function SiteHeader({ newUrls = [] }: { newUrls?: string[] }) {
   const browse = browseGroups(tree, (url) => (pageTitles[url] ? { title: pageTitles[url] } : undefined));
 
   return (
-    <header className="sticky top-0 z-40 flex h-15 items-center gap-4 border-b border-(--hairline) bg-background/85 px-4 backdrop-blur md:gap-8 md:px-6">
+    <header
+      className={cn(
+        "sticky top-0 z-40 flex h-15 items-center gap-4 border-b border-(--hairline) bg-background/85 px-4 backdrop-blur md:gap-8 md:px-6",
+        className,
+      )}
+    >
       <Link href="/" className="flex items-center gap-2 rounded-full outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring">
         {/* Placeholder mark until the Rezi UI logo exists. */}
         <span className="flex size-5.5 items-center justify-center rounded-full bg-linear-to-b from-(--btn-primary-from) to-(--btn-primary-to) text-xs font-bold text-white ring ring-(--btn-primary-ring)">
