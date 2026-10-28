@@ -71263,6 +71263,282 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "lRpgZ",
+      "x": 1320,
+      "y": -780,
+      "name": "Rezi UI / Open Graph (1200×630)",
+      "clip": true,
+      "width": 1200,
+      "height": 630,
+      "fill": "$background",
+      "layout": "vertical",
+      "padding": [
+        72,
+        88
+      ],
+      "justifyContent": "space_between",
+      "children": [
+        {
+          "type": "frame",
+          "id": "q12jFP",
+          "name": "Brand",
+          "gap": 14,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "PkTSz",
+              "name": "Mark",
+              "width": 40,
+              "height": 40,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$btn-primary-from",
+                    "position": 0
+                  },
+                  {
+                    "color": "$btn-primary-to",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": "$radius-full",
+              "stroke": "$btn-primary-ring",
+              "strokeWidth": 1,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "U6IcK",
+                  "name": "Mark letter",
+                  "fill": "#ffffff",
+                  "content": "R",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "pUL9v",
+              "name": "Wordmark",
+              "fill": "$foreground-strong",
+              "content": "Rezi UI",
+              "fontFamily": "$font-sans",
+              "fontSize": 28,
+              "fontWeight": "600",
+              "letterSpacing": -0.4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "eJFtZ",
+          "name": "Headline",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "a5Nm7L",
+              "name": "Line 1",
+              "fill": "$foreground-strong",
+              "content": "The details you’d skip",
+              "lineHeight": 1.02,
+              "fontFamily": "$font-sans",
+              "fontSize": 88,
+              "fontWeight": "600",
+              "letterSpacing": -3
+            },
+            {
+              "type": "frame",
+              "id": "BD73j",
+              "name": "Line 2",
+              "gap": 18,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "YWiN4",
+                  "name": "Word",
+                  "fill": "$foreground-strong",
+                  "content": "are",
+                  "lineHeight": 1.02,
+                  "fontFamily": "$font-sans",
+                  "fontSize": 88,
+                  "fontWeight": "600",
+                  "letterSpacing": -3
+                },
+                {
+                  "type": "frame",
+                  "id": "MyLUd",
+                  "name": "Highlight",
+                  "clip": true,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 270,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#0063d72e",
+                        "position": 0
+                      },
+                      {
+                        "color": "#0063d70a",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 14,
+                  "stroke": "#00000000",
+                  "strokeAlignment": "inner",
+                  "padding": [
+                    0,
+                    16,
+                    6,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eescv",
+                      "name": "Word",
+                      "fill": "$foreground-strong",
+                      "content": "already done.",
+                      "lineHeight": 1.02,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 88,
+                      "fontWeight": "600",
+                      "letterSpacing": -3
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QQC7N",
+          "name": "Footer",
+          "width": "fill_container",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "gJ14N",
+              "name": "Install command",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "gap": 10,
+              "padding": [
+                14,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "OD2sO",
+                  "name": "Prompt",
+                  "fill": "$muted-foreground",
+                  "content": "$",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "hWOyY",
+                  "name": "Command",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "O09a3",
+                      "name": "Runner",
+                      "fill": "$code-runner",
+                      "content": "npx",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 22,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vctV6",
+                      "name": "Binary",
+                      "fill": "$foreground",
+                      "content": " shadcn@latest",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 22,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "x4vT5U",
+                      "name": "Subcommand",
+                      "fill": "$code-keyword",
+                      "content": " add",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 22,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "d1Xigg",
+                      "name": "Namespace",
+                      "fill": "$muted-foreground",
+                      "content": " @reziui/",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 22,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mMTdW",
+                      "name": "Item",
+                      "fill": "$code-string",
+                      "content": "button",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 22,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "bS9YN",
+              "name": "Tagline",
+              "fill": "$muted-foreground",
+              "content": "shadcn-compatible · Tailwind v4 · Radix",
+              "fontFamily": "$font-sans",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
     }
   ],
   "themes": {

@@ -1,0 +1,13 @@
+# Cloudflare Workers Static Assets: `next build` emits a static export to ./out, so there is no
+# Worker script. Workers rather than Pages: Cloudflare recommends Workers Static Assets for new
+# static sites.
+# Build, then deploy:                   npm run build && npx wrangler@4.147.0 deploy
+# Preview without touching production:  npm run build && npx wrangler@4.147.0 versions upload
+name = "reziui"
+compatibility_date = "2026-10-01"
+
+[assets]
+directory = "./out"
+# Unknown URLs get out/404.html with a real 404 status (default "none" returns an empty 404).
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"

@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -8,11 +10,15 @@ import type { BrowseGroup } from "@/lib/docs-index";
 const search = vi.hoisted(() => ({
   state: { search: "", isLoading: false, data: undefined as unknown, error: undefined as Error | undefined },
   onSearchChange: vi.fn(),
+  options: undefined as unknown,
 }));
 const router = vi.hoisted(() => ({ push: vi.fn() }));
 
 vi.mock("fumadocs-core/search/client", () => ({
-  useFetchSearch: () => ({ ...search.state, onSearchChange: search.onSearchChange }),
+  useStaticSearch: (options: unknown) => {
+    search.options = options;
+    return { ...search.state, onSearchChange: search.onSearchChange };
+  },
 }));
 vi.mock("next/navigation", () => ({ useRouter: () => router }));
 
@@ -95,6 +101,13 @@ describe("SearchDialog", () => {
 
     fireEvent.keyDown(window, { key: "K", ctrlKey: true });
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("downloads the index from the route the static export emits", () => {
+    render(<SearchDialog pageTitles={pageTitles} />);
+
+    expect(search.options).toMatchObject({ from: "/api/search" });
+    expect(existsSync(resolve(process.cwd(), "app/api/search/route.ts"))).toBe(true);
   });
 
   it("forwards typed queries to the search hook", async () => {

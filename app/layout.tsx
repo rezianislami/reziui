@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SITE_URL } from "@/lib/site";
 import { Toaster } from "@/registry/reziui/ui/toast";
 import { TooltipProvider } from "@/registry/reziui/ui/tooltip";
 import "./globals.css";
@@ -18,8 +19,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // Makes the og:image from app/opengraph-image.png absolute; crawlers ignore
+  // relative image URLs.
+  metadataBase: new URL(SITE_URL),
   title: { default: "Rezi UI", template: "%s · Rezi UI" },
   description: "Copy-paste React components distributed through a shadcn registry.",
+  openGraph: { type: "website", siteName: "Rezi UI" },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

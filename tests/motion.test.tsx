@@ -10,7 +10,7 @@ import { SearchDialog } from "@/components/docs/search-dialog";
 
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
 vi.mock("fumadocs-core/search/client", () => ({
-  useFetchSearch: () => ({
+  useStaticSearch: () => ({
     search: "",
     isLoading: false,
     data: undefined,

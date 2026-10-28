@@ -20,10 +20,7 @@ import {
 
 type PageProps = { params: Promise<{ slug?: string[] }> };
 
-// getText() reads the MDX file asynchronously, which Cache Components treats as
-// uncached I/O during prerender; caching by slug keeps the page fully static.
 async function getPageMarkdown(slug: string[] | undefined): Promise<string> {
-  "use cache";
   return (await source.getPage(slug)?.data.getText("raw")) ?? "";
 }
 

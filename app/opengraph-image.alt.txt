@@ -1,0 +1,1 @@
+Rezi UI: "The details you’d skip are already done." above the install command npx shadcn@latest add @reziui/button.

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
-import { useFetchSearch, type SearchResultItem } from "fumadocs-core/search/client";
+import { useStaticSearch, type SearchResultItem } from "fumadocs-core/search/client";
 import { CornerDownLeftIcon, FileTextIcon, HashIcon, SearchIcon } from "lucide-react";
 import type { BrowseGroup } from "@/lib/docs-index";
 import { cn } from "@/lib/utils";
@@ -80,7 +80,9 @@ export function SearchDialog({ pageTitles, browse = NONE, newUrls = NONE }: Sear
   // Whether the selection last moved by arrow key. Focus stays in the input,
   // so :focus-visible can't mark the selected option; track it instead.
   const [keyboardNav, setKeyboardNav] = useState(false);
-  const { search, onSearchChange, isLoading, data, error } = useFetchSearch({ api: "/api/search", delayMs: 150 });
+  // The site is a static export, so the index built by /api/search is downloaded
+  // once and queried in the browser instead of per keystroke on a server.
+  const { search, onSearchChange, isLoading, data, error } = useStaticSearch({ from: "/api/search", delayMs: 150 });
 
   // An empty query lists every page instead of an empty box, so the catalog
   // can be browsed from the palette; typing switches to search results.

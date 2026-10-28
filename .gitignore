@@ -42,3 +42,6 @@ next-env.d.ts
 
 # design exports from Pencil
 /component-v1-2026-export.html
+
+# cloudflare wrangler local state
+/.wrangler/

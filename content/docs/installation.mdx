@@ -6,12 +6,14 @@ description: Add the Rezi UI registry to your project.
 Rezi UI targets **Tailwind CSS v4**. Projects on Tailwind v3 are not supported.
 
 1. Set up shadcn in your project: `npx shadcn@latest init`
-2. Add the Rezi UI namespace to `components.json`:
+2. Add the Rezi UI namespace: `npx shadcn@latest registry add @reziui=https://reziui.rezianislami.workers.dev/r/{name}.json`
+
+   Or add it to `components.json` by hand:
 
 ```json
 {
   "registries": {
-    "@reziui": "https://<domain>/r/{name}.json"
+    "@reziui": "https://reziui.rezianislami.workers.dev/r/{name}.json"
   }
 }
 ```

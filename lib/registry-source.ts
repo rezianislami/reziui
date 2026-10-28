@@ -13,10 +13,6 @@ export function toConsumerImports(source: string): string {
   return source.replaceAll(/(["'])@\/registry\/reziui\/ui\//g, "$1@/components/ui/");
 }
 
-// Synchronous on purpose: with Cache Components, readFileSync counts as a
-// predictable value baked into the static shell, while an awaited readFile()
-// is uncached I/O that fails prerendering outside "use cache" or <Suspense>.
-//
 // The path is joined under a literal "registry" segment so Turbopack's file
 // tracing is scoped to that folder; a fully dynamic join(cwd, path) makes it
 // trace the whole project (public/ included) into the server output.
