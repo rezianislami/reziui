@@ -25,3 +25,17 @@ globalThis.ResizeObserver ??= class {
 Element.prototype.hasPointerCapture ??= () => false;
 Element.prototype.releasePointerCapture ??= () => {};
 Element.prototype.setPointerCapture ??= () => {};
+
+// jsdom has no matchMedia. No media query matches by default (so motion is
+// allowed); tests that need reduced motion stub window.matchMedia themselves.
+// The legacy listener methods are there because next-themes subscribes to
+// the colour-scheme query with them.
+window.matchMedia ??= ((query: string) =>
+  ({
+    matches: false,
+    media: query,
+    addEventListener() {},
+    removeEventListener() {},
+    addListener() {},
+    removeListener() {},
+  }) as unknown as MediaQueryList) as typeof window.matchMedia;
