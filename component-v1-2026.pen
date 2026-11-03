@@ -9543,7 +9543,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -11960,7 +11960,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -15476,7 +15476,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -16079,7 +16079,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -17225,7 +17225,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -17828,7 +17828,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -39644,7 +39644,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -41350,7 +41350,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -43057,7 +43057,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -44638,7 +44638,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -48076,7 +48076,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -51718,7 +51718,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -55183,7 +55183,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -58570,7 +58570,7 @@
                       }
                     ]
                   },
-                  "cornerRadius": "$radius-full",
+                  "cornerRadius": 8,
                   "stroke": "$btn-primary-ring",
                   "strokeWidth": 1,
                   "justifyContent": "center",
@@ -61945,6 +61945,92 @@
               "textGrowth": "fixed-width",
               "width": "fill_container",
               "content": "A 1px light on the card's edge follows the pointer (220px radial gradient, foreground at 45%). Mouse/trackpad only; fades in over 200ms on hover.",
+              "lineHeight": 1.6,
+              "fontFamily": "$font-mono",
+              "fontSize": 11.5,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ssbXf",
+          "name": "Row Sticky top bar",
+          "width": "fill_container",
+          "stroke": "$hairline",
+          "strokeWidth": {
+            "top": 1
+          },
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            12,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "D3EbG",
+              "name": "Name",
+              "fill": "$foreground",
+              "content": "Announcement + header — sticky",
+              "fontFamily": "$font-sans",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "xP6F5",
+              "name": "Spec",
+              "fill": "$muted-foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "The banner and the header stick together as one block (40 + 60 = 100px), so the header stays flush under the banner. Section anchors clear it: headings land 136px down, with their eyebrow visible. Docs pages have no banner and keep the 60px header.",
+              "lineHeight": 1.6,
+              "fontFamily": "$font-mono",
+              "fontSize": 11.5,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aVbUN",
+          "name": "Row Smooth scroll",
+          "width": "fill_container",
+          "stroke": "$hairline",
+          "strokeWidth": {
+            "top": 1
+          },
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            12,
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "RuIs2",
+              "name": "Name",
+              "fill": "$foreground",
+              "content": "Smooth scroll — whole site (Lenis)",
+              "fontFamily": "$font-sans",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "b3Q0v",
+              "name": "Spec",
+              "fill": "$muted-foreground",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Wheel and #anchor jumps ease instead of stepping. Anything with its own scrollbar (sidebar, TOC, search list, menus) scrolls natively, and while a dialog or sheet is open the page behind it stays still. Off under prefers-reduced-motion.",
               "lineHeight": 1.6,
               "fontFamily": "$font-mono",
               "fontSize": 11.5,
@@ -71313,7 +71399,7 @@
                   }
                 ]
               },
-              "cornerRadius": "$radius-full",
+              "cornerRadius": 15,
               "stroke": "$btn-primary-ring",
               "strokeWidth": 1,
               "justifyContent": "center",
@@ -71576,7 +71662,7 @@
               }
             ]
           },
-          "cornerRadius": "$radius-full",
+          "cornerRadius": 192,
           "stroke": "$btn-primary-ring",
           "strokeWidth": 12,
           "strokeAlignment": "inner",
@@ -71638,6 +71724,2270 @@
           "fontFamily": "$font-sans",
           "fontSize": 104,
           "fontWeight": "700"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "AiQqV",
+      "x": 3452,
+      "y": -780,
+      "name": "Rezi UI / Favicon v2 (Framer-style)",
+      "fill": "#f4f5f7",
+      "gap": 64,
+      "padding": 64,
+      "alignItems": "end",
+      "children": [
+        {
+          "type": "frame",
+          "id": "mt4mj",
+          "name": "Icon 512",
+          "clip": true,
+          "width": 512,
+          "height": 512,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$btn-primary-from",
+                "position": 0
+              },
+              {
+                "color": "$btn-primary-to",
+                "position": 1
+              }
+            ]
+          },
+          "cornerRadius": 115,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "O2ScU",
+              "name": "Mark letter",
+              "fill": "#ffffff",
+              "content": "R",
+              "lineHeight": 1,
+              "fontFamily": "$font-sans",
+              "fontSize": 317,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g1MCEY",
+          "name": "Icon 180",
+          "clip": true,
+          "width": 180,
+          "height": 180,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$btn-primary-from",
+                "position": 0
+              },
+              {
+                "color": "$btn-primary-to",
+                "position": 1
+              }
+            ]
+          },
+          "cornerRadius": 41,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "byagS",
+              "name": "Mark letter",
+              "fill": "#ffffff",
+              "content": "R",
+              "lineHeight": 1,
+              "fontFamily": "$font-sans",
+              "fontSize": 112,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OgFlB",
+          "name": "Icon 32",
+          "clip": true,
+          "width": 32,
+          "height": 32,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$btn-primary-from",
+                "position": 0
+              },
+              {
+                "color": "$btn-primary-to",
+                "position": 1
+              }
+            ]
+          },
+          "cornerRadius": 7,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "vwmiH",
+              "name": "Mark letter",
+              "fill": "#ffffff",
+              "content": "R",
+              "lineHeight": 1,
+              "fontFamily": "$font-sans",
+              "fontSize": 22,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "vsQGW",
+          "name": "Icon 16",
+          "clip": true,
+          "width": 16,
+          "height": 16,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$btn-primary-from",
+                "position": 0
+              },
+              {
+                "color": "$btn-primary-to",
+                "position": 1
+              }
+            ]
+          },
+          "cornerRadius": 4,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "yBMoL",
+              "name": "Mark letter",
+              "fill": "#ffffff",
+              "content": "R",
+              "lineHeight": 1,
+              "fontFamily": "$font-sans",
+              "fontSize": 12,
+              "fontWeight": "700"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "p2iC8B",
+      "x": 3452,
+      "y": -60,
+      "name": "Rezi UI / Favicon alts (folded R)",
+      "fill": "#f4f5f7",
+      "gap": 56,
+      "padding": 64,
+      "children": [
+        {
+          "type": "frame",
+          "id": "UaIDk",
+          "name": "A · Framer R",
+          "layout": "vertical",
+          "gap": 20,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Vd0LK",
+              "name": "Tile 240",
+              "clip": true,
+              "width": 240,
+              "height": 240,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$btn-primary-from",
+                    "position": 0
+                  },
+                  {
+                    "color": "$btn-primary-to",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 72,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "Mrkq6",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 1",
+                  "geometry": "M5 0h8l6 6-6 6h-2l8 12h-14z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "E1L6Bz",
+              "name": "Small sizes",
+              "gap": 16,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "C4BwgZ",
+                  "name": "Tile 64",
+                  "clip": true,
+                  "width": 64,
+                  "height": 64,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 19,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "DqJKK",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 1",
+                      "geometry": "M5 0h8l6 6-6 6h-2l8 12h-14z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gg6W5",
+                  "name": "Tile 32",
+                  "clip": true,
+                  "width": 32,
+                  "height": 32,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 10,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "gq2VJ",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 1",
+                      "geometry": "M5 0h8l6 6-6 6h-2l8 12h-14z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "C4n8S",
+                  "name": "Tile 16",
+                  "clip": true,
+                  "width": 16,
+                  "height": 16,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 5,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "AiKXY",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 1",
+                      "geometry": "M5 0h8l6 6-6 6h-2l8 12h-14z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "V6utf3",
+              "name": "Caption",
+              "fill": "#3a3f47",
+              "content": "A · Framer R",
+              "fontFamily": "$font-sans",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jQnDH",
+          "name": "B · Framer R, shaded fold",
+          "layout": "vertical",
+          "gap": 20,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "N5Euo6",
+              "name": "Tile 240",
+              "clip": true,
+              "width": 240,
+              "height": 240,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$btn-primary-from",
+                    "position": 0
+                  },
+                  {
+                    "color": "$btn-primary-to",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 72,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "pwrcv",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 1",
+                  "geometry": "M5 5.5h13.5l0.5 0.5-6 6h-8z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff99",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                },
+                {
+                  "type": "path",
+                  "id": "VDNoQ",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 2",
+                  "geometry": "M10.5 12l8.5 12h-8.5z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffffc4",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                },
+                {
+                  "type": "path",
+                  "id": "Fo8MS",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 3",
+                  "geometry": "M5 0h8l6 6h-14z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                },
+                {
+                  "type": "path",
+                  "id": "xdFpq",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 4",
+                  "geometry": "M5 6h1v6h-1z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                },
+                {
+                  "type": "path",
+                  "id": "h3UKPe",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 5",
+                  "geometry": "M5 12h6v12h-6z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "mwSFQ",
+              "name": "Small sizes",
+              "gap": 16,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bO9vF",
+                  "name": "Tile 64",
+                  "clip": true,
+                  "width": 64,
+                  "height": 64,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 19,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "zkWgS",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 1",
+                      "geometry": "M5 5.5h13.5l0.5 0.5-6 6h-8z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff99",
+                      "width": 33.28,
+                      "height": 33.28
+                    },
+                    {
+                      "type": "path",
+                      "id": "pyXU0",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 2",
+                      "geometry": "M10.5 12l8.5 12h-8.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffc4",
+                      "width": 33.28,
+                      "height": 33.28
+                    },
+                    {
+                      "type": "path",
+                      "id": "ZfUZW",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 3",
+                      "geometry": "M5 0h8l6 6h-14z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    },
+                    {
+                      "type": "path",
+                      "id": "MXE6G",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 4",
+                      "geometry": "M5 6h1v6h-1z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    },
+                    {
+                      "type": "path",
+                      "id": "j2DOMZ",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 5",
+                      "geometry": "M5 12h6v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nt3Z7",
+                  "name": "Tile 32",
+                  "clip": true,
+                  "width": 32,
+                  "height": 32,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 10,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "KNcLo",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 1",
+                      "geometry": "M5 5.5h13.5l0.5 0.5-6 6h-8z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff99",
+                      "width": 16.64,
+                      "height": 16.64
+                    },
+                    {
+                      "type": "path",
+                      "id": "EgL09",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 2",
+                      "geometry": "M10.5 12l8.5 12h-8.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffc4",
+                      "width": 16.64,
+                      "height": 16.64
+                    },
+                    {
+                      "type": "path",
+                      "id": "W6eN1",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 3",
+                      "geometry": "M5 0h8l6 6h-14z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    },
+                    {
+                      "type": "path",
+                      "id": "w4SX6M",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 4",
+                      "geometry": "M5 6h1v6h-1z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    },
+                    {
+                      "type": "path",
+                      "id": "BCmBQ",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 5",
+                      "geometry": "M5 12h6v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "asK98",
+                  "name": "Tile 16",
+                  "clip": true,
+                  "width": 16,
+                  "height": 16,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 5,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "t9IRm",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 1",
+                      "geometry": "M5 5.5h13.5l0.5 0.5-6 6h-8z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff99",
+                      "width": 8.32,
+                      "height": 8.32
+                    },
+                    {
+                      "type": "path",
+                      "id": "P461W",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 2",
+                      "geometry": "M10.5 12l8.5 12h-8.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffc4",
+                      "width": 8.32,
+                      "height": 8.32
+                    },
+                    {
+                      "type": "path",
+                      "id": "mSMSg",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 3",
+                      "geometry": "M5 0h8l6 6h-14z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    },
+                    {
+                      "type": "path",
+                      "id": "kYf6O",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 4",
+                      "geometry": "M5 6h1v6h-1z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    },
+                    {
+                      "type": "path",
+                      "id": "KPsM4",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 5",
+                      "geometry": "M5 12h6v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "NGzMp",
+              "name": "Caption",
+              "fill": "#3a3f47",
+              "content": "B · Framer R, shaded fold",
+              "fontFamily": "$font-sans",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "GLhY1",
+          "name": "C · Ribbon R",
+          "layout": "vertical",
+          "gap": 20,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "u66hW",
+              "name": "Tile 240",
+              "clip": true,
+              "width": 240,
+              "height": 240,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$btn-primary-from",
+                    "position": 0
+                  },
+                  {
+                    "color": "$btn-primary-to",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 72,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "t6Ghzj",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 1",
+                  "geometry": "M9.5 0h3.5l6 6-6 6h-3.5v-4h1.84l2-2-2-2h-1.84z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffffb0",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                },
+                {
+                  "type": "path",
+                  "id": "r4EAeS",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 2",
+                  "geometry": "M5 0h5v24h-5z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                },
+                {
+                  "type": "path",
+                  "id": "uz6QZ",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 3",
+                  "geometry": "M11 12h5l4 12h-5z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bdqKR",
+              "name": "Small sizes",
+              "gap": 16,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fyt7G",
+                  "name": "Tile 64",
+                  "clip": true,
+                  "width": 64,
+                  "height": 64,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 19,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "p8EPo",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 1",
+                      "geometry": "M9.5 0h3.5l6 6-6 6h-3.5v-4h1.84l2-2-2-2h-1.84z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffb0",
+                      "width": 33.28,
+                      "height": 33.28
+                    },
+                    {
+                      "type": "path",
+                      "id": "ZduvP",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h5v24h-5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    },
+                    {
+                      "type": "path",
+                      "id": "JV6sP",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 3",
+                      "geometry": "M11 12h5l4 12h-5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gkp8F",
+                  "name": "Tile 32",
+                  "clip": true,
+                  "width": 32,
+                  "height": 32,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 10,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "n4pXO1",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 1",
+                      "geometry": "M9.5 0h3.5l6 6-6 6h-3.5v-4h1.84l2-2-2-2h-1.84z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffb0",
+                      "width": 16.64,
+                      "height": 16.64
+                    },
+                    {
+                      "type": "path",
+                      "id": "C5dMT4",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h5v24h-5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    },
+                    {
+                      "type": "path",
+                      "id": "TwLuO",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 3",
+                      "geometry": "M11 12h5l4 12h-5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DTjs9",
+                  "name": "Tile 16",
+                  "clip": true,
+                  "width": 16,
+                  "height": 16,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 5,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "bnIzx",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 1",
+                      "geometry": "M9.5 0h3.5l6 6-6 6h-3.5v-4h1.84l2-2-2-2h-1.84z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffb0",
+                      "width": 8.32,
+                      "height": 8.32
+                    },
+                    {
+                      "type": "path",
+                      "id": "GNQHW",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h5v24h-5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    },
+                    {
+                      "type": "path",
+                      "id": "AXDz1",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 3",
+                      "geometry": "M11 12h5l4 12h-5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "h1PqDH",
+              "name": "Caption",
+              "fill": "#3a3f47",
+              "content": "C · Ribbon R",
+              "fontFamily": "$font-sans",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cHbAH",
+          "name": "D · Bauhaus R",
+          "layout": "vertical",
+          "gap": 20,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "j8NC4Q",
+              "name": "Tile 240",
+              "clip": true,
+              "width": 240,
+              "height": 240,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$btn-primary-from",
+                    "position": 0
+                  },
+                  {
+                    "color": "$btn-primary-to",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 72,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "a6O9Ld",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 1",
+                  "geometry": "M10.5 12l8.5 12h-8.5z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffffa8",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                },
+                {
+                  "type": "path",
+                  "id": "Q3v0T0",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 2",
+                  "geometry": "M5 0h6a6 6 0 0 1 0 12v12h-6z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GjdvN",
+              "name": "Small sizes",
+              "gap": 16,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "s3O87U",
+                  "name": "Tile 64",
+                  "clip": true,
+                  "width": 64,
+                  "height": 64,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 19,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "RJTwO",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 1",
+                      "geometry": "M10.5 12l8.5 12h-8.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffa8",
+                      "width": 33.28,
+                      "height": 33.28
+                    },
+                    {
+                      "type": "path",
+                      "id": "t8DIIS",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h6a6 6 0 0 1 0 12v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "K0kFRu",
+                  "name": "Tile 32",
+                  "clip": true,
+                  "width": 32,
+                  "height": 32,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 10,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "xVOAD",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 1",
+                      "geometry": "M10.5 12l8.5 12h-8.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffa8",
+                      "width": 16.64,
+                      "height": 16.64
+                    },
+                    {
+                      "type": "path",
+                      "id": "YNRei",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h6a6 6 0 0 1 0 12v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "V8y8V",
+                  "name": "Tile 16",
+                  "clip": true,
+                  "width": 16,
+                  "height": 16,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 5,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "e2CTH",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 1",
+                      "geometry": "M10.5 12l8.5 12h-8.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffffa8",
+                      "width": 8.32,
+                      "height": 8.32
+                    },
+                    {
+                      "type": "path",
+                      "id": "tReln",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h6a6 6 0 0 1 0 12v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "I2gsi",
+              "name": "Caption",
+              "fill": "#3a3f47",
+              "content": "D · Bauhaus R",
+              "fontFamily": "$font-sans",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "KWYoo",
+          "name": "E · Paper fold",
+          "layout": "vertical",
+          "gap": 20,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rmYnq",
+              "name": "Tile 240",
+              "clip": true,
+              "width": 240,
+              "height": 240,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$btn-primary-from",
+                    "position": 0
+                  },
+                  {
+                    "color": "$btn-primary-to",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 72,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "OBpD7",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 1",
+                  "geometry": "M10.5 12h8.5l-8 12h-0.5z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff8c",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                },
+                {
+                  "type": "path",
+                  "id": "WTn5q",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 2",
+                  "geometry": "M5 0h8a6 6 0 0 1 0 12h-2v12h-6z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "G6fmx7",
+              "name": "Small sizes",
+              "gap": 16,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qZ2N7",
+                  "name": "Tile 64",
+                  "clip": true,
+                  "width": 64,
+                  "height": 64,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 19,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "oKylZ",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 1",
+                      "geometry": "M10.5 12h8.5l-8 12h-0.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff8c",
+                      "width": 33.28,
+                      "height": 33.28
+                    },
+                    {
+                      "type": "path",
+                      "id": "H85V8s",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h8a6 6 0 0 1 0 12h-2v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "CmB5i",
+                  "name": "Tile 32",
+                  "clip": true,
+                  "width": 32,
+                  "height": 32,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 10,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "Z45H2I",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 1",
+                      "geometry": "M10.5 12h8.5l-8 12h-0.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff8c",
+                      "width": 16.64,
+                      "height": 16.64
+                    },
+                    {
+                      "type": "path",
+                      "id": "QVWo4",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h8a6 6 0 0 1 0 12h-2v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "X9pNQy",
+                  "name": "Tile 16",
+                  "clip": true,
+                  "width": 16,
+                  "height": 16,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 5,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "IWBui",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 1",
+                      "geometry": "M10.5 12h8.5l-8 12h-0.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff8c",
+                      "width": 8.32,
+                      "height": 8.32
+                    },
+                    {
+                      "type": "path",
+                      "id": "X0Qk2",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 2",
+                      "geometry": "M5 0h8a6 6 0 0 1 0 12h-2v12h-6z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "G9wEs9",
+              "name": "Caption",
+              "fill": "#3a3f47",
+              "content": "E · Paper fold",
+              "fontFamily": "$font-sans",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OD44r",
+          "name": "F · Pixel R",
+          "layout": "vertical",
+          "gap": 20,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "uU5Bc",
+              "name": "Tile 240",
+              "clip": true,
+              "width": 240,
+              "height": 240,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$btn-primary-from",
+                    "position": 0
+                  },
+                  {
+                    "color": "$btn-primary-to",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 72,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "Zq7ly",
+                  "x": 57.599999999999994,
+                  "y": 57.599999999999994,
+                  "name": "Piece 1",
+                  "geometry": "M5 0h9.5v4.5h-9.5z m0 5h4.5v4.5h-4.5z m10 0h4.5v4.5h-4.5z m-10 5h9.5v4.5h-9.5z m0 5h4.5v4.5h-4.5z m10 0h4.5v4.5h-4.5z m-10 5h4.5v4h-4.5z m10 0h4.5v4h-4.5z",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    24
+                  ],
+                  "fill": "#ffffff",
+                  "width": 124.80000000000001,
+                  "height": 124.80000000000001
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "I6qws",
+              "name": "Small sizes",
+              "gap": 16,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "pkvUj",
+                  "name": "Tile 64",
+                  "clip": true,
+                  "width": 64,
+                  "height": 64,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 19,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "HvBxo",
+                      "x": 15.36,
+                      "y": 15.36,
+                      "name": "Piece 1",
+                      "geometry": "M5 0h9.5v4.5h-9.5z m0 5h4.5v4.5h-4.5z m10 0h4.5v4.5h-4.5z m-10 5h9.5v4.5h-9.5z m0 5h4.5v4.5h-4.5z m10 0h4.5v4.5h-4.5z m-10 5h4.5v4h-4.5z m10 0h4.5v4h-4.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 33.28,
+                      "height": 33.28
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "a3Hmdt",
+                  "name": "Tile 32",
+                  "clip": true,
+                  "width": 32,
+                  "height": 32,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 10,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "euBwf",
+                      "x": 7.68,
+                      "y": 7.68,
+                      "name": "Piece 1",
+                      "geometry": "M5 0h9.5v4.5h-9.5z m0 5h4.5v4.5h-4.5z m10 0h4.5v4.5h-4.5z m-10 5h9.5v4.5h-9.5z m0 5h4.5v4.5h-4.5z m10 0h4.5v4.5h-4.5z m-10 5h4.5v4h-4.5z m10 0h4.5v4h-4.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 16.64,
+                      "height": 16.64
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "R7UMRE",
+                  "name": "Tile 16",
+                  "clip": true,
+                  "width": 16,
+                  "height": 16,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 5,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "ghMoz",
+                      "x": 3.84,
+                      "y": 3.84,
+                      "name": "Piece 1",
+                      "geometry": "M5 0h9.5v4.5h-9.5z m0 5h4.5v4.5h-4.5z m10 0h4.5v4.5h-4.5z m-10 5h9.5v4.5h-9.5z m0 5h4.5v4.5h-4.5z m10 0h4.5v4.5h-4.5z m-10 5h4.5v4h-4.5z m10 0h4.5v4h-4.5z",
+                      "viewBox": [
+                        0,
+                        0,
+                        24,
+                        24
+                      ],
+                      "fill": "#ffffff",
+                      "width": 8.32,
+                      "height": 8.32
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "rFwkB",
+              "name": "Caption",
+              "fill": "#3a3f47",
+              "content": "F · Pixel R",
+              "fontFamily": "$font-sans",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "QmtFA",
+      "x": 3452,
+      "y": 511,
+      "name": "Rezi UI / Favicon glow (dark)",
+      "clip": true,
+      "width": 600,
+      "height": 600,
+      "fill": "#000000",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "qfrNq",
+          "x": 126,
+          "y": 122,
+          "name": "Slab",
+          "width": 348,
+          "height": 360,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#0a1f4a",
+                "position": 0
+              },
+              {
+                "color": "#1e6ae6",
+                "position": 0.85
+              },
+              {
+                "color": "#4e92e6",
+                "position": 1
+              }
+            ]
+          },
+          "cornerRadius": 108,
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#1075dd66",
+              "offset": {
+                "x": 0,
+                "y": 24
+              },
+              "blur": 80
+            },
+            {
+              "type": "shadow",
+              "shadowType": "inner",
+              "color": "#9cc4ff99",
+              "offset": {
+                "x": 0,
+                "y": -3
+              },
+              "blur": 6
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Bxifp",
+          "x": 120,
+          "y": 96,
+          "name": "Tile",
+          "clip": true,
+          "width": 360,
+          "height": 360,
+          "fill": [
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#05070d",
+                  "position": 0
+                },
+                {
+                  "color": "#060c1c",
+                  "position": 0.45
+                },
+                {
+                  "color": "#0b2a66",
+                  "position": 1
+                }
+              ]
+            },
+            {
+              "type": "gradient",
+              "gradientType": "radial",
+              "enabled": true,
+              "rotation": 0,
+              "size": {
+                "width": 1.5,
+                "height": 1.1
+              },
+              "colors": [
+                {
+                  "color": "#4e92e6ff",
+                  "position": 0
+                },
+                {
+                  "color": "#1075dd99",
+                  "position": 0.35
+                },
+                {
+                  "color": "#1075dd00",
+                  "position": 0.75
+                }
+              ],
+              "center": {
+                "y": 1.05
+              }
+            }
+          ],
+          "cornerRadius": 108,
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "inner",
+              "color": "#ffffff2e",
+              "offset": {
+                "x": 0,
+                "y": 2
+              },
+              "blur": 2
+            },
+            {
+              "type": "shadow",
+              "shadowType": "inner",
+              "color": "#7fb2ffaa",
+              "offset": {
+                "x": 0,
+                "y": -14
+              },
+              "blur": 36
+            }
+          ],
+          "layout": "none",
+          "children": [
+            {
+              "type": "path",
+              "id": "xUJDa",
+              "x": 108,
+              "y": 102,
+              "name": "Mark R",
+              "geometry": "M4 3l3-3h13v13h-5.5l6.5 11h-6l-6.5-10.4v10.4h-4.5z m4.5 1h7v5h-7z",
+              "fillRule": "evenodd",
+              "viewBox": [
+                0,
+                0,
+                24,
+                24
+              ],
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#ffffff",
+                    "position": 0
+                  },
+                  {
+                    "color": "#dbe6f5",
+                    "position": 0.45
+                  },
+                  {
+                    "color": "#5d7396",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 144,
+              "height": 144
+            }
+          ]
         }
       ]
     }

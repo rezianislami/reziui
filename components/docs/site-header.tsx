@@ -40,7 +40,8 @@ export function SiteHeader({ newUrls = [], className }: { newUrls?: string[]; cl
     >
       <Link href="/" className="flex items-center gap-2 rounded-full outline-hidden focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring">
         {/* Placeholder mark until the Rezi UI logo exists. */}
-        <span className="flex size-5.5 items-center justify-center rounded-full bg-linear-to-b from-(--btn-primary-from) to-(--btn-primary-to) text-xs font-bold text-white ring ring-(--btn-primary-ring)">
+        {/* 37.5% radius matches the favicon tile (192px on 512); a percentage keeps that ratio if the size changes. */}
+        <span className="flex size-5.5 items-center justify-center rounded-[37.5%] bg-linear-to-b from-(--btn-primary-from) to-(--btn-primary-to) text-xs font-bold text-white ring ring-(--btn-primary-ring)">
           R
         </span>
         {/* nowrap: the space in "Rezi UI" must never break the wordmark onto two lines. */}
