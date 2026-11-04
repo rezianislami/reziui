@@ -22,10 +22,6 @@ import {
 
 type PageProps = { params: Promise<{ slug?: string[] }> };
 
-async function getPageMarkdown(slug: string[] | undefined): Promise<string> {
-  return (await source.getPage(slug)?.data.getText("raw")) ?? "";
-}
-
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
   const page = source.getPage(slug);
@@ -37,7 +33,7 @@ export default async function Page({ params }: PageProps) {
   // they are counted as crumbs; otherwise every page has an empty trail.
   const crumbs = getBreadcrumbItems(page.url, tree, { includeSeparator: true });
   // Raw MDX for "Copy page": pasting a docs page into an LLM chat is the main use.
-  const markdown = await getPageMarkdown(slug);
+  const markdown = await page.data.getText("raw");
 
   return (
     <>

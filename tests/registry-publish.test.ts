@@ -16,6 +16,21 @@ describe("published registry", () => {
     expect(missing, "run `npm run registry:build`").toEqual([]);
   });
 
+  it("ships built files whose content matches the current source", () => {
+    // Existence alone passes after a source edit without `registry:build`,
+    // and consumers would then install the old code the docs no longer show.
+    const stale = registry.items.flatMap((item) => {
+      if (!built(item.name)) return [];
+      const json = JSON.parse(readFileSync(resolve(builtDir, `${item.name}.json`), "utf8"));
+      const files: { path: string; content: string }[] = json.files ?? [];
+      return files
+        .filter((file) => file.content !== readFileSync(resolve(process.cwd(), file.path), "utf8"))
+        .map((file) => file.path);
+    });
+
+    expect(stale, "run `npm run registry:build`").toEqual([]);
+  });
+
   it("resolves every @reziui dependency to a built file", () => {
     const deps = registry.items.flatMap((item) =>
       (item.registryDependencies ?? []).filter((dep) => dep.startsWith("@reziui/")),

@@ -28,3 +28,16 @@ export function readRegistrySource(repoPath: string): string {
 export function getRegistryItem(name: string): RegistryItem | undefined {
   return registry.items.find((item) => item.name === name);
 }
+
+/**
+ * Other Rezi UI components an item imports, e.g. command → dialog. A manual
+ * install has to copy these too. The theme is left out: every item depends on
+ * it, and the manual steps already name it.
+ */
+export function getComponentDependencies(item: RegistryItem): RegistryItem[] {
+  const deps: string[] = ("registryDependencies" in item && item.registryDependencies) || [];
+  return deps
+    .filter((dep) => dep.startsWith("@reziui/") && dep !== "@reziui/theme")
+    .map((dep) => getRegistryItem(dep.slice("@reziui/".length)))
+    .filter((dep): dep is RegistryItem => dep !== undefined);
+}

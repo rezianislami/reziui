@@ -5,3 +5,6 @@
  * /r/* to the new one.
  */
 export const SITE_URL = "https://reziui.rezianislami.workers.dev";
+
+/** GitHub link in the header and on the landing page. */
+export const GITHUB_URL = "https://github.com/rezianislami";

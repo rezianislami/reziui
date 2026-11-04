@@ -2,7 +2,8 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { examples } from "@/registry/reziui/examples";
-import { getRegistryItem } from "@/lib/registry-source";
+import registry from "@/registry.json";
+import { getComponentDependencies, getRegistryItem } from "@/lib/registry-source";
 
 // ComponentPreview / InstallTabs throw at build time on unknown names; these
 // tests catch a typo in MDX before a build is needed.
@@ -28,6 +29,22 @@ describe("docs content", () => {
 
     expect(used.length).toBeGreaterThan(0);
     for (const name of used) expect(examples, name).toHaveProperty(name);
+  });
+
+  it("names the other components an item imports, without the theme", () => {
+    const names = (name: string) => getComponentDependencies(getRegistryItem(name)!).map((dep) => dep.name);
+
+    expect(names("command")).toEqual(["dialog"]);
+    expect(names("theme-toggle")).toEqual(["button", "tooltip"]);
+    expect(names("button")).toEqual([]);
+  });
+
+  it("has a docs page for every component the Manual tab links to", () => {
+    // InstallTabs links each dependency to /docs/components/<name>.
+    const linked = registry.items.flatMap((item) => getComponentDependencies(item).map((dep) => dep.name));
+
+    expect(linked.length).toBeGreaterThan(0);
+    for (const name of linked) expect(existsSync(join(docsDir, "components", `${name}.mdx`)), name).toBe(true);
   });
 
   it("only references registry items that exist in InstallTabs", () => {

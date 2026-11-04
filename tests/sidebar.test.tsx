@@ -26,6 +26,14 @@ describe("Sidebar", () => {
     expect(screen.getByRole("link", { name: "Introduction" })).not.toHaveAttribute("aria-current");
   });
 
+  it("matches the current path when it ends in a trailing slash", () => {
+    // The static export uses trailingSlash, so the browser path is /x/ while page-tree URLs are /x.
+    navigation.pathname = "/docs/components/button/";
+    renderTree([{ type: "page", name: "Button", url: "/docs/components/button" }]);
+
+    expect(screen.getByRole("link", { name: "Button" })).toHaveAttribute("aria-current", "page");
+  });
+
   it("does not treat a path prefix as active", () => {
     // /docs is a prefix of every docs URL; only an exact match is the current page.
     navigation.pathname = "/docs/installation";

@@ -1,6 +1,8 @@
+import { Fragment } from "react";
 import { basename } from "node:path";
+import Link from "next/link";
 import { highlightCode } from "@/lib/highlight";
-import { getRegistryItem, readRegistrySource } from "@/lib/registry-source";
+import { getComponentDependencies, getRegistryItem, readRegistrySource } from "@/lib/registry-source";
 import { CodeBlock } from "./code-block";
 import { CommandTokens } from "./command-tokens";
 import { InstallCommand } from "./install-command";
@@ -17,6 +19,7 @@ export async function InstallTabs({ name }: InstallTabsProps) {
 
   const deps: string[] = ("dependencies" in item && item.dependencies) || [];
   const files: { path: string }[] = ("files" in item && item.files) || [];
+  const components = getComponentDependencies(item);
 
   // Commands use the shared command colours (same as the landing page); only
   // source files go through Shiki.
@@ -46,8 +49,28 @@ export async function InstallTabs({ name }: InstallTabsProps) {
         )}
         <p className="text-sm text-muted-foreground">
           Copy the source into <code className="font-mono text-foreground">components/ui</code>, then add
-          the <code className="font-mono text-foreground">@reziui/theme</code> tokens to your global CSS.
+          the <code className="font-mono text-foreground">@reziui/theme</code> tokens to your global CSS. It
+          imports <code className="font-mono text-foreground">cn</code> from{" "}
+          <code className="font-mono text-foreground">lib/utils</code>, which{" "}
+          <code className="font-mono text-foreground">shadcn init</code> creates.
         </p>
+        {components.length > 0 && (
+          <p className="text-sm text-muted-foreground">
+            It also imports{" "}
+            {components.map((dep, i) => (
+              <Fragment key={dep.name}>
+                {i > 0 && (i === components.length - 1 ? " and " : ", ")}
+                <Link
+                  href={`/docs/components/${dep.name}`}
+                  className="font-medium text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground"
+                >
+                  {dep.title}
+                </Link>
+              </Fragment>
+            ))}
+            ; install {components.length > 1 ? "those" : "that"} first.
+          </p>
+        )}
         {files.map((file, i) => (
           <CodeBlock key={file.path} title={`components/ui/${basename(file.path)}`}>
             {fileCodes[i]}

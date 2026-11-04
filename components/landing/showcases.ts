@@ -13,8 +13,6 @@ import TabsDemo from "@/registry/reziui/examples/tabs-demo";
 import ToastDemo from "@/registry/reziui/examples/toast-demo";
 import TooltipToolbar from "@/registry/reziui/examples/tooltip-toolbar";
 
-export const GITHUB_URL = "https://github.com/rezianislami";
-
 /** Counted from the registry, so the number never goes stale. */
 export const componentCount = registry.items.filter((item) => item.type === "registry:ui").length;
 

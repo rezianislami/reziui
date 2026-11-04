@@ -11,7 +11,10 @@ import { Badge } from "@/registry/reziui/ui/badge";
 const NewUrlsContext = createContext<ReadonlySet<string>>(new Set());
 
 function SidebarLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const active = usePathname() === href;
+  // trailingSlash (static export) makes the browser path /x/ while page-tree URLs are /x.
+  // Matching both forms, rather than stripping the slash, keeps "/" from collapsing to "".
+  const pathname = usePathname();
+  const active = pathname === href || pathname === `${href}/`;
   const isNew = useContext(NewUrlsContext).has(href);
 
   return (

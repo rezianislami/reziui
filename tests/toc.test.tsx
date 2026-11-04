@@ -38,16 +38,9 @@ describe("Toc", () => {
     expect(screen.getByRole("link", { name: "Installation" })).not.toHaveClass("pl-6");
   });
 
-  it("renders nothing for a page without headings or edit link", () => {
+  it("renders nothing for a page without headings", () => {
     const { container } = render(<Toc items={[]} />);
 
     expect(container).toBeEmptyDOMElement();
-  });
-
-  it("shows only the edit link when there are no headings", () => {
-    render(<Toc items={[]} editUrl="https://example.com/edit" />);
-
-    expect(screen.getByRole("link", { name: "Edit this page" })).toHaveAttribute("href", "https://example.com/edit");
-    expect(screen.queryByText("On this page")).not.toBeInTheDocument();
   });
 });
