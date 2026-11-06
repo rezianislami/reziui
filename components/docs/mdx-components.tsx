@@ -40,7 +40,9 @@ export const mdxComponents: MDXComponents = {
   code: ({ className, ...props }) => (
     <code
       className={cn(
-        "rounded-md bg-accent px-1.5 py-0.5 font-mono text-[0.85em] text-foreground [pre_&]:bg-transparent [pre_&]:p-0 [pre_&]:text-[1em]",
+        // break-words: inline commands/URLs have no break points and would widen the
+        // page on phones. No effect inside <pre>, whose white-space forbids wrapping.
+        "rounded-md bg-accent px-1.5 py-0.5 font-mono text-[0.85em] break-words text-foreground [pre_&]:bg-transparent [pre_&]:p-0 [pre_&]:text-[1em]",
         className,
       )}
       {...props}

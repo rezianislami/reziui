@@ -66,12 +66,14 @@ export default async function Page({ params }: PageProps) {
           <h1 className="text-[28px] leading-tight font-semibold tracking-tight text-foreground md:text-[34px]">
             {page.data.title}
           </h1>
-          {/* Icon-only below sm; aria-label keeps the name once the label is display:none. */}
+          {/* Icon-only below sm; aria-label keeps the name once the label is display:none.
+              px-0 needs `!`: CopyButton's leading-icon trim is a :has() selector, which
+              out-specifies a plain utility and would push the lone icon 4px off-center. */}
           <CopyButton
             value={markdown}
             variant="secondary"
             aria-label="Copy page"
-            className="mt-1 ml-auto shrink-0 max-sm:size-8 max-sm:px-0 md:mt-2"
+            className="mt-1 ml-auto shrink-0 max-sm:size-8 max-sm:px-0! md:mt-2"
           >
             <span className="max-sm:hidden">Copy page</span>
           </CopyButton>
