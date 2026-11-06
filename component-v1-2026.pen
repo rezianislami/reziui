@@ -74900,6 +74900,1458 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "H4wVD",
+      "x": 6780,
+      "y": -780,
+      "name": "skills / README banner (Light)",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1280,
+      "height": 640,
+      "fill": "$background",
+      "children": [
+        {
+          "type": "frame",
+          "id": "I1b5bt",
+          "name": "Copy",
+          "width": 700,
+          "height": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            72,
+            0,
+            72,
+            80
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "MIBv8",
+              "name": "Brand",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "PJMnJ",
+                  "name": "Mark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 13.5,
+                  "stroke": "$btn-primary-ring",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rvuv7",
+                      "name": "Mark letter",
+                      "fill": "#ffffff",
+                      "content": "S",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "T5waV",
+                  "name": "Wordmark",
+                  "fill": "$foreground-strong",
+                  "content": "skills",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 24,
+                  "fontWeight": "600",
+                  "letterSpacing": -0.4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "J4QKE",
+              "name": "Headline",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "z9hLv",
+                  "name": "Title",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yw88a",
+                      "name": "Line 1",
+                      "fill": "$foreground-strong",
+                      "content": "Feels designed,",
+                      "lineHeight": 1.05,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 56,
+                      "fontWeight": "600",
+                      "letterSpacing": -1.8
+                    },
+                    {
+                      "type": "frame",
+                      "id": "i9gBg",
+                      "name": "Line 2",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "dEJ8X",
+                          "name": "Word",
+                          "fill": "$foreground-strong",
+                          "content": "not",
+                          "lineHeight": 1.05,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 56,
+                          "fontWeight": "600",
+                          "letterSpacing": -1.8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "r8xSTu",
+                          "name": "Highlight",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 270,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#0063d72e",
+                                "position": 0
+                              },
+                              {
+                                "color": "#0063d70a",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "cornerRadius": 10,
+                          "padding": [
+                            0,
+                            10,
+                            4,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "c3s0vK",
+                              "name": "Word",
+                              "fill": "$foreground-strong",
+                              "content": "generated.",
+                              "lineHeight": 1.05,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 56,
+                              "fontWeight": "600",
+                              "letterSpacing": -1.8
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Chld4",
+                  "name": "Subhead",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 540,
+                  "content": "Opinionated agent skills for Claude Code and Codex, each tested on a real app before it ships.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-sans",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AQclY",
+              "name": "Footer",
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jpTrl",
+                  "name": "Install command",
+                  "fill": "$card",
+                  "cornerRadius": 10,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    11,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "diMmM",
+                      "name": "Prompt",
+                      "fill": "$muted-foreground",
+                      "content": "$",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fuqrd",
+                      "name": "Command",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AJbiP",
+                          "name": "Runner",
+                          "fill": "$code-runner",
+                          "content": "npx",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "N92xl",
+                          "name": "Binary",
+                          "fill": "$foreground",
+                          "content": " skills",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "OO8F4",
+                          "name": "Subcommand",
+                          "fill": "$code-keyword",
+                          "content": " add",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "VZLFG",
+                          "name": "Namespace",
+                          "fill": "$muted-foreground",
+                          "content": " rezianislami/",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "njPbM",
+                          "name": "Item",
+                          "fill": "$code-string",
+                          "content": "skills",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "W4zdx",
+                  "name": "Tagline",
+                  "fill": "$muted-foreground",
+                  "content": "wow-moments v0.4 · React & Vue · Agent Skills format",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IHxmf",
+          "name": "Collage",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 24,
+              "id": "PDXA7",
+              "x": 0,
+              "y": 28,
+              "name": "Panel",
+              "fill": "$surface-recessed",
+              "width": 552,
+              "height": 584,
+              "stroke": "$hairline",
+              "strokeWidth": 1
+            },
+            {
+              "id": "rDrPa",
+              "type": "ref",
+              "ref": "EaWeY",
+              "name": "Toast",
+              "x": 150,
+              "y": 72,
+              "descendants": {
+                "i2Eog6": {
+                  "content": "A1 PASS · A2 PASS"
+                },
+                "SMixn": {
+                  "content": "Built, typechecked, verified with verify.mjs."
+                },
+                "GV1op": {
+                  "enabled": false
+                }
+              }
+            },
+            {
+              "id": "ySzJ8",
+              "type": "ref",
+              "ref": "Q6p9R",
+              "name": "Card",
+              "x": 64,
+              "y": 166,
+              "descendants": {
+                "S9vj3": {
+                  "content": "wow-moments · menu"
+                },
+                "d0uADC": {
+                  "content": "3 moments on the signup page. Reply with IDs."
+                },
+                "WzLqD": {
+                  "type": "frame",
+                  "id": "ICW1g",
+                  "name": "Content",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    0,
+                    24,
+                    4,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "tvc4S",
+                      "name": "Row A1 ★",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        7,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ATSA4",
+                          "name": "ID",
+                          "fill": "$code-keyword",
+                          "textGrowth": "fixed-width",
+                          "width": 34,
+                          "content": "A1 ★",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kSEiu",
+                          "name": "Moment",
+                          "fill": "$foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Signup succeeds: a check draws",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JzIsl",
+                          "name": "Score",
+                          "fill": "$muted-foreground",
+                          "content": "11",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ZvsW2",
+                      "name": "Row A2 ★",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        7,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "c5Izpz",
+                          "name": "ID",
+                          "fill": "$code-keyword",
+                          "textGrowth": "fixed-width",
+                          "width": 34,
+                          "content": "A2 ★",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hACa0",
+                          "name": "Moment",
+                          "fill": "$foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Hero fades in from a soft blur",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "oUHSF",
+                          "name": "Score",
+                          "fill": "$muted-foreground",
+                          "content": "9",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "d1PEsX",
+                      "name": "Row A3",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        7,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mO7ra",
+                          "name": "ID",
+                          "fill": "$code-keyword",
+                          "textGrowth": "fixed-width",
+                          "width": 34,
+                          "content": "A3",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "I3m0O",
+                          "name": "Moment",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Invalid email: the field shakes once",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "g5oBtE",
+                          "name": "Score",
+                          "fill": "$muted-foreground",
+                          "content": "8",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "mHoK3/FhLig": {
+                  "content": "preview A1"
+                },
+                "S9Fp0/w8o9Gg": {
+                  "content": "A1, A2"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "F9tbG",
+              "x": 154,
+              "y": 418,
+              "name": "Controls",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$shadow-xs",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "blur": 2
+              },
+              "gap": 16,
+              "padding": [
+                14,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "cDCqJ",
+                  "type": "ref",
+                  "ref": "cosLQ",
+                  "name": "Badge hero",
+                  "descendants": {
+                    "sLK01": {
+                      "enabled": true
+                    },
+                    "Unz40": {
+                      "content": "hero"
+                    }
+                  }
+                },
+                {
+                  "id": "h1nQy",
+                  "type": "ref",
+                  "ref": "S3BB0L",
+                  "name": "Badge transition",
+                  "descendants": {
+                    "tLSti": {
+                      "enabled": true
+                    },
+                    "IaQgJ": {
+                      "content": "transition"
+                    }
+                  }
+                },
+                {
+                  "id": "YGcMv",
+                  "type": "ref",
+                  "ref": "qaZH0",
+                  "name": "Badge micro",
+                  "descendants": {
+                    "t3aHN": {
+                      "content": "micro"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZJzR8",
+              "x": 119,
+              "y": 484,
+              "name": "Slider plate",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$shadow-xs",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "blur": 2
+              },
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                14,
+                18
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "u2tgb",
+                  "name": "Check",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kVUtk",
+                      "name": "Tick",
+                      "fill": "$code-string",
+                      "content": "✓",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "btNa6",
+                      "name": "Check text",
+                      "fill": "$foreground",
+                      "content": "reduced motion stops movement",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "w46wt",
+                  "name": "Check",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dVa6o",
+                      "name": "Tick",
+                      "fill": "$code-string",
+                      "content": "✓",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vY87h",
+                      "name": "Check text",
+                      "fill": "$foreground",
+                      "content": "layout shift under 0.1",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MXow5",
+                      "name": "Value",
+                      "fill": "$muted-foreground",
+                      "content": "CLS 0.000",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rm28t",
+                  "name": "Check",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WKEZR",
+                      "name": "Tick",
+                      "fill": "$code-string",
+                      "content": "✓",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Z2x1d",
+                      "name": "Check text",
+                      "fill": "$foreground",
+                      "content": "first paint without JS shows content",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "F4qRrL",
+      "x": 6780,
+      "y": -60,
+      "name": "skills / README banner (Dark)",
+      "theme": {
+        "mode": "dark"
+      },
+      "clip": true,
+      "width": 1280,
+      "height": 640,
+      "fill": "$background",
+      "children": [
+        {
+          "type": "frame",
+          "id": "BjVEv",
+          "name": "Copy",
+          "width": 700,
+          "height": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            72,
+            0,
+            72,
+            80
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "pu9C4",
+              "name": "Brand",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n0xGy",
+                  "name": "Mark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 13.5,
+                  "stroke": "$btn-primary-ring",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sZHCd",
+                      "name": "Mark letter",
+                      "fill": "#ffffff",
+                      "content": "S",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "GabCW",
+                  "name": "Wordmark",
+                  "fill": "$foreground-strong",
+                  "content": "skills",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 24,
+                  "fontWeight": "600",
+                  "letterSpacing": -0.4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "BiyXi",
+              "name": "Headline",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oPhwU",
+                  "name": "Title",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "w1jAn",
+                      "name": "Line 1",
+                      "fill": "$foreground-strong",
+                      "content": "Feels designed,",
+                      "lineHeight": 1.05,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 56,
+                      "fontWeight": "600",
+                      "letterSpacing": -1.8
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ugzUk",
+                      "name": "Line 2",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "S1kHzW",
+                          "name": "Word",
+                          "fill": "$foreground-strong",
+                          "content": "not",
+                          "lineHeight": 1.05,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 56,
+                          "fontWeight": "600",
+                          "letterSpacing": -1.8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "fi5QF",
+                          "name": "Highlight",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 270,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#0063d72e",
+                                "position": 0
+                              },
+                              {
+                                "color": "#0063d70a",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "cornerRadius": 10,
+                          "padding": [
+                            0,
+                            10,
+                            4,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ZssR0",
+                              "name": "Word",
+                              "fill": "$foreground-strong",
+                              "content": "generated.",
+                              "lineHeight": 1.05,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 56,
+                              "fontWeight": "600",
+                              "letterSpacing": -1.8
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "b3Fye",
+                  "name": "Subhead",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 540,
+                  "content": "Opinionated agent skills for Claude Code and Codex, each tested on a real app before it ships.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-sans",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZQGoX",
+              "name": "Footer",
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "hTFWH",
+                  "name": "Install command",
+                  "fill": "$card",
+                  "cornerRadius": 10,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    11,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hPvlV",
+                      "name": "Prompt",
+                      "fill": "$muted-foreground",
+                      "content": "$",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IS4PX",
+                      "name": "Command",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NlAZG",
+                          "name": "Runner",
+                          "fill": "$code-runner",
+                          "content": "npx",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "n5dmQi",
+                          "name": "Binary",
+                          "fill": "$foreground",
+                          "content": " skills",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "rIgoI",
+                          "name": "Subcommand",
+                          "fill": "$code-keyword",
+                          "content": " add",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "l6OasQ",
+                          "name": "Namespace",
+                          "fill": "$muted-foreground",
+                          "content": " rezianislami/",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZzRSR",
+                          "name": "Item",
+                          "fill": "$code-string",
+                          "content": "skills",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "zBEZb",
+                  "name": "Tagline",
+                  "fill": "$muted-foreground",
+                  "content": "wow-moments v0.4 · React & Vue · Agent Skills format",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "zQoOB",
+          "name": "Collage",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 24,
+              "id": "nnq8k",
+              "x": 0,
+              "y": 28,
+              "name": "Panel",
+              "fill": "$surface-recessed",
+              "width": 552,
+              "height": 584,
+              "stroke": "$hairline",
+              "strokeWidth": 1
+            },
+            {
+              "id": "lfDxI",
+              "type": "ref",
+              "ref": "EaWeY",
+              "name": "Toast",
+              "x": 150,
+              "y": 72,
+              "descendants": {
+                "i2Eog6": {
+                  "content": "A1 PASS · A2 PASS"
+                },
+                "SMixn": {
+                  "content": "Built, typechecked, verified with verify.mjs."
+                },
+                "GV1op": {
+                  "enabled": false
+                }
+              }
+            },
+            {
+              "id": "OFQyO",
+              "type": "ref",
+              "ref": "Q6p9R",
+              "name": "Card",
+              "x": 64,
+              "y": 166,
+              "descendants": {
+                "S9vj3": {
+                  "content": "wow-moments · menu"
+                },
+                "d0uADC": {
+                  "content": "3 moments on the signup page. Reply with IDs."
+                },
+                "WzLqD": {
+                  "type": "frame",
+                  "id": "GCCzU",
+                  "name": "Content",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    0,
+                    24,
+                    4,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Bs6U2",
+                      "name": "Row A1 ★",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        7,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "VGHyq",
+                          "name": "ID",
+                          "fill": "$code-keyword",
+                          "textGrowth": "fixed-width",
+                          "width": 34,
+                          "content": "A1 ★",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Zb2Wg",
+                          "name": "Moment",
+                          "fill": "$foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Signup succeeds: a check draws",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QBq1g",
+                          "name": "Score",
+                          "fill": "$muted-foreground",
+                          "content": "11",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "K5SE2a",
+                      "name": "Row A2 ★",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        7,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "yYNzF",
+                          "name": "ID",
+                          "fill": "$code-keyword",
+                          "textGrowth": "fixed-width",
+                          "width": 34,
+                          "content": "A2 ★",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Cvfwy",
+                          "name": "Moment",
+                          "fill": "$foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Hero fades in from a soft blur",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Z5nbqP",
+                          "name": "Score",
+                          "fill": "$muted-foreground",
+                          "content": "9",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kjFHT",
+                      "name": "Row A3",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "padding": [
+                        7,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ts2rN",
+                          "name": "ID",
+                          "fill": "$code-keyword",
+                          "textGrowth": "fixed-width",
+                          "width": 34,
+                          "content": "A3",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "nKqTk",
+                          "name": "Moment",
+                          "fill": "$muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Invalid email: the field shakes once",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "SbKTu",
+                          "name": "Score",
+                          "fill": "$muted-foreground",
+                          "content": "8",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "mHoK3/FhLig": {
+                  "content": "preview A1"
+                },
+                "S9Fp0/w8o9Gg": {
+                  "content": "A1, A2"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "iI36N",
+              "x": 154,
+              "y": 418,
+              "name": "Controls",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$shadow-xs",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "blur": 2
+              },
+              "gap": 16,
+              "padding": [
+                14,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "K3IU1o",
+                  "type": "ref",
+                  "ref": "cosLQ",
+                  "name": "Badge hero",
+                  "descendants": {
+                    "sLK01": {
+                      "enabled": true
+                    },
+                    "Unz40": {
+                      "content": "hero"
+                    }
+                  }
+                },
+                {
+                  "id": "dHRsP",
+                  "type": "ref",
+                  "ref": "S3BB0L",
+                  "name": "Badge transition",
+                  "descendants": {
+                    "tLSti": {
+                      "enabled": true
+                    },
+                    "IaQgJ": {
+                      "content": "transition"
+                    }
+                  }
+                },
+                {
+                  "id": "eaUqN",
+                  "type": "ref",
+                  "ref": "qaZH0",
+                  "name": "Badge micro",
+                  "descendants": {
+                    "t3aHN": {
+                      "content": "micro"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vlEMo",
+              "x": 119,
+              "y": 484,
+              "name": "Slider plate",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$shadow-xs",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "blur": 2
+              },
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                14,
+                18
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BUIpQ",
+                  "name": "Check",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IfmEP",
+                      "name": "Tick",
+                      "fill": "$code-string",
+                      "content": "✓",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "eSoaP",
+                      "name": "Check text",
+                      "fill": "$foreground",
+                      "content": "reduced motion stops movement",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Ko51X",
+                  "name": "Check",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uq0Y1",
+                      "name": "Tick",
+                      "fill": "$code-string",
+                      "content": "✓",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YUIPp",
+                      "name": "Check text",
+                      "fill": "$foreground",
+                      "content": "layout shift under 0.1",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YTghN",
+                      "name": "Value",
+                      "fill": "$muted-foreground",
+                      "content": "CLS 0.000",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "B3769",
+                  "name": "Check",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "s65kY",
+                      "name": "Tick",
+                      "fill": "$code-string",
+                      "content": "✓",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sKFRJ",
+                      "name": "Check text",
+                      "fill": "$foreground",
+                      "content": "first paint without JS shows content",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "themes": {
