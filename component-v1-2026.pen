@@ -73990,6 +73990,916 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "FkELU",
+      "x": 5380,
+      "y": -780,
+      "name": "Rezi UI / README banner (Light)",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1280,
+      "height": 640,
+      "fill": "$background",
+      "children": [
+        {
+          "type": "frame",
+          "id": "PBcNk",
+          "name": "Copy",
+          "width": 700,
+          "height": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            72,
+            0,
+            72,
+            80
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "IKeXO",
+              "name": "Brand",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "c7mtd6",
+                  "name": "Mark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 13.5,
+                  "stroke": "$btn-primary-ring",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eBf3R",
+                      "name": "Mark letter",
+                      "fill": "#ffffff",
+                      "content": "R",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "YUCEU",
+                  "name": "Wordmark",
+                  "fill": "$foreground-strong",
+                  "content": "Rezi UI",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 24,
+                  "fontWeight": "600",
+                  "letterSpacing": -0.4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pzRbE",
+              "name": "Headline",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "obA3m",
+                  "name": "Title",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "k1dAl",
+                      "name": "Line 1",
+                      "fill": "$foreground-strong",
+                      "content": "The details you’d skip",
+                      "lineHeight": 1.05,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 56,
+                      "fontWeight": "600",
+                      "letterSpacing": -1.8
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bAGbe",
+                      "name": "Line 2",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "lgGm0",
+                          "name": "Word",
+                          "fill": "$foreground-strong",
+                          "content": "are",
+                          "lineHeight": 1.05,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 56,
+                          "fontWeight": "600",
+                          "letterSpacing": -1.8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "I9ZZ9k",
+                          "name": "Highlight",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 270,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#0063d72e",
+                                "position": 0
+                              },
+                              {
+                                "color": "#0063d70a",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "cornerRadius": 10,
+                          "padding": [
+                            0,
+                            10,
+                            4,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "T4tt0w",
+                              "name": "Word",
+                              "fill": "$foreground-strong",
+                              "content": "already done.",
+                              "lineHeight": 1.05,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 56,
+                              "fontWeight": "600",
+                              "letterSpacing": -1.8
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "vgs78",
+                  "name": "Subhead",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 540,
+                  "content": "Accessible, motion-tuned React components with focus rings, reduced motion and dark mode handled.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-sans",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TepCl",
+              "name": "Footer",
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qs4dR",
+                  "name": "Install command",
+                  "fill": "$card",
+                  "cornerRadius": 10,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    11,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zvuph",
+                      "name": "Prompt",
+                      "fill": "$muted-foreground",
+                      "content": "$",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YWW5N",
+                      "name": "Command",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LPVG0",
+                          "name": "Runner",
+                          "fill": "$code-runner",
+                          "content": "npx",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "EZL4c",
+                          "name": "Binary",
+                          "fill": "$foreground",
+                          "content": " shadcn@latest",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Q6wJ2h",
+                          "name": "Subcommand",
+                          "fill": "$code-keyword",
+                          "content": " add",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Wld21",
+                          "name": "Namespace",
+                          "fill": "$muted-foreground",
+                          "content": " @reziui/",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Hazyk",
+                          "name": "Item",
+                          "fill": "$code-string",
+                          "content": "button",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "G0Jkh",
+                  "name": "Tagline",
+                  "fill": "$muted-foreground",
+                  "content": "27 components · shadcn-compatible · Tailwind v4 · Radix",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ykx19",
+          "name": "Collage",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 24,
+              "id": "Nwkfk",
+              "x": 0,
+              "y": 28,
+              "name": "Panel",
+              "fill": "$surface-recessed",
+              "width": 552,
+              "height": 584,
+              "stroke": "$hairline",
+              "strokeWidth": 1
+            },
+            {
+              "id": "G3qENJ",
+              "type": "ref",
+              "ref": "EaWeY",
+              "name": "Toast",
+              "x": 150,
+              "y": 72
+            },
+            {
+              "id": "WuKcy",
+              "type": "ref",
+              "ref": "Q6p9R",
+              "name": "Card",
+              "x": 64,
+              "y": 166
+            },
+            {
+              "type": "frame",
+              "id": "AcvjZ",
+              "x": 190,
+              "y": 418,
+              "name": "Controls",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$shadow-xs",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "blur": 2
+              },
+              "gap": 16,
+              "padding": [
+                14,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "L2rSdE",
+                  "type": "ref",
+                  "ref": "mj1F3",
+                  "name": "Avatar"
+                },
+                {
+                  "id": "arwpa",
+                  "type": "ref",
+                  "ref": "cosLQ",
+                  "name": "Badge"
+                },
+                {
+                  "id": "q6o9OU",
+                  "type": "ref",
+                  "ref": "TKOHA",
+                  "name": "Switch"
+                },
+                {
+                  "id": "wnZtD",
+                  "type": "ref",
+                  "ref": "w6rfBQ",
+                  "name": "Checkbox"
+                },
+                {
+                  "id": "LbYg7",
+                  "type": "ref",
+                  "ref": "P2Nxa0",
+                  "name": "Button",
+                  "descendants": {
+                    "EwijX": {
+                      "enabled": false
+                    },
+                    "FhLig": {
+                      "content": "Invite"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uI6t9",
+              "x": 110,
+              "y": 504,
+              "name": "Slider plate",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$shadow-xs",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "blur": 2
+              },
+              "layout": "vertical",
+              "gap": 14,
+              "padding": [
+                18,
+                16
+              ],
+              "children": [
+                {
+                  "id": "J28KZ",
+                  "type": "ref",
+                  "ref": "mJbAF",
+                  "name": "Slider"
+                },
+                {
+                  "id": "f5aI2",
+                  "type": "ref",
+                  "ref": "BVHXH",
+                  "name": "Progress"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "U87QxH",
+      "x": 5380,
+      "y": -60,
+      "name": "Rezi UI / README banner (Dark)",
+      "theme": {
+        "mode": "dark"
+      },
+      "clip": true,
+      "width": 1280,
+      "height": 640,
+      "fill": "$background",
+      "children": [
+        {
+          "type": "frame",
+          "id": "zW7Fq",
+          "name": "Copy",
+          "width": 700,
+          "height": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            72,
+            0,
+            72,
+            80
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "dp8Sz",
+              "name": "Brand",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "g4ooRe",
+                  "name": "Mark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$btn-primary-from",
+                        "position": 0
+                      },
+                      {
+                        "color": "$btn-primary-to",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 13.5,
+                  "stroke": "$btn-primary-ring",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ybjZb",
+                      "name": "Mark letter",
+                      "fill": "#ffffff",
+                      "content": "R",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "uWJYb",
+                  "name": "Wordmark",
+                  "fill": "$foreground-strong",
+                  "content": "Rezi UI",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 24,
+                  "fontWeight": "600",
+                  "letterSpacing": -0.4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jfHB8",
+              "name": "Headline",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ZmzUH",
+                  "name": "Title",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "glRiL",
+                      "name": "Line 1",
+                      "fill": "$foreground-strong",
+                      "content": "The details you’d skip",
+                      "lineHeight": 1.05,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 56,
+                      "fontWeight": "600",
+                      "letterSpacing": -1.8
+                    },
+                    {
+                      "type": "frame",
+                      "id": "w0xcp",
+                      "name": "Line 2",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xK3CW",
+                          "name": "Word",
+                          "fill": "$foreground-strong",
+                          "content": "are",
+                          "lineHeight": 1.05,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 56,
+                          "fontWeight": "600",
+                          "letterSpacing": -1.8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "pSSWJ",
+                          "name": "Highlight",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 270,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#0063d72e",
+                                "position": 0
+                              },
+                              {
+                                "color": "#0063d70a",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "cornerRadius": 10,
+                          "padding": [
+                            0,
+                            10,
+                            4,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "TVVqY",
+                              "name": "Word",
+                              "fill": "$foreground-strong",
+                              "content": "already done.",
+                              "lineHeight": 1.05,
+                              "fontFamily": "$font-sans",
+                              "fontSize": 56,
+                              "fontWeight": "600",
+                              "letterSpacing": -1.8
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "lBttE",
+                  "name": "Subhead",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 540,
+                  "content": "Accessible, motion-tuned React components with focus rings, reduced motion and dark mode handled.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-sans",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QGu7N",
+              "name": "Footer",
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "QGWvk",
+                  "name": "Install command",
+                  "fill": "$card",
+                  "cornerRadius": 10,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    11,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bjmA4",
+                      "name": "Prompt",
+                      "fill": "$muted-foreground",
+                      "content": "$",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RUFi5",
+                      "name": "Command",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "e2qyHY",
+                          "name": "Runner",
+                          "fill": "$code-runner",
+                          "content": "npx",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "l7PxZ",
+                          "name": "Binary",
+                          "fill": "$foreground",
+                          "content": " shadcn@latest",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "i9FXSL",
+                          "name": "Subcommand",
+                          "fill": "$code-keyword",
+                          "content": " add",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "dSjhP",
+                          "name": "Namespace",
+                          "fill": "$muted-foreground",
+                          "content": " @reziui/",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zR78q",
+                          "name": "Item",
+                          "fill": "$code-string",
+                          "content": "button",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "INrpC",
+                  "name": "Tagline",
+                  "fill": "$muted-foreground",
+                  "content": "27 components · shadcn-compatible · Tailwind v4 · Radix",
+                  "fontFamily": "$font-sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hxN6F",
+          "name": "Collage",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 24,
+              "id": "Z64BOV",
+              "x": 0,
+              "y": 28,
+              "name": "Panel",
+              "fill": "$surface-recessed",
+              "width": 552,
+              "height": 584,
+              "stroke": "$hairline",
+              "strokeWidth": 1
+            },
+            {
+              "id": "PgbaK",
+              "type": "ref",
+              "ref": "EaWeY",
+              "name": "Toast",
+              "x": 150,
+              "y": 72
+            },
+            {
+              "id": "SLGRh",
+              "type": "ref",
+              "ref": "Q6p9R",
+              "name": "Card",
+              "x": 64,
+              "y": 166
+            },
+            {
+              "type": "frame",
+              "id": "vZl4C",
+              "x": 190,
+              "y": 418,
+              "name": "Controls",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$shadow-xs",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "blur": 2
+              },
+              "gap": 16,
+              "padding": [
+                14,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "RodoA",
+                  "type": "ref",
+                  "ref": "mj1F3",
+                  "name": "Avatar"
+                },
+                {
+                  "id": "LeBSS",
+                  "type": "ref",
+                  "ref": "cosLQ",
+                  "name": "Badge"
+                },
+                {
+                  "id": "fXAGG",
+                  "type": "ref",
+                  "ref": "TKOHA",
+                  "name": "Switch"
+                },
+                {
+                  "id": "VvfPh",
+                  "type": "ref",
+                  "ref": "w6rfBQ",
+                  "name": "Checkbox"
+                },
+                {
+                  "id": "Yjxf9",
+                  "type": "ref",
+                  "ref": "P2Nxa0",
+                  "name": "Button",
+                  "descendants": {
+                    "EwijX": {
+                      "enabled": false
+                    },
+                    "FhLig": {
+                      "content": "Invite"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SGhDB",
+              "x": 110,
+              "y": 504,
+              "name": "Slider plate",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$shadow-xs",
+                "offset": {
+                  "x": 0,
+                  "y": 1
+                },
+                "blur": 2
+              },
+              "layout": "vertical",
+              "gap": 14,
+              "padding": [
+                18,
+                16
+              ],
+              "children": [
+                {
+                  "id": "j6ZE9n",
+                  "type": "ref",
+                  "ref": "mJbAF",
+                  "name": "Slider"
+                },
+                {
+                  "id": "KeClt",
+                  "type": "ref",
+                  "ref": "BVHXH",
+                  "name": "Progress"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "themes": {
