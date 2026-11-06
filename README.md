@@ -71,6 +71,7 @@ Things that are easy to miss:
   const geistSans = Geist({ variable: "--font-sans", subsets: ["latin"] });
   ```
 
+- **Right-to-left** needs two things: `dir="rtl"` on `<html>` for layout, and Radix's direction provider (`import { Direction } from "radix-ui"`, then `<Direction.Provider dir="rtl">`) so arrow keys in Tabs, Radio Group and Slider follow the reading direction.
 - **Dark mode** follows the shadcn convention: add the `dark` class to an ancestor, for example `<html class="dark">`, or let [`next-themes`](https://github.com/pacocoursey/next-themes) do it.
 
 The full guide is at [reziui.rezianislami.workers.dev/docs/installation](https://reziui.rezianislami.workers.dev/docs/installation).

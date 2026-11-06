@@ -6,9 +6,10 @@ type Principle = { title: string; description: string; Icon: ComponentType<SVGPr
 // Only claims the registry backs today: focus-ring and motion-safe classes are
 // asserted in the component tests, the theme test pairs every light token with
 // a dark one, and keyboard behaviour comes from the Radix primitives.
-// Right-to-left has been checked on the components with a direction (Sheet,
-// Switch, Slider, Progress, Breadcrumb), not yet swept across all of them. Add
-// a card here only when the whole registry meets it.
+// Right-to-left holds for every component: each example was rendered under
+// <html dir="rtl"> with Radix's Direction.Provider, overlays opened, and arrow
+// keys checked in Tabs and Radio Group. Add a card here only when the whole
+// registry meets it.
 export const principles: Principle[] = [
   {
     title: "Keyboard & focus",
