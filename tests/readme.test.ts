@@ -44,7 +44,10 @@ describe("README", () => {
 
   it("uses the deployed site URL for every docs and registry link", () => {
     // A stale host here would send consumers' `registry add` to the wrong place.
-    const hosts = [...readme.matchAll(/https:\/\/reziui\.[^/\s)"]+/g)].map((m) => m[0]);
+    // Any of our own hosts (old workers.dev or the custom domain) linking to
+    // /docs or /r/, so a stale host is caught after a domain change. Third-party
+    // docs links (ui.shadcn.com) are left alone.
+    const hosts = [...readme.matchAll(/(https:\/\/[^/\s)"]*rezi[^/\s)"]*)\/(?:docs|r)\//g)].map((m) => m[1]);
 
     expect(hosts.length).toBeGreaterThan(0);
     expect([...new Set(hosts)]).toEqual([SITE_URL]);

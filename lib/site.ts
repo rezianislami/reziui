@@ -4,7 +4,7 @@
  * so changing it breaks existing installs unless the old host keeps redirecting
  * /r/* to the new one.
  */
-export const SITE_URL = "https://reziui.rezianislami.workers.dev";
+export const SITE_URL = "https://ui.rezianislami.com";
 
 /** GitHub link in the header and on the landing page. */
 export const GITHUB_URL = "https://github.com/rezianislami";

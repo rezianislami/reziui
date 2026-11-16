@@ -6,6 +6,15 @@
 name = "reziui"
 compatibility_date = "2026-10-01"
 
+# Custom Domain: Cloudflare creates the DNS record and certificate on the rezianislami.com zone.
+# workers.dev stays on: consumers that installed before the move have
+# https://reziui.rezianislami.workers.dev/r/{name}.json in their components.json, and turning it off
+# would break their next `shadcn add`. Both flags are explicit because once `routes` is set, wrangler
+# turns workers.dev and preview URLs off unless told otherwise.
+workers_dev = true
+preview_urls = true
+routes = [{ pattern = "ui.rezianislami.com", custom_domain = true }]
+
 [assets]
 directory = "./out"
 # Unknown URLs get out/404.html with a real 404 status (default "none" returns an empty 404).

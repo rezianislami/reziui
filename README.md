@@ -7,11 +7,11 @@
 </picture>
 
 <p align="center">
-  <a href="https://reziui.rezianislami.workers.dev/docs">Docs</a>
+  <a href="https://ui.rezianislami.com/docs">Docs</a>
   ·
-  <a href="https://reziui.rezianislami.workers.dev/docs/components/button">Components</a>
+  <a href="https://ui.rezianislami.com/docs/components/button">Components</a>
   ·
-  <a href="https://reziui.rezianislami.workers.dev/docs/installation">Installation</a>
+  <a href="https://ui.rezianislami.com/docs/installation">Installation</a>
 </p>
 
 <p align="center">
@@ -44,7 +44,7 @@ Rezi UI targets **Tailwind CSS v4** and **Radix**. Tailwind v3 projects are not 
 npx shadcn@latest init --base radix
 
 # 2. Register the @reziui namespace
-npx shadcn@latest registry add @reziui=https://reziui.rezianislami.workers.dev/r/{name}.json
+npx shadcn@latest registry add @reziui=https://ui.rezianislami.com/r/{name}.json
 
 # 3. Install the theme first, then any component
 npx shadcn@latest add @reziui/theme
@@ -56,7 +56,7 @@ Step 2 writes this to your `components.json`, so you can also add it by hand:
 ```json
 {
   "registries": {
-    "@reziui": "https://reziui.rezianislami.workers.dev/r/{name}.json"
+    "@reziui": "https://ui.rezianislami.com/r/{name}.json"
   }
 }
 ```
@@ -74,7 +74,7 @@ Things that are easy to miss:
 - **Right-to-left** needs two things: `dir="rtl"` on `<html>` for layout, and Radix's direction provider (`import { Direction } from "radix-ui"`, then `<Direction.Provider dir="rtl">`) so arrow keys in Tabs, Radio Group and Slider follow the reading direction.
 - **Dark mode** follows the shadcn convention: add the `dark` class to an ancestor, for example `<html class="dark">`, or let [`next-themes`](https://github.com/pacocoursey/next-themes) do it.
 
-The full guide is at [reziui.rezianislami.workers.dev/docs/installation](https://reziui.rezianislami.workers.dev/docs/installation).
+The full guide is at [ui.rezianislami.com/docs/installation](https://ui.rezianislami.com/docs/installation).
 
 ## Usage
 
@@ -122,7 +122,7 @@ export function CreateProject() {
 }
 ```
 
-Each docs page has live previews and every variant: see [Button](https://reziui.rezianislami.workers.dev/docs/components/button) for an example.
+Each docs page has live previews and every variant: see [Button](https://ui.rezianislami.com/docs/components/button) for an example.
 
 ## Components
 
@@ -137,53 +137,53 @@ Each docs page has live previews and every variant: see [Button](https://reziui.
 
 | Component | Install | Description |
 | --- | --- | --- |
-| [Button](https://reziui.rezianislami.workers.dev/docs/components/button) | `@reziui/button` | Pill-shaped button with gradient emphasis variants, a loading state and asChild support. |
-| [Dropdown Menu](https://reziui.rezianislami.workers.dev/docs/components/dropdown-menu) | `@reziui/dropdown-menu` | Menu of actions and options with checkbox and radio items, built on Radix Dropdown Menu. |
-| [Command](https://reziui.rezianislami.workers.dev/docs/components/command) | `@reziui/command` | Searchable command list, inline or as a ⌘K dialog, built on cmdk. |
-| [Theme Toggle](https://reziui.rezianislami.workers.dev/docs/components/theme-toggle) | `@reziui/theme-toggle` | Ghost icon button that flips light and dark through next-themes, labelled by a tooltip. |
+| [Button](https://ui.rezianislami.com/docs/components/button) | `@reziui/button` | Pill-shaped button with gradient emphasis variants, a loading state and asChild support. |
+| [Dropdown Menu](https://ui.rezianislami.com/docs/components/dropdown-menu) | `@reziui/dropdown-menu` | Menu of actions and options with checkbox and radio items, built on Radix Dropdown Menu. |
+| [Command](https://ui.rezianislami.com/docs/components/command) | `@reziui/command` | Searchable command list, inline or as a ⌘K dialog, built on cmdk. |
+| [Theme Toggle](https://ui.rezianislami.com/docs/components/theme-toggle) | `@reziui/theme-toggle` | Ghost icon button that flips light and dark through next-themes, labelled by a tooltip. |
 
 **Forms**
 
 | Component | Install | Description |
 | --- | --- | --- |
-| [Input](https://reziui.rezianislami.workers.dev/docs/components/input) | `@reziui/input` | 36px rounded-rect text field with an optional start icon and opt-in clear button. |
-| [Label](https://reziui.rezianislami.workers.dev/docs/components/input) | `@reziui/label` | Field label, documented on the Input page. |
-| [Textarea](https://reziui.rezianislami.workers.dev/docs/components/textarea) | `@reziui/textarea` | Multi-line field styled like Input that grows with its content. |
-| [Checkbox](https://reziui.rezianislami.workers.dev/docs/components/checkbox) | `@reziui/checkbox` | 16px checkbox with a drawn-in check and an indeterminate state, built on Radix Checkbox. |
-| [Radio Group](https://reziui.rezianislami.workers.dev/docs/components/radio-group) | `@reziui/radio-group` | 16px radios with a scaling dot, built on Radix Radio Group. |
-| [Switch](https://reziui.rezianislami.workers.dev/docs/components/switch) | `@reziui/switch` | On/off toggle that applies immediately, built on Radix Switch. |
-| [Select](https://reziui.rezianislami.workers.dev/docs/components/select) | `@reziui/select` | Input-styled select with an overlay list and the check at the end, built on Radix Select. |
-| [Slider](https://reziui.rezianislami.workers.dev/docs/components/slider) | `@reziui/slider` | Value or range on a 4px track with 16px thumbs, built on Radix Slider. |
+| [Input](https://ui.rezianislami.com/docs/components/input) | `@reziui/input` | 36px rounded-rect text field with an optional start icon and opt-in clear button. |
+| [Label](https://ui.rezianislami.com/docs/components/input) | `@reziui/label` | Field label, documented on the Input page. |
+| [Textarea](https://ui.rezianislami.com/docs/components/textarea) | `@reziui/textarea` | Multi-line field styled like Input that grows with its content. |
+| [Checkbox](https://ui.rezianislami.com/docs/components/checkbox) | `@reziui/checkbox` | 16px checkbox with a drawn-in check and an indeterminate state, built on Radix Checkbox. |
+| [Radio Group](https://ui.rezianislami.com/docs/components/radio-group) | `@reziui/radio-group` | 16px radios with a scaling dot, built on Radix Radio Group. |
+| [Switch](https://ui.rezianislami.com/docs/components/switch) | `@reziui/switch` | On/off toggle that applies immediately, built on Radix Switch. |
+| [Select](https://ui.rezianislami.com/docs/components/select) | `@reziui/select` | Input-styled select with an overlay list and the check at the end, built on Radix Select. |
+| [Slider](https://ui.rezianislami.com/docs/components/slider) | `@reziui/slider` | Value or range on a 4px track with 16px thumbs, built on Radix Slider. |
 
 **Overlays**
 
 | Component | Install | Description |
 | --- | --- | --- |
-| [Dialog](https://reziui.rezianislami.workers.dev/docs/components/dialog) | `@reziui/dialog` | Modal window with header, body and footer, laid out like Card, built on Radix Dialog. |
-| [Sheet](https://reziui.rezianislami.workers.dev/docs/components/sheet) | `@reziui/sheet` | Panel that slides in from the start or end edge, laid out like Dialog, built on Radix Dialog. |
-| [Popover](https://reziui.rezianislami.workers.dev/docs/components/popover) | `@reziui/popover` | Floating panel for rich, interactive content anchored to a trigger, built on Radix Popover. |
-| [Tooltip](https://reziui.rezianislami.workers.dev/docs/components/tooltip) | `@reziui/tooltip` | Inverted label for icon-only controls, built on Radix Tooltip. |
+| [Dialog](https://ui.rezianislami.com/docs/components/dialog) | `@reziui/dialog` | Modal window with header, body and footer, laid out like Card, built on Radix Dialog. |
+| [Sheet](https://ui.rezianislami.com/docs/components/sheet) | `@reziui/sheet` | Panel that slides in from the start or end edge, laid out like Dialog, built on Radix Dialog. |
+| [Popover](https://ui.rezianislami.com/docs/components/popover) | `@reziui/popover` | Floating panel for rich, interactive content anchored to a trigger, built on Radix Popover. |
+| [Tooltip](https://ui.rezianislami.com/docs/components/tooltip) | `@reziui/tooltip` | Inverted label for icon-only controls, built on Radix Tooltip. |
 
 **Feedback**
 
 | Component | Install | Description |
 | --- | --- | --- |
-| [Alert](https://reziui.rezianislami.workers.dev/docs/components/alert) | `@reziui/alert` | Inline message with neutral and status variants, an optional icon and action. |
-| [Toast](https://reziui.rezianislami.workers.dev/docs/components/toast) | `@reziui/toast` | Top-centre toasts on the overlay surface, built on Sonner; errors and actions stay until closed. |
-| [Progress](https://reziui.rezianislami.workers.dev/docs/components/progress) | `@reziui/progress` | 4px determinate or indeterminate progress bar, built on Radix Progress. |
-| [Skeleton](https://reziui.rezianislami.workers.dev/docs/components/skeleton) | `@reziui/skeleton` | Content-shaped loading placeholder with a soft shimmer that stops under reduced motion. |
+| [Alert](https://ui.rezianislami.com/docs/components/alert) | `@reziui/alert` | Inline message with neutral and status variants, an optional icon and action. |
+| [Toast](https://ui.rezianislami.com/docs/components/toast) | `@reziui/toast` | Top-centre toasts on the overlay surface, built on Sonner; errors and actions stay until closed. |
+| [Progress](https://ui.rezianislami.com/docs/components/progress) | `@reziui/progress` | 4px determinate or indeterminate progress bar, built on Radix Progress. |
+| [Skeleton](https://ui.rezianislami.com/docs/components/skeleton) | `@reziui/skeleton` | Content-shaped loading placeholder with a soft shimmer that stops under reduced motion. |
 
 **Layout & display**
 
 | Component | Install | Description |
 | --- | --- | --- |
-| [Card](https://reziui.rezianislami.workers.dev/docs/components/card) | `@reziui/card` | Surface with header, content and a tinted footer for actions. |
-| [Accordion](https://reziui.rezianislami.workers.dev/docs/components/accordion) | `@reziui/accordion` | Hairline-divided disclosure list with an animated panel height, built on Radix Accordion. |
-| [Tabs](https://reziui.rezianislami.workers.dev/docs/components/tabs) | `@reziui/tabs` | Pill-track tabs with a raised active tab, built on Radix Tabs. |
-| [Breadcrumb](https://reziui.rezianislami.workers.dev/docs/components/breadcrumb) | `@reziui/breadcrumb` | Trail of links to the current page, with a collapsible middle. |
-| [Badge](https://reziui.rezianislami.workers.dev/docs/components/badge) | `@reziui/badge` | Rounded-rect label for status and metadata, with tinted status variants, an optional dot and asChild support. |
-| [Avatar](https://reziui.rezianislami.workers.dev/docs/components/avatar) | `@reziui/avatar` | Photo or initials in a circle, in three sizes, with an overlapping group, built on Radix Avatar. |
-| [Kbd](https://reziui.rezianislami.workers.dev/docs/components/kbd) | `@reziui/kbd` | Keyboard key with a 2px bottom edge, plus a group for shortcuts. |
+| [Card](https://ui.rezianislami.com/docs/components/card) | `@reziui/card` | Surface with header, content and a tinted footer for actions. |
+| [Accordion](https://ui.rezianislami.com/docs/components/accordion) | `@reziui/accordion` | Hairline-divided disclosure list with an animated panel height, built on Radix Accordion. |
+| [Tabs](https://ui.rezianislami.com/docs/components/tabs) | `@reziui/tabs` | Pill-track tabs with a raised active tab, built on Radix Tabs. |
+| [Breadcrumb](https://ui.rezianislami.com/docs/components/breadcrumb) | `@reziui/breadcrumb` | Trail of links to the current page, with a collapsible middle. |
+| [Badge](https://ui.rezianislami.com/docs/components/badge) | `@reziui/badge` | Rounded-rect label for status and metadata, with tinted status variants, an optional dot and asChild support. |
+| [Avatar](https://ui.rezianislami.com/docs/components/avatar) | `@reziui/avatar` | Photo or initials in a circle, in three sizes, with an overlapping group, built on Radix Avatar. |
+| [Kbd](https://ui.rezianislami.com/docs/components/kbd) | `@reziui/kbd` | Keyboard key with a 2px bottom edge, plus a group for shortcuts. |
 
 ## Theming
 
@@ -218,7 +218,7 @@ With Workers Builds connected to the GitHub repo, use build command `npm run bui
 Gotchas:
 
 - Everything is computed at build, including the "New" labels on docs pages, so they only change on the next deploy.
-- The registry URL is stored in every consumer's `components.json`. Changing the domain breaks existing installs unless the old host redirects `/r/*` to the new one.
+- The registry URL is stored in every consumer's `components.json`. Changing the domain breaks existing installs unless the old host keeps serving `/r/*`; that is why `reziui.rezianislami.workers.dev` stays on (`workers_dev = true` in `wrangler.toml`) after the move to `ui.rezianislami.com`.
 
 ## License
 
