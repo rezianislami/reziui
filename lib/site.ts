@@ -6,5 +6,5 @@
  */
 export const SITE_URL = "https://ui.rezianislami.com";
 
-/** GitHub link in the header and on the landing page. */
-export const GITHUB_URL = "https://github.com/rezianislami";
+/** The Rezi UI repo, linked from the docs header, the landing "Star on GitHub" button and the footer. */
+export const GITHUB_URL = "https://github.com/rezianislami/reziui";

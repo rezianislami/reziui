@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "reziui",
-  "homepage": "https://reziui.dev",
+  "homepage": "https://ui.rezianislami.com",
   "items": [
     {
       "name": "theme",
