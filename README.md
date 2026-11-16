@@ -207,13 +207,15 @@ npm run registry:build # registry/ → public/r/*.json
 
 The site is a static export (`output: "export"` → `out/`) served by Cloudflare Workers Static Assets; see `wrangler.toml`. There is no server: the docs search index is emitted at build by `app/api/search` and searched in the browser.
 
+Every push to `main` deploys to production through Cloudflare Workers Builds, connected to this repo: build command `npm run build`, deploy command `npx wrangler@4.147.0 deploy`, `NODE_VERSION=24`. Workers Builds does not run the tests, so run `npm test` before pushing.
+
+Manual commands, for a preview or when a build needs bypassing:
+
 ```bash
 npm run build && npx wrangler@4.147.0 versions upload   # preview URL, production untouched
-npm run build && npx wrangler@4.147.0 deploy            # production
+npm run build && npx wrangler@4.147.0 deploy            # production, the next push to main overwrites it
 npx wrangler@4.147.0 rollback                           # previous version
 ```
-
-With Workers Builds connected to the GitHub repo, use build command `npm run build` and deploy command `npx wrangler deploy`.
 
 Gotchas:
 
