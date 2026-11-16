@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBreadcrumbItems } from "fumadocs-core/breadcrumb";
 import { DELAY, ENTER } from "@/lib/motion";
+import { withTrailingSlash } from "@/lib/site";
 import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 import { CopyButton } from "@/components/docs/copy-button";
@@ -106,5 +107,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: page.data.title,
     description: page.data.description,
+    // The same pages are also served on reziui.rezianislami.workers.dev (kept for
+    // old registry installs); the canonical tells Google which host to index.
+    alternates: { canonical: withTrailingSlash(page.url) },
   };
 }

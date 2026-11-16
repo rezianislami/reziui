@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon, BlocksIcon, TerminalIcon } from "lucide-react";
 import { GitHubIcon, SiteHeader } from "@/components/docs/site-header";
@@ -68,6 +69,9 @@ function Grid({ items, newUrls }: { items: Showcase[]; newUrls: string[] }) {
     </SpotlightGrid>
   );
 }
+
+// Resolved against metadataBase, so workers.dev copies point at ui.rezianislami.com.
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default async function Home() {
   const newUrls = await getNewPageUrls();

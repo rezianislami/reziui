@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, withTrailingSlash } from "@/lib/site";
 
 // lib/source compiles MDX through a fumadocs macro that only the Next build
 // runs, so the page list is stubbed; `npm run build` emits the real sitemap.
@@ -45,5 +45,16 @@ describe("sitemap", () => {
 describe("robots", () => {
   it("allows everything and points at the sitemap", () => {
     expect(robots()).toEqual({ rules: { userAgent: "*", allow: "/" }, sitemap: `${SITE_URL}/sitemap.xml` });
+  });
+});
+
+describe("withTrailingSlash", () => {
+  it("appends one slash to a bare path", () => {
+    expect(withTrailingSlash("/docs/components/button")).toBe("/docs/components/button/");
+  });
+
+  it("leaves a path that already ends in a slash alone", () => {
+    expect(withTrailingSlash("/docs/")).toBe("/docs/");
+    expect(withTrailingSlash("/")).toBe("/");
   });
 });
